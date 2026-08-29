@@ -27,14 +27,19 @@ function Servicios() {
             <Reveal as="article" className="servicio-card" key={item.name} delay={(i % 4) * 70}>
               <div className="servicio-card-top">
                 <span className="servicio-index">{String(i + 1).padStart(2, "0")}</span>
-                <span className="servicio-price">{item.price}</span>
+                <h3>{item.name}</h3>
               </div>
-              <h3>{item.name}</h3>
               <p>{renderServiceBody(item.body)}</p>
               <span className="servicio-arrow" aria-hidden="true">→</span>
             </Reveal>
           ))}
         </div>
+        <Reveal className="servicios-contact" delay={120}>
+          <p>{t.servicios.contactText}</p>
+          <a href="#contacto" className="btn btn--primary">
+            {t.servicios.contactCta}
+          </a>
+        </Reveal>
       </div>
     </section>
   );
