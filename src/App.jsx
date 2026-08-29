@@ -14,6 +14,7 @@ import Faq from "./components/Faq";
 import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
 import WhatsappButton from "./components/WhatsappButton";
+import BackToTopLogo from "./components/BackToTopLogo";
 import "./App.css";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Contacto />
       </main>
       <Footer />
+      <BackToTopLogo />
       <WhatsappButton />
     </>
   );
