@@ -25,7 +25,7 @@ export const translations = {
       eyebrow: "Mediación y gestión de herencias en Chile",
       title: "Transformamos herencias en tranquilidad",
       problem:
-        "La forma tradicional de gestionar una herencia puede llevar a procesos judiciales lentos, conflictos familiares y pérdidas de entre un 30% y un 50% del patrimonio [fuente pendiente de confirmar].",
+        "La forma tradicional de gestionar una herencia puede llevar a procesos judiciales lentos, conflictos familiares y pérdidas de entre un 30% y un 50% del patrimonio.",
       subtitle:
         "Acompañamos a familias chilenas a resolver y planificar sus herencias de forma ágil, transparente y humana — sin litigios eternos ni pérdida de valor.",
       ctaPrimary: "Simula tu herencia gratis",
@@ -72,7 +72,7 @@ export const translations = {
         {
           value: "30–50%",
           title: "Protección y tranquilidad familiar",
-          body: "Un patrimonio puede perder entre un 30% y un 50% de su valor en un proceso judicial [fuente pendiente de confirmar].",
+          body: "Un patrimonio puede perder entre un 30% y un 50% de su valor en un proceso judicial.",
         },
       ],
     },
@@ -322,7 +322,7 @@ export const translations = {
       eyebrow: "Inheritance mediation & management in Chile",
       title: "Turning inheritance into peace of mind",
       problem:
-        "The traditional way of managing an inheritance can lead to slow court processes, family conflict, and losses of 30% to 50% of the estate [source to be confirmed].",
+        "The traditional way of managing an inheritance can lead to slow court processes, family conflict, and losses of 30% to 50% of the estate.",
       subtitle:
         "We help Chilean families resolve and plan their inheritance process — agile, transparent, and human, without endless litigation or lost value.",
       ctaPrimary: "Simulate your inheritance for free",
@@ -369,7 +369,7 @@ export const translations = {
         {
           value: "30–50%",
           title: "Protection and peace of mind",
-          body: "An estate can lose between 30% and 50% of its value in a judicial process [source to be confirmed].",
+          body: "An estate can lose between 30% and 50% of its value in a judicial process.",
         },
       ],
     },
