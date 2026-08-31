@@ -12,6 +12,7 @@ export const translations = {
     },
     nav: {
       quienesSomos: "Quiénes somos",
+      diferenciadores: "Por qué somos distintos",
       beneficios: "Beneficios",
       servicios: "Servicios",
       comoFunciona: "Cómo Funciona",
@@ -23,6 +24,8 @@ export const translations = {
     hero: {
       eyebrow: "Mediación y gestión de herencias en Chile",
       title: "Transformamos herencias en tranquilidad",
+      problem:
+        "La forma tradicional de gestionar una herencia puede llevar a procesos judiciales lentos, conflictos familiares y pérdidas de entre un 30% y un 50% del patrimonio [fuente pendiente de confirmar].",
       subtitle:
         "Acompañamos a familias chilenas a resolver y planificar sus herencias de forma ágil, transparente y humana — sin litigios eternos ni pérdida de valor.",
       ctaPrimary: "Simula tu herencia gratis",
@@ -56,26 +59,35 @@ export const translations = {
     },
     stats: {
       eyebrow: "Por qué existimos",
-      title: "La mayoría de las herencias en Chile se reparten sin planificación",
+      title: "Una herencia más clara, ágil y tranquila para tu familia",
       items: [
-        { value: "4,7M", label: "chilenos son dueños de al menos una propiedad" },
-        { value: "130.000", label: "personas fallecen cada año en Chile" },
-        { value: "7.667", label: "testamentos se registraron en todo el país en 2023" },
-        { value: "30–50%", label: "del valor real se pierde en remates judiciales sin acuerdo" },
+        {
+          title: "Claridad para decidir",
+          body: "Entiende qué tienes, qué te corresponde y cuáles son los próximos pasos.",
+        },
+        {
+          title: "Acompañamiento de principio a fin",
+          body: "Un equipo legal y de mediación te guía para que la familia avance con información y acuerdos claros.",
+        },
+        {
+          value: "30–50%",
+          title: "Protección y tranquilidad familiar",
+          body: "Un patrimonio puede perder entre un 30% y un 50% de su valor en un proceso judicial [fuente pendiente de confirmar].",
+        },
       ],
     },
     quienesSomos: {
       eyebrow: "Quiénes somos",
-      title: "Una nueva forma de resolver herencias en Chile",
+      title: "Una nueva forma de gestionar herencias",
       body:
-        "Herédame es una plataforma chilena de mediación y gestión de herencias que combina asesoría legal, mediación estratégica y tecnología colaborativa. Acompañamos a las familias desde el primer diagnóstico hasta el cierre del proceso, evitando que el patrimonio quede detenido en trámites eternos o se pierda hasta un 50% de su valor en remates judiciales.",
+        "Heredame nace para modernizar un proceso que durante años ha sido complejo, lento y desgastante. Combinamos acompañamiento legal, mediación, tecnología y una gestión integral para simplificar cada etapa de una herencia y entregar a las familias mayor claridad, tranquilidad y control sobre su patrimonio.",
       highlights: [
         "Mediación familiar",
         "Tecnología colaborativa",
         "Acompañamiento legal de principio a fin",
       ],
       imageAlt: "Equipo de Herédame acompañando a una familia en su proceso de herencia",
-      experienceNote: "Más de 10 años de experiencia",
+      reinforcement: "Estamos transformando la manera de gestionar las herencias en Chile.",
     },
     beneficios: {
       eyebrow: "Beneficios",
@@ -87,8 +99,8 @@ export const translations = {
           body: "Recupera el control de los bienes que te corresponden, sin burocracia ni trámites eternos.",
         },
         {
-          title: "Protección de tu patrimonio",
-          body: "Evitamos que tu familia pierda entre un 30% y un 50% de su herencia en remates judiciales a valor fiscal.",
+          title: "Información clara para avanzar",
+          body: "Centralizamos documentos, decisiones y próximos pasos para que todos los herederos entiendan el proceso y mantengan el control.",
         },
         {
           title: "Acuerdos sin discusiones",
@@ -143,6 +155,8 @@ export const translations = {
         { name: "Consultoría Express", body: "Estudio personalizado + videollamada de 30 minutos con un experto." },
         { name: "Mediación Familiar", body: "Te ayudamos a llegar a acuerdo y a vender el bien a su valor justo." },
         { name: "Planificación de Legado", body: "Diseño, redacción y gestión legal de tu testamento en vida." },
+      ],
+      servicesInactive: [
         { name: "Liquidez Inmediata", body: "Conexión directa con fondos de inversión para vender tus derechos hereditarios." },
       ],
       cta: "Ver todos los servicios",
@@ -252,6 +266,10 @@ export const translations = {
           q: "¿Qué pasa si un heredero no quiere aceptar la herencia?",
           a: "Todo heredero tiene el derecho de aceptar o repudiar (rechazar) la herencia; nadie está obligado a recibirla, por ejemplo si las deudas superan el valor de los bienes. Si alguien repudia, su parte se distribuye entre los demás herederos según las reglas legales — te explicamos qué implica en tu caso.",
         },
+        {
+          q: "¿Si soy extranjero puedo acceder a los servicios de Herédame?",
+          a: "Sí, aún si eres extranjero puedes acceder a los servicios de Herédame. Por el momento solo podemos prestar servicios a herencias que se encuentren en Chile. Herédame solo se encuentra restringido cuando las herencias contienen bienes que se encuentran fuera del territorio de Chile, por lo que frente a dicha situación será necesario que puedas contactar a un abogado del país donde se encuentren los bienes.",
+        },
       ],
       tabLeft: "Lo esencial",
       tabRight: "Trámites y detalles",
@@ -291,6 +309,7 @@ export const translations = {
     },
     nav: {
       quienesSomos: "About Us",
+      diferenciadores: "What makes us different",
       beneficios: "Benefits",
       servicios: "Services",
       comoFunciona: "How It Works",
@@ -302,6 +321,8 @@ export const translations = {
     hero: {
       eyebrow: "Inheritance mediation & management in Chile",
       title: "Turning inheritance into peace of mind",
+      problem:
+        "The traditional way of managing an inheritance can lead to slow court processes, family conflict, and losses of 30% to 50% of the estate [source to be confirmed].",
       subtitle:
         "We help Chilean families resolve and plan their inheritance process — agile, transparent, and human, without endless litigation or lost value.",
       ctaPrimary: "Simulate your inheritance for free",
@@ -335,26 +356,35 @@ export const translations = {
     },
     stats: {
       eyebrow: "Why we exist",
-      title: "Most inheritances in Chile are settled with no planning at all",
+      title: "A clearer, faster, calmer inheritance process for your family",
       items: [
-        { value: "4.7M", label: "Chileans own at least one property" },
-        { value: "130,000", label: "people pass away in Chile every year" },
-        { value: "7,667", label: "wills were registered nationwide in 2023" },
-        { value: "30–50%", label: "of real value lost in judicial auctions without an agreement" },
+        {
+          title: "Clarity to make decisions",
+          body: "Understand what you have, what you are entitled to, and what comes next.",
+        },
+        {
+          title: "Support from start to finish",
+          body: "A legal and mediation team guides your family with clear information and agreements.",
+        },
+        {
+          value: "30–50%",
+          title: "Protection and peace of mind",
+          body: "An estate can lose between 30% and 50% of its value in a judicial process [source to be confirmed].",
+        },
       ],
     },
     quienesSomos: {
       eyebrow: "Who we are",
-      title: "A new way to resolve inheritances in Chile",
+      title: "A new way to manage inheritances",
       body:
-        "Herédame is a Chilean inheritance mediation and management platform that combines legal advice, strategic mediation, and collaborative technology. We support families from the first diagnosis through the close of the process, preventing assets from getting stuck in endless paperwork or losing up to 50% of their value in judicial auctions.",
+        "Heredame was created to modernize a process that has been complex, slow, and exhausting for far too long. We combine legal support, mediation, technology, and end-to-end management to simplify every stage of an inheritance and give families greater clarity, peace of mind, and control over their estate.",
       highlights: [
         "Family mediation",
         "Collaborative technology",
         "End-to-end legal support",
       ],
       imageAlt: "Herédame team supporting a family through their inheritance process",
-      experienceNote: "More than 10 years of experience",
+      reinforcement: "We are transforming the way inheritances are managed in Chile.",
     },
     beneficios: {
       eyebrow: "Benefits",
@@ -366,8 +396,8 @@ export const translations = {
           body: "Regain control of the assets that belong to you, without endless red tape.",
         },
         {
-          title: "Protect your estate's value",
-          body: "We prevent your family from losing 30–50% of the inheritance in judicial auctions at tax value.",
+          title: "Clear information to move forward",
+          body: "We bring documents, decisions, and next steps together so every heir understands the process and stays in control.",
         },
         {
           title: "Agreements without arguments",
@@ -422,6 +452,8 @@ export const translations = {
         { name: "Express Consulting", body: "Personalized study plus a 30-minute video call with an expert." },
         { name: "Family Mediation", body: "We help you reach agreement and sell the asset at fair value." },
         { name: "Legacy Planning", body: "Design, drafting, and legal management of your will while you're alive." },
+      ],
+      servicesInactive: [
         { name: "Immediate Liquidity", body: "Direct connection with investment funds to sell your inheritance rights." },
       ],
       cta: "See all services",
@@ -529,6 +561,10 @@ export const translations = {
         {
           q: "What if an heir doesn't want to accept the inheritance?",
           a: "Every heir has the right to accept or renounce (reject) an inheritance — no one is obligated to receive it, for example if the debts outweigh the assets. If someone renounces, their share is redistributed among the other heirs according to the legal rules — we'll walk you through what that means for your case.",
+        },
+        {
+          q: "Can I access Herédame's services if I'm a foreigner?",
+          a: "Yes, even if you're a foreigner you can access Herédame's services. At the moment we can only provide services for inheritances located in Chile. Herédame is only limited when the inheritance includes assets located outside Chilean territory — in that case, you'll need to contact a lawyer in the country where those assets are located.",
         },
       ],
       tabLeft: "The essentials",

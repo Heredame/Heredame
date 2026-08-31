@@ -13,7 +13,7 @@ function Contacto() {
     // the visitor's email client as a safe default so nothing is lost.
     const form = e.target;
     const body = `Nombre: ${form.name.value}\nTeléfono: ${form.phone.value}\nEmail: ${form.email.value}\n\n${form.message.value}`;
-    window.location.href = `mailto:contacto@heredame.cl?subject=Consulta desde heredame.cl&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@heredame.cl?subject=Consulta desde heredame.cl&body=${encodeURIComponent(body)}`;
     setSent(true);
   }
 
@@ -31,7 +31,7 @@ function Contacto() {
                 <a href="tel:+56993977894">+56 9 9397 7894</a>
               </li>
               <li>
-                <a href="mailto:contacto@heredame.cl">contacto@heredame.cl</a>
+                <a href="mailto:info@heredame.cl">info@heredame.cl</a>
               </li>
               <li>Santiago, Chile</li>
             </ul>

@@ -9,6 +9,7 @@ function Hero() {
         <div className="hero-copy">
           <div className="eyebrow">{t.hero.eyebrow}</div>
           <h1>{t.hero.title}</h1>
+          <p className="hero-problem">{t.hero.problem}</p>
           <p className="hero-subtitle">{t.hero.subtitle}</p>
           <div className="hero-actions">
             <a href="#simulador" className="btn btn--primary">

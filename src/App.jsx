@@ -27,15 +27,12 @@ function App() {
         <Hero />
         <Stats />
         <QuienesSomos />
+        <Diferenciadores />
         <Beneficios />
         <ComoFunciona />
         <Servicios />
         <Simulador />
-        {/* Booking sits in the middle of the page on purpose — right after
-            people understand the service ladder, before the deeper "about
-            us" / differentiators content. */}
         <Booking />
-        <Diferenciadores />
         <Faq />
         <Contacto />
       </main>

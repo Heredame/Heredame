@@ -15,6 +15,7 @@ function Header() {
 
   const navLinks = [
     { href: "#quienes-somos", label: t.nav.quienesSomos },
+    { href: "#diferenciadores", label: t.nav.diferenciadores },
     { href: "#beneficios", label: t.nav.beneficios },
     { href: "#servicios", label: t.nav.servicios },
     { href: "#como-funciona", label: t.nav.comoFunciona },
