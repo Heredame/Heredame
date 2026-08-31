@@ -21,7 +21,7 @@
 }
 
 .header-row {
-  min-height: 84px;
+  min-height: 72px;
   display: grid;
   grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) minmax(
       220px,
@@ -47,13 +47,13 @@
 }
 
 .site-logo--header {
-  height: 82px;
-  max-width: 336px;
+  height: 104px;
+  max-width: 520px;
 }
 
 .site-logo--footer {
-  height: 34px;
-  max-width: 160px;
+  height: 58px;
+  max-width: 272px;
 }
 
 .site-nav {
@@ -141,7 +141,7 @@
   }
   .site-nav {
     position: fixed;
-    top: 84px;
+    top: 72px;
     left: 0;
     right: 0;
     background: #fff;
@@ -173,8 +173,8 @@
     display: flex;
   }
   .site-logo--header {
-    height: 62px;
-    max-width: 248px;
+    height: 76px;
+    max-width: 380px;
   }
 }
 
