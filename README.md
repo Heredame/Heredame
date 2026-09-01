@@ -1,5 +1,7 @@
 # Herédame — website v2 (fintual-inspired redesign, revision 2)
 
+<!-- Deployment note: 2026-09-01 — Cloudflare rebuild trigger for EmailJS env vars. -->
+
 Vite + React, bilingual (ES default / EN toggle), SEO-ready. No backend
 required to run — everything here is static frontend.
 
