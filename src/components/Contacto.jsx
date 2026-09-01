@@ -17,6 +17,11 @@ function Contacto() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({
+    phone: "",
+    email: "",
+    message: "",
+  });
 
   useEffect(() => {
     if (!successMessage) return undefined;
@@ -55,31 +60,69 @@ function Contacto() {
     const trimmedEmail = formData.email.trim();
     const trimmedMessage = formData.message.trim();
 
-    if (!trimmedName || !trimmedMessage) {
-      return lang === "en"
-        ? "Please complete the required fields: full name and your message."
-        : "Completa los campos requeridos: nombre completo y tu mensaje.";
+    const nextFieldErrors = {
+      phone: "",
+      email: "",
+      message: "",
+    };
+
+    if (!trimmedName) {
+      return {
+        message: lang === "en" ? "Name is required." : "El nombre es obligatorio.",
+        fieldErrors: nextFieldErrors,
+      };
+    }
+
+    if (!trimmedMessage) {
+      nextFieldErrors.message =
+        lang === "en" ? "Please tell us your situation." : "Cuéntanos tu situación.";
+      return {
+        message: lang === "en" ? "Message is required." : "El mensaje es obligatorio.",
+        fieldErrors: nextFieldErrors,
+      };
     }
 
     if (!trimmedPhone && !trimmedEmail) {
-      return lang === "en"
-        ? "Please provide at least one contact method: phone or email."
-        : "Debes ingresar al menos un medio de contacto: teléfono o correo.";
+      nextFieldErrors.phone =
+        lang === "en" ? "Add a phone number or email." : "Ingresa un teléfono o correo.";
+      nextFieldErrors.email =
+        lang === "en" ? "Add a phone number or email." : "Ingresa un teléfono o correo.";
+      return {
+        message:
+          lang === "en"
+            ? "Please provide at least one contact method: phone or email."
+            : "Debes ingresar al menos un medio de contacto: teléfono o correo.",
+        fieldErrors: nextFieldErrors,
+      };
     }
 
     if (trimmedPhone && !phoneRegex.test(trimmedPhone)) {
-      return lang === "en"
-        ? "Phone number must contain only digits and be valid."
-        : "El teléfono solo puede contener números y debe ser válido.";
+      nextFieldErrors.phone =
+        lang === "en"
+          ? "Use only numbers, for example: +00 00 0000 0000"
+          : "Usa solo números, ejemplo: +00 00 0000 0000";
+      return {
+        message:
+          lang === "en"
+            ? "Phone number must contain only digits and be valid."
+            : "El teléfono solo puede contener números y debe ser válido.",
+        fieldErrors: nextFieldErrors,
+      };
     }
 
     if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
-      return lang === "en"
-        ? "Please enter a valid email address."
-        : "Ingresa un correo electrónico válido.";
+      nextFieldErrors.email =
+        lang === "en" ? "Enter a valid email, e.g. name@example.com" : "Ingresa un correo válido, ej. nombre@ejemplo.com";
+      return {
+        message:
+          lang === "en"
+            ? "Please enter a valid email address."
+            : "Ingresa un correo electrónico válido.",
+        fieldErrors: nextFieldErrors,
+      };
     }
 
-    return "";
+    return { message: "", fieldErrors: nextFieldErrors };
   }
 
   async function handleSubmit(event) {
@@ -89,16 +132,20 @@ function Contacto() {
       return;
     }
 
-    const validationMessage = validateForm();
-    if (validationMessage) {
+    const validationResult = validateForm();
+    if (validationResult.message) {
       setSuccessMessage("");
-      setErrorMessage(validationMessage);
+      setErrorMessage(validationResult.message);
+      setFieldErrors(validationResult.fieldErrors);
       return;
     }
+
+    setFieldErrors({ phone: "", email: "", message: "" });
 
     setIsSubmitting(true);
     setErrorMessage("");
     setSuccessMessage("");
+    setFieldErrors({ phone: "", email: "", message: "" });
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -175,6 +222,11 @@ function Contacto() {
               </label>
               <label>
                 {t.contacto.form.phone}
+                {fieldErrors.phone && (
+                  <small style={{ display: "block", color: "#c62828", marginBottom: "6px" }}>
+                    {fieldErrors.phone}
+                  </small>
+                )}
                 <input
                   name="phone"
                   type="tel"
@@ -188,6 +240,11 @@ function Contacto() {
             </div>
             <label>
               {t.contacto.form.email}
+              {fieldErrors.email && (
+                <small style={{ display: "block", color: "#c62828", marginBottom: "6px" }}>
+                  {fieldErrors.email}
+                </small>
+              )}
               <input
                 name="email"
                 type="email"
@@ -198,6 +255,11 @@ function Contacto() {
             </label>
             <label>
               {t.contacto.form.message}
+              {fieldErrors.message && (
+                <small style={{ display: "block", color: "#c62828", marginBottom: "6px" }}>
+                  {fieldErrors.message}
+                </small>
+              )}
               <textarea
                 name="message"
                 rows={4}
