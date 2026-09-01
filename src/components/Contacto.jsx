@@ -1,20 +1,121 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { useLanguage } from "../i18n/LanguageContext";
 import Reveal from "./Reveal";
 
-function Contacto() {
-  const { t } = useLanguage();
-  const [sent, setSent] = useState(false);
+const emptyForm = {
+  name: "",
+  phone: "",
+  email: "",
+  message: "",
+  honeypot: "",
+};
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // TODO: wire this up to a real endpoint (e.g. a Cloudflare Worker + email
-    // service, or a form backend like Formspree) — it currently only opens
-    // the visitor's email client as a safe default so nothing is lost.
-    const form = e.target;
-    const body = `Nombre: ${form.name.value}\nTeléfono: ${form.phone.value}\nEmail: ${form.email.value}\n\n${form.message.value}`;
-    window.location.href = `mailto:info@heredame.cl?subject=Consulta desde heredame.cl&body=${encodeURIComponent(body)}`;
-    setSent(true);
+function Contacto() {
+  const { t, lang } = useLanguage();
+  const [formData, setFormData] = useState(emptyForm);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (!successMessage) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setSuccessMessage("");
+    }, 10000);
+
+    return () => window.clearTimeout(timer);
+  }, [successMessage]);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  }
+
+  function validateForm() {
+    const trimmedName = formData.name.trim();
+    const trimmedPhone = formData.phone.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (!trimmedName || (!trimmedPhone && !trimmedEmail) || !trimmedMessage) {
+      return lang === "en"
+        ? "Please complete the required fields: full name, phone or email, and your message."
+        : "Completa los campos requeridos: nombre completo, teléfono o correo, y tu mensaje.";
+    }
+
+    if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
+      return lang === "en"
+        ? "Please enter a valid email address."
+        : "Ingresa un correo electrónico válido.";
+    }
+
+    return "";
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (formData.honeypot) {
+      return;
+    }
+
+    const validationMessage = validateForm();
+    if (validationMessage) {
+      setSuccessMessage("");
+      setErrorMessage(validationMessage);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          time: new Date().toLocaleString("es-CL", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }),
+        },
+        publicKey,
+      );
+
+      setSuccessMessage(
+        lang === "en"
+          ? "Thank you, your form has been successfully sent and we will get in touch as soon as possible."
+          : "Gracias, tu formulario ha sido enviado correctamente y te contactaremos lo antes posible.",
+      );
+      setErrorMessage("");
+      setFormData(emptyForm);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setErrorMessage(
+        lang === "en"
+          ? "There was a problem sending your message. Please try again."
+          : "Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.",
+      );
+      setSuccessMessage("");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -37,29 +138,133 @@ function Contacto() {
             </ul>
           </div>
 
-          <form className="contacto-form" onSubmit={handleSubmit}>
+          <form className="contacto-form" onSubmit={handleSubmit} noValidate>
             <div className="form-row">
               <label>
                 {t.contacto.form.name}
-                <input name="name" type="text" required />
+                <input
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  autoComplete="name"
+                />
               </label>
               <label>
                 {t.contacto.form.phone}
-                <input name="phone" type="tel" />
+                <input
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  autoComplete="tel"
+                />
               </label>
             </div>
             <label>
               {t.contacto.form.email}
-              <input name="email" type="email" required />
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                autoComplete="email"
+              />
             </label>
             <label>
               {t.contacto.form.message}
-              <textarea name="message" rows={4} placeholder={t.contacto.form.messagePlaceholder} />
+              <textarea
+                name="message"
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={t.contacto.form.messagePlaceholder}
+              />
             </label>
-            <button type="submit" className="btn btn--primary" style={{ width: "100%" }}>
-              {t.contacto.form.submit}
+
+            <div
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                width: "1px",
+                height: "1px",
+                overflow: "hidden",
+              }}
+              aria-hidden="true"
+            >
+              <input
+                type="text"
+                name="honeypot"
+                value={formData.honeypot}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn--primary"
+              style={{ width: "100%" }}
+              disabled={isSubmitting}
+            >
+              {isSubmitting
+                ? lang === "en"
+                  ? "Sending..."
+                  : "Enviando..."
+                : t.contacto.form.submit}
             </button>
-            <p className="form-note">{sent ? "✓" : ""} {t.contacto.form.note}</p>
+
+            <p className="form-note" aria-live="polite">
+              {t.contacto.form.note}
+            </p>
+            {errorMessage && (
+              <p
+                className="form-note"
+                aria-live="polite"
+                style={{ color: "#c62828" }}
+              >
+                {errorMessage}
+              </p>
+            )}
+            {successMessage && (
+              <div
+                className="form-success-toast"
+                role="status"
+                aria-live="polite"
+                style={{
+                  position: "relative",
+                  background: "#e8f5e9",
+                  color: "#1b5e20",
+                  border: "1px solid #a5d6a7",
+                  borderRadius: "10px",
+                  padding: "10px 36px 10px 12px",
+                  marginTop: "10px",
+                  fontSize: "0.92rem",
+                  lineHeight: "1.5",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setSuccessMessage("")}
+                  aria-label="Cerrar notificación"
+                  style={{
+                    position: "absolute",
+                    top: "8px",
+                    right: "10px",
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                    color: "#1b5e20",
+                    fontSize: "1.1rem",
+                    lineHeight: 1,
+                  }}
+                >
+                  ×
+                </button>
+                {successMessage}
+              </div>
+            )}
           </form>
         </Reveal>
       </div>

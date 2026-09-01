@@ -30,7 +30,8 @@ export const translations = {
         "Acompañamos a familias chilenas a resolver y planificar sus herencias de forma ágil, transparente y humana — sin litigios eternos ni pérdida de valor.",
       ctaPrimary: "Simula tu herencia gratis",
       ctaSecondary: "Agenda una llamada gratuita",
-      trustNote: "Sin mínimos. Sin letra chica. Precios fijos desde el día uno.",
+      trustNote:
+        "Sin mínimos. Sin letra chica. Precios fijos desde el día uno.",
     },
     simulador: {
       eyebrow: "Simulador gratuito de sucesión",
@@ -44,7 +45,13 @@ export const translations = {
         { value: "3", label: "Personas ingresadas" },
         { value: "Completo", label: "Escenario" },
       ],
-      processSteps: ["Inicio", "Verificación", "Análisis", "Documentos", "Cierre"],
+      processSteps: [
+        "Inicio",
+        "Verificación",
+        "Análisis",
+        "Documentos",
+        "Cierre",
+      ],
       chartTitle: "Ejemplo: esposa y 2 hijos",
       chartHelp: "Distribución orientativa entre esposa e hijos.",
       segments: [
@@ -52,7 +59,12 @@ export const translations = {
         { label: "Hijo 1", value: 25 },
         { label: "Hijo 2", value: 25 },
       ],
-      checks: ["Propiedad identificada", "Plan de herederos", "Plan de documentación", "Distribución lista"],
+      checks: [
+        "Propiedad identificada",
+        "Plan de herederos",
+        "Plan de documentación",
+        "Distribución lista",
+      ],
       ctaPrimary: "Obtener mi informe",
       ctaSecondary: "Hablar con un asesor",
       ctaCard: "Abrir Simulador Completo",
@@ -79,15 +91,16 @@ export const translations = {
     quienesSomos: {
       eyebrow: "Quiénes somos",
       title: "Una nueva forma de gestionar herencias",
-      body:
-        "Heredame nace para modernizar un proceso que durante años ha sido complejo, lento y desgastante. Combinamos acompañamiento legal, mediación, tecnología y una gestión integral para simplificar cada etapa de una herencia y entregar a las familias mayor claridad, tranquilidad y control sobre su patrimonio.",
+      body: "Heredame nace para modernizar un proceso que durante años ha sido complejo, lento y desgastante. Combinamos acompañamiento legal, mediación, tecnología y una gestión integral para simplificar cada etapa de una herencia y entregar a las familias mayor claridad, tranquilidad y control sobre su patrimonio.",
       highlights: [
         "Mediación familiar",
         "Tecnología colaborativa",
         "Acompañamiento legal de principio a fin",
       ],
-      imageAlt: "Equipo de Herédame acompañando a una familia en su proceso de herencia",
-      reinforcement: "Estamos transformando la manera de gestionar las herencias en Chile.",
+      imageAlt:
+        "Equipo de Herédame acompañando a una familia en su proceso de herencia",
+      reinforcement:
+        "Estamos transformando la manera de gestionar las herencias en Chile.",
     },
     beneficios: {
       eyebrow: "Beneficios",
@@ -116,10 +129,22 @@ export const translations = {
       eyebrow: "Cómo funciona",
       title: "Un proceso simple, paso a paso",
       steps: [
-        { title: "Nos cuentas qué pasó", body: "Partimos con una llamada o el simulador. Revisamos quiénes son los herederos, qué bienes existen y qué dudas tiene la familia." },
-        { title: "Ordenamos la información", body: "Preparamos un diagnóstico claro, con los documentos necesarios, los pasos legales y una distribución orientativa fácil de entender." },
-        { title: "Buscamos acuerdo familiar", body: "Mediamos la conversación para que todos entiendan sus opciones y puedan decidir sin presión ni discusiones eternas." },
-        { title: "Cerramos y acompañamos", body: "Te guiamos en la firma, posesión efectiva, venta, adjudicación o el trámite que corresponda hasta dejar el proceso avanzado." },
+        {
+          title: "Nos cuentas qué pasó",
+          body: "Partimos con una llamada o el simulador. Revisamos quiénes son los herederos, qué bienes existen y qué dudas tiene la familia.",
+        },
+        {
+          title: "Ordenamos la información",
+          body: "Preparamos un diagnóstico claro, con los documentos necesarios, los pasos legales y una distribución orientativa fácil de entender.",
+        },
+        {
+          title: "Buscamos acuerdo familiar",
+          body: "Mediamos la conversación para que todos entiendan sus opciones y puedan decidir sin presión ni discusiones eternas.",
+        },
+        {
+          title: "Cerramos y acompañamos",
+          body: "Te guiamos en la firma, posesión efectiva, venta, adjudicación o el trámite que corresponda hasta dejar el proceso avanzado.",
+        },
       ],
     },
     diferenciadores: {
@@ -147,20 +172,43 @@ export const translations = {
     servicios: {
       eyebrow: "Servicios",
       title: "Un camino claro, con precios fijos desde el día uno",
-      subtitle: "Avanza al ritmo que necesites — desde una simulación gratuita hasta la resolución completa del caso.",
+      subtitle:
+        "Avanza al ritmo que necesites — desde una simulación gratuita hasta la resolución completa del caso.",
       items: [
-        { name: "Simulador Gratuito", body: "Calcula la distribución orientativa de tu herencia en minutos, sin costo." },
-        { name: "Diagnóstico Automático", body: "Informe automático con el estado general de tu herencia." },
-        { name: "Estudio Sucesorio Personalizado", body: "Revisión a fondo de tus documentos oficiales por nuestro equipo." },
-        { name: "Consultoría Express", body: "Estudio personalizado + videollamada de 30 minutos con un experto." },
-        { name: "Mediación Familiar", body: "Te ayudamos a llegar a acuerdo y a vender el bien a su valor justo." },
-        { name: "Planificación de Legado", body: "Diseño, redacción y gestión legal de tu testamento en vida." },
+        {
+          name: "Simulador Gratuito",
+          body: "Calcula la distribución orientativa de tu herencia en minutos, sin costo.",
+        },
+        {
+          name: "Diagnóstico Automático",
+          body: "Informe automático con el estado general de tu herencia.",
+        },
+        {
+          name: "Estudio Sucesorio Personalizado",
+          body: "Revisión a fondo de tus documentos oficiales por nuestro equipo.",
+        },
+        {
+          name: "Consultoría Express",
+          body: "Estudio personalizado + videollamada de 30 minutos con un experto.",
+        },
+        {
+          name: "Mediación Familiar",
+          body: "Te ayudamos a llegar a acuerdo y a vender el bien a su valor justo.",
+        },
+        {
+          name: "Planificación de Legado",
+          body: "Diseño, redacción y gestión legal de tu testamento en vida.",
+        },
       ],
       servicesInactive: [
-        { name: "Liquidez Inmediata", body: "Conexión directa con fondos de inversión para vender tus derechos hereditarios." },
+        {
+          name: "Liquidez Inmediata",
+          body: "Conexión directa con fondos de inversión para vender tus derechos hereditarios.",
+        },
       ],
       cta: "Ver todos los servicios",
-      contactText: "¿No sabes cuál servicio necesitas? Te orientamos sin costo.",
+      contactText:
+        "¿No sabes cuál servicio necesitas? Te orientamos sin costo.",
       contactCta: "Contactar a Herédame",
     },
     booking: {
@@ -173,8 +221,7 @@ export const translations = {
     nosotros: {
       eyebrow: "Sobre nosotros",
       title: "Abogados, mediadores y tecnología al servicio de tu familia",
-      body:
-        "Heredame es una plataforma de mediación y gestión de herencias que combina asesoría legal, mediación estratégica y tecnología colaborativa para transformar el conflicto familiar en una decisión clara y tranquila.",
+      body: "Heredame es una plataforma de mediación y gestión de herencias que combina asesoría legal, mediación estratégica y tecnología colaborativa para transformar el conflicto familiar en una decisión clara y tranquila.",
       mission: {
         label: "Misión",
         body: "Transformar la gestión de herencias en un proceso fluido, ágil y transparente — evitando el estancamiento de la riqueza familiar y facilitando la libre circulación de los bienes.",
@@ -186,13 +233,34 @@ export const translations = {
       team: {
         eyebrow: "Nuestro equipo",
         title: "Un equipo multidisciplinario detrás de cada caso",
-        subtitle: "Derecho, ingeniería y diseño trabajando juntos para que tu proceso avance sin fricción.",
+        subtitle:
+          "Derecho, ingeniería y diseño trabajando juntos para que tu proceso avance sin fricción.",
         members: [
-          { name: "Constanza Pérez", role: "Diseñadora UX", bio: "Lorem ipsum dolor sit amet, enfoque humano y diseño claro para acompañar cada etapa del proceso." },
-          { name: "Valentina Henríquez", role: "Abogada Corporativa", bio: "Lorem ipsum dolor sit amet, asesoría legal cercana para ordenar documentos, acuerdos y decisiones familiares." },
-          { name: "Adrian Lillo", role: "Ingeniero Civil", bio: "Lorem ipsum dolor sit amet, mirada estratégica para convertir casos complejos en pasos simples y medibles." },
-          { name: "Fernando Guzmán", role: "Ingeniero en Software", bio: "Lorem ipsum dolor sit amet, tecnología segura y colaborativa para que cada heredero avance sin fricción." },
-          { name: "Abogada con experiencia en plataformas legal-tech", role: "Equipo Legal", bio: "Lorem ipsum dolor sit amet, experiencia legal-tech para unir criterio jurídico, procesos digitales y mediación." },
+          {
+            name: "Constanza Pérez",
+            role: "Diseñadora UX",
+            bio: "Lorem ipsum dolor sit amet, enfoque humano y diseño claro para acompañar cada etapa del proceso.",
+          },
+          {
+            name: "Valentina Henríquez",
+            role: "Abogada Corporativa",
+            bio: "Lorem ipsum dolor sit amet, asesoría legal cercana para ordenar documentos, acuerdos y decisiones familiares.",
+          },
+          {
+            name: "Adrian Lillo",
+            role: "Ingeniero Civil",
+            bio: "Lorem ipsum dolor sit amet, mirada estratégica para convertir casos complejos en pasos simples y medibles.",
+          },
+          {
+            name: "Fernando Guzmán",
+            role: "Ingeniero en Software",
+            bio: "Lorem ipsum dolor sit amet, tecnología segura y colaborativa para que cada heredero avance sin fricción.",
+          },
+          {
+            name: "Abogada con experiencia en plataformas legal-tech",
+            role: "Equipo Legal",
+            bio: "Lorem ipsum dolor sit amet, experiencia legal-tech para unir criterio jurídico, procesos digitales y mediación.",
+          },
         ],
       },
     },
@@ -240,11 +308,11 @@ export const translations = {
         },
         {
           q: "¿Puedo dejar a un hijo o a mi cónyuge fuera del testamento?",
-          a: "No de forma libre. La ley protege a los hijos, al cónyuge y a los padres con las llamadas \"legítimas\", una porción de la herencia que no se puede quitar salvo causas muy específicas y probadas judicialmente. Sí puedes decidir con libertad sobre una parte menor del patrimonio, la \"cuarta de libre disposición\".",
+          a: 'No de forma libre. La ley protege a los hijos, al cónyuge y a los padres con las llamadas "legítimas", una porción de la herencia que no se puede quitar salvo causas muy específicas y probadas judicialmente. Sí puedes decidir con libertad sobre una parte menor del patrimonio, la "cuarta de libre disposición".',
         },
         {
           q: "¿Puedo vender solo mi parte de la herencia sin esperar a que todos estén de acuerdo?",
-          a: "Sí. Puedes ceder o vender tu cuota hereditaria a otro heredero o a un tercero sin necesidad de que los demás estén de acuerdo, aunque no puedes vender un bien específico (como \"la mitad de la casa\") hasta que se haga la partición. Es justamente lo que resolvemos en nuestro servicio de Liquidez Inmediata.",
+          a: 'Sí. Puedes ceder o vender tu cuota hereditaria a otro heredero o a un tercero sin necesidad de que los demás estén de acuerdo, aunque no puedes vender un bien específico (como "la mitad de la casa") hasta que se haga la partición. Es justamente lo que resolvemos en nuestro servicio de Liquidez Inmediata.',
         },
         {
           q: "¿Qué pasa si uno de los herederos vive en el extranjero o no podemos juntarnos todos?",
@@ -260,7 +328,7 @@ export const translations = {
         },
         {
           q: "¿Qué pasa si el fallecido dejó deudas?",
-          a: "Como heredero, por regla general respondes de las deudas del causante, incluso con tu propio patrimonio. Para evitar ese riesgo, existe la \"aceptación con beneficio de inventario\", que limita tu responsabilidad solo hasta el valor de los bienes que recibes. Te orientamos sobre cuál opción conviene a tu caso.",
+          a: 'Como heredero, por regla general respondes de las deudas del causante, incluso con tu propio patrimonio. Para evitar ese riesgo, existe la "aceptación con beneficio de inventario", que limita tu responsabilidad solo hasta el valor de los bienes que recibes. Te orientamos sobre cuál opción conviene a tu caso.',
         },
         {
           q: "¿Qué pasa si un heredero no quiere aceptar la herencia?",
@@ -277,16 +345,23 @@ export const translations = {
     contacto: {
       eyebrow: "Contacto",
       title: "Hablemos de tu caso",
-      subtitle: "Cuéntanos tu situación y un asesor te contactará para orientarte, con calma y sin costo.",
+      subtitle:
+        "Cuéntanos tu situación y un asesor te contactará para orientarte, con calma y sin costo.",
       hours: "Lunes a viernes, 9:00 a 18:00 hrs",
       form: {
         name: "Nombre completo",
         phone: "Teléfono",
         email: "Correo electrónico",
         message: "Cuéntanos tu situación",
-        messagePlaceholder: "Ej: Mi padre falleció y somos 3 hermanos, no sabemos cómo empezar…",
+        messagePlaceholder:
+          "Ej: Mi padre falleció y somos 3 hermanos, no sabemos cómo empezar…",
         submit: "Enviar mensaje",
         note: "Tus datos se usan solo para contactarte sobre tu proceso de herencia.",
+        success:
+          "Gracias, tu formulario ha sido enviado correctamente y te contactaremos lo antes posible.",
+        error: "Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.",
+        validation:
+          "Completa los campos requeridos: nombre completo, teléfono o correo, y tu mensaje.",
       },
     },
     footer: {
@@ -349,7 +424,12 @@ export const translations = {
         { label: "Son 1", value: 25 },
         { label: "Son 2", value: 25 },
       ],
-      checks: ["Property identified", "Heir plan", "Documentation plan", "Distribution ready"],
+      checks: [
+        "Property identified",
+        "Heir plan",
+        "Documentation plan",
+        "Distribution ready",
+      ],
       ctaPrimary: "Get my report",
       ctaSecondary: "Talk to an advisor",
       ctaCard: "Open Full Simulator",
@@ -376,15 +456,16 @@ export const translations = {
     quienesSomos: {
       eyebrow: "Who we are",
       title: "A new way to manage inheritances",
-      body:
-        "Heredame was created to modernize a process that has been complex, slow, and exhausting for far too long. We combine legal support, mediation, technology, and end-to-end management to simplify every stage of an inheritance and give families greater clarity, peace of mind, and control over their estate.",
+      body: "Heredame was created to modernize a process that has been complex, slow, and exhausting for far too long. We combine legal support, mediation, technology, and end-to-end management to simplify every stage of an inheritance and give families greater clarity, peace of mind, and control over their estate.",
       highlights: [
         "Family mediation",
         "Collaborative technology",
         "End-to-end legal support",
       ],
-      imageAlt: "Herédame team supporting a family through their inheritance process",
-      reinforcement: "We are transforming the way inheritances are managed in Chile.",
+      imageAlt:
+        "Herédame team supporting a family through their inheritance process",
+      reinforcement:
+        "We are transforming the way inheritances are managed in Chile.",
     },
     beneficios: {
       eyebrow: "Benefits",
@@ -413,10 +494,22 @@ export const translations = {
       eyebrow: "How it works",
       title: "A simple process, step by step",
       steps: [
-        { title: "Tell us what happened", body: "We start with a call or the simulator. We review who the heirs are, what assets exist, and what questions the family has." },
-        { title: "We organize the information", body: "We prepare a clear diagnosis with the required documents, legal steps, and an easy-to-understand indicative distribution." },
-        { title: "We seek family agreement", body: "We mediate the conversation so everyone understands their options and can decide without pressure or endless arguments." },
-        { title: "We close and support you", body: "We guide signatures, estate filing, sale, allocation, or the right next step until the process is moving forward." },
+        {
+          title: "Tell us what happened",
+          body: "We start with a call or the simulator. We review who the heirs are, what assets exist, and what questions the family has.",
+        },
+        {
+          title: "We organize the information",
+          body: "We prepare a clear diagnosis with the required documents, legal steps, and an easy-to-understand indicative distribution.",
+        },
+        {
+          title: "We seek family agreement",
+          body: "We mediate the conversation so everyone understands their options and can decide without pressure or endless arguments.",
+        },
+        {
+          title: "We close and support you",
+          body: "We guide signatures, estate filing, sale, allocation, or the right next step until the process is moving forward.",
+        },
       ],
     },
     diferenciadores: {
@@ -444,33 +537,56 @@ export const translations = {
     servicios: {
       eyebrow: "Services",
       title: "A clear path, with fixed pricing from day one",
-      subtitle: "Move at the pace you need — from a free simulation to a fully resolved case.",
+      subtitle:
+        "Move at the pace you need — from a free simulation to a fully resolved case.",
       items: [
-        { name: "Free Simulator", body: "Get an indicative distribution of your inheritance in minutes, at no cost." },
-        { name: "Automatic Diagnosis", body: "Automated report on the general state of your inheritance." },
-        { name: "Personalized Estate Study", body: "In-depth review of your official documents by our team." },
-        { name: "Express Consulting", body: "Personalized study plus a 30-minute video call with an expert." },
-        { name: "Family Mediation", body: "We help you reach agreement and sell the asset at fair value." },
-        { name: "Legacy Planning", body: "Design, drafting, and legal management of your will while you're alive." },
+        {
+          name: "Free Simulator",
+          body: "Get an indicative distribution of your inheritance in minutes, at no cost.",
+        },
+        {
+          name: "Automatic Diagnosis",
+          body: "Automated report on the general state of your inheritance.",
+        },
+        {
+          name: "Personalized Estate Study",
+          body: "In-depth review of your official documents by our team.",
+        },
+        {
+          name: "Express Consulting",
+          body: "Personalized study plus a 30-minute video call with an expert.",
+        },
+        {
+          name: "Family Mediation",
+          body: "We help you reach agreement and sell the asset at fair value.",
+        },
+        {
+          name: "Legacy Planning",
+          body: "Design, drafting, and legal management of your will while you're alive.",
+        },
       ],
       servicesInactive: [
-        { name: "Immediate Liquidity", body: "Direct connection with investment funds to sell your inheritance rights." },
+        {
+          name: "Immediate Liquidity",
+          body: "Direct connection with investment funds to sell your inheritance rights.",
+        },
       ],
       cta: "See all services",
-      contactText: "Not sure which service you need? We can guide you at no cost.",
+      contactText:
+        "Not sure which service you need? We can guide you at no cost.",
       contactCta: "Contact Herédame",
     },
     booking: {
       eyebrow: "Book a conversation",
       title: "Let's talk for 30 minutes, free",
-      subtitle: "A free call to understand your case and guide you toward the best path forward — no obligation.",
+      subtitle:
+        "A free call to understand your case and guide you toward the best path forward — no obligation.",
       placeholderNote: "The booking calendar will be embedded here (Cal.com).",
     },
     nosotros: {
       eyebrow: "About us",
       title: "Lawyers, mediators, and technology working for your family",
-      body:
-        "Heredame is an inheritance mediation and management platform that combines legal advice, strategic mediation, and collaborative technology to turn family conflict into a clear, calm decision.",
+      body: "Heredame is an inheritance mediation and management platform that combines legal advice, strategic mediation, and collaborative technology to turn family conflict into a clear, calm decision.",
       mission: {
         label: "Mission",
         body: "To turn inheritance management into a fluid, agile, and transparent process — preventing family wealth from stalling and enabling assets to circulate freely.",
@@ -482,13 +598,34 @@ export const translations = {
       team: {
         eyebrow: "Our team",
         title: "A multidisciplinary team behind every case",
-        subtitle: "Law, engineering, and design working together so your process moves forward without friction.",
+        subtitle:
+          "Law, engineering, and design working together so your process moves forward without friction.",
         members: [
-          { name: "Constanza Pérez", role: "UX Designer", bio: "Lorem ipsum dolor sit amet, human-centered design and clear guidance for every stage of the process." },
-          { name: "Valentina Henríquez", role: "Corporate Lawyer", bio: "Lorem ipsum dolor sit amet, approachable legal support for documents, agreements, and family decisions." },
-          { name: "Adrian Lillo", role: "Civil Engineer", bio: "Lorem ipsum dolor sit amet, strategic thinking to turn complex cases into simple, measurable steps." },
-          { name: "Fernando Guzmán", role: "Software Engineer", bio: "Lorem ipsum dolor sit amet, secure collaborative technology so every heir can move forward smoothly." },
-          { name: "Lawyer with legal-tech platform experience", role: "Legal Team", bio: "Lorem ipsum dolor sit amet, legal-tech experience joining legal criteria, digital process, and mediation." },
+          {
+            name: "Constanza Pérez",
+            role: "UX Designer",
+            bio: "Lorem ipsum dolor sit amet, human-centered design and clear guidance for every stage of the process.",
+          },
+          {
+            name: "Valentina Henríquez",
+            role: "Corporate Lawyer",
+            bio: "Lorem ipsum dolor sit amet, approachable legal support for documents, agreements, and family decisions.",
+          },
+          {
+            name: "Adrian Lillo",
+            role: "Civil Engineer",
+            bio: "Lorem ipsum dolor sit amet, strategic thinking to turn complex cases into simple, measurable steps.",
+          },
+          {
+            name: "Fernando Guzmán",
+            role: "Software Engineer",
+            bio: "Lorem ipsum dolor sit amet, secure collaborative technology so every heir can move forward smoothly.",
+          },
+          {
+            name: "Lawyer with legal-tech platform experience",
+            role: "Legal Team",
+            bio: "Lorem ipsum dolor sit amet, legal-tech experience joining legal criteria, digital process, and mediation.",
+          },
         ],
       },
     },
@@ -497,7 +634,7 @@ export const translations = {
       title: "We answer your questions calmly",
       items: [
         {
-          q: "What is \"posesión efectiva\" and why is it the first step?",
+          q: 'What is "posesión efectiva" and why is it the first step?',
           a: "It's the legal process that recognizes the heirs as the continuators of the deceased's estate. Without it, no asset in the inheritance can be sold, mortgaged, or distributed. It can be administrative (Civil Registry, when there's a will or clear heirs) or judicial (courts, for more complex cases) — we help you figure out which one applies to you.",
         },
         {
@@ -536,7 +673,7 @@ export const translations = {
         },
         {
           q: "Can I leave a child or my spouse out of my will?",
-          a: "Not freely. Chilean law protects children, spouses, and parents through what's called a \"legítima\" — a portion of the estate that can't be taken away except for very specific, legally proven reasons. You do have free rein over a smaller portion of the estate, the \"cuarta de libre disposición\".",
+          a: 'Not freely. Chilean law protects children, spouses, and parents through what\'s called a "legítima" — a portion of the estate that can\'t be taken away except for very specific, legally proven reasons. You do have free rein over a smaller portion of the estate, the "cuarta de libre disposición".',
         },
         {
           q: "Can I sell just my share of the inheritance without waiting for everyone to agree?",
@@ -573,16 +710,23 @@ export const translations = {
     contacto: {
       eyebrow: "Contact",
       title: "Let's talk about your case",
-      subtitle: "Tell us your situation and an advisor will reach out to guide you — calmly, at no cost.",
+      subtitle:
+        "Tell us your situation and an advisor will reach out to guide you — calmly, at no cost.",
       hours: "Monday to Friday, 9:00 am – 6:00 pm",
       form: {
         name: "Full name",
         phone: "Phone",
         email: "Email",
         message: "Tell us your situation",
-        messagePlaceholder: "E.g. My father passed away and we're 3 siblings, we don't know where to start…",
+        messagePlaceholder:
+          "E.g. My father passed away and we're 3 siblings, we don't know where to start…",
         submit: "Send message",
         note: "Your data is only used to contact you about your inheritance process.",
+        success:
+          "Thank you, your form has been successfully sent and we will get in touch as soon as possible.",
+        error: "There was a problem sending your message. Please try again.",
+        validation:
+          "Please complete the required fields: full name, phone or email, and your message.",
       },
     },
     footer: {
