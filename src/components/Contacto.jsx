@@ -29,9 +29,20 @@ function Contacto() {
   }, [successMessage]);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{7,15}$/;
 
   function handleChange(event) {
     const { name, value } = event.target;
+
+    if (name === "phone") {
+      const digitsOnly = value.replace(/\D/g, "");
+      setFormData((current) => ({
+        ...current,
+        phone: digitsOnly,
+      }));
+      return;
+    }
+
     setFormData((current) => ({
       ...current,
       [name]: value,
@@ -44,10 +55,22 @@ function Contacto() {
     const trimmedEmail = formData.email.trim();
     const trimmedMessage = formData.message.trim();
 
-    if (!trimmedName || (!trimmedPhone && !trimmedEmail) || !trimmedMessage) {
+    if (!trimmedName || !trimmedMessage) {
       return lang === "en"
-        ? "Please complete the required fields: full name, phone or email, and your message."
-        : "Completa los campos requeridos: nombre completo, teléfono o correo, y tu mensaje.";
+        ? "Please complete the required fields: full name and your message."
+        : "Completa los campos requeridos: nombre completo y tu mensaje.";
+    }
+
+    if (!trimmedPhone && !trimmedEmail) {
+      return lang === "en"
+        ? "Please provide at least one contact method: phone or email."
+        : "Debes ingresar al menos un medio de contacto: teléfono o correo.";
+    }
+
+    if (trimmedPhone && !phoneRegex.test(trimmedPhone)) {
+      return lang === "en"
+        ? "Phone number must contain only digits and be valid."
+        : "El teléfono solo puede contener números y debe ser válido.";
     }
 
     if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
@@ -155,6 +178,8 @@ function Contacto() {
                 <input
                   name="phone"
                   type="tel"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   value={formData.phone}
                   onChange={handleChange}
                   autoComplete="tel"
