@@ -9,6 +9,7 @@ import Beneficios from "./components/Beneficios";
 import ComoFunciona from "./components/ComoFunciona";
 import Servicios from "./components/Servicios";
 import Booking from "./components/Booking";
+import AgendaPopup from "./components/AgendaPopup";
 import Diferenciadores from "./components/Diferenciadores";
 import Faq from "./components/Faq";
 import Contacto from "./components/Contacto";
@@ -33,6 +34,7 @@ function App() {
         <Servicios />
         <Simulador />
         <Booking />
+        <AgendaPopup />
         <Faq />
         <Contacto />
       </main>

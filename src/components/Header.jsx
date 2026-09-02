@@ -19,6 +19,7 @@ function Header() {
     { href: "#beneficios", label: t.nav.beneficios },
     { href: "#servicios", label: t.nav.servicios },
     { href: "#como-funciona", label: t.nav.comoFunciona },
+    { href: "#reservar", label: t.nav.agenda },
     { href: "#preguntas", label: t.nav.preguntas },
     { href: "#contacto", label: t.nav.contacto },
   ];

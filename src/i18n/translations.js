@@ -16,6 +16,7 @@ export const translations = {
       beneficios: "Beneficios",
       servicios: "Servicios",
       comoFunciona: "Cómo Funciona",
+      agenda: "Agenda una conversación",
       nosotros: "Nosotros",
       preguntas: "Preguntas",
       contacto: "Contacto",
@@ -217,6 +218,7 @@ export const translations = {
       subtitle:
         "Una llamada gratuita para entender tu caso y orientarte sobre el mejor camino a seguir — sin compromiso.",
       placeholderNote: "El calendario de reservas se integrará aquí (Cal.com).",
+      closeLabel: "Cerrar",
     },
     nosotros: {
       eyebrow: "Sobre nosotros",
@@ -361,7 +363,7 @@ export const translations = {
           "Gracias, tu formulario ha sido enviado correctamente y te contactaremos lo antes posible.",
         error: "Hubo un problema al enviar tu mensaje. Inténtalo nuevamente.",
         validation:
-          "Completa los campos requeridos: nombre completo, teléfono o correo, y tu mensaje.",
+          "Completa los campos requeridos: nombre completo, teléfono y tu mensaje.",
       },
     },
     footer: {
@@ -388,6 +390,7 @@ export const translations = {
       beneficios: "Benefits",
       servicios: "Services",
       comoFunciona: "How It Works",
+      agenda: "Book a conversation",
       nosotros: "About Us",
       preguntas: "FAQ",
       contacto: "Contact",
@@ -582,6 +585,7 @@ export const translations = {
       subtitle:
         "A free call to understand your case and guide you toward the best path forward — no obligation.",
       placeholderNote: "The booking calendar will be embedded here (Cal.com).",
+      closeLabel: "Close",
     },
     nosotros: {
       eyebrow: "About us",
@@ -726,7 +730,7 @@ export const translations = {
           "Thank you, your form has been successfully sent and we will get in touch as soon as possible.",
         error: "There was a problem sending your message. Please try again.",
         validation:
-          "Please complete the required fields: full name, phone or email, and your message.",
+          "Please complete the required fields: full name, phone, and your message.",
       },
     },
     footer: {

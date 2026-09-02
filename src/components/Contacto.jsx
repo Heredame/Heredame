@@ -82,21 +82,19 @@ function Contacto() {
       };
     }
 
-    if (!trimmedPhone && !trimmedEmail) {
+    if (!trimmedPhone) {
       nextFieldErrors.phone =
-        lang === "en" ? "Add a phone number or email." : "Ingresa un teléfono o correo.";
-      nextFieldErrors.email =
-        lang === "en" ? "Add a phone number or email." : "Ingresa un teléfono o correo.";
+        lang === "en" ? "Phone number is required." : "El teléfono es obligatorio.";
       return {
         message:
           lang === "en"
-            ? "Please provide at least one contact method: phone or email."
-            : "Debes ingresar al menos un medio de contacto: teléfono o correo.",
+            ? "Please enter your phone number."
+            : "Debes ingresar tu número de teléfono.",
         fieldErrors: nextFieldErrors,
       };
     }
 
-    if (trimmedPhone && !phoneRegex.test(trimmedPhone)) {
+    if (!phoneRegex.test(trimmedPhone)) {
       nextFieldErrors.phone =
         lang === "en"
           ? "Use only numbers, for example: +00 00 0000 0000"
@@ -235,6 +233,7 @@ function Contacto() {
                   value={formData.phone}
                   onChange={handleChange}
                   autoComplete="tel"
+                  required
                 />
               </label>
             </div>
