@@ -22,7 +22,16 @@ function Footer() {
             © {year} heredame.cl — {t.footer.rights}
           </span>
           <a href="#">{t.footer.legal}</a>
-          <span>{t.footer.credit}</span>
+          <span>
+            {t.footer.credit}{" "}
+            <a
+              href="https://devdenilson.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Devdenilson.com
+            </a>
+          </span>
         </div>
       </div>
     </footer>

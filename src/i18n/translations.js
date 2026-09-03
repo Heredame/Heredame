@@ -370,7 +370,7 @@ export const translations = {
       tagline: "Herédame — mediación y gestión de herencias en Chile.",
       rights: "Todos los derechos reservados.",
       legal: "Términos de Uso y Aviso Legal",
-      credit: "Diseñado por Devdenilson.com",
+      credit: "Diseñado por",
     },
     whatsapp: {
       label: "Chatea por WhatsApp",
@@ -737,7 +737,7 @@ export const translations = {
       tagline: "Herédame — inheritance mediation and management in Chile.",
       rights: "All rights reserved.",
       legal: "Terms of Use and Legal Notice",
-      credit: "Designed by Devdenilson.com",
+      credit: "Designed by",
     },
     whatsapp: {
       label: "Chat on WhatsApp",
