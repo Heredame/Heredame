@@ -197,9 +197,6 @@ function Contacto() {
             <p className="contacto-hours">{t.contacto.hours}</p>
             <ul className="contacto-list">
               <li>
-                <a href="tel:+56993977894">+56 9 9397 7894</a>
-              </li>
-              <li>
                 <a href="mailto:info@heredame.cl">info@heredame.cl</a>
               </li>
               <li>Santiago, Chile</li>

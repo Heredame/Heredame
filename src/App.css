@@ -2049,7 +2049,7 @@
   border: 1px solid var(--border);
 }
 
-.booking-section:not(.booking-section--popup) .booking-copy {
+.booking-section .booking-copy {
   max-width: 720px;
 }
 
@@ -2078,90 +2078,6 @@
   height: auto;
 }
 
-.booking-card--popup {
-  grid-template-columns: minmax(260px, 1fr) minmax(220px, 320px);
-  align-items: center;
-}
-
-.agenda-popup-card {
-  width: 100%;
-  border: 1px solid rgba(13, 23, 65, 0.14);
-  border-radius: var(--radius-md);
-  padding: 18px;
-  background:
-    linear-gradient(180deg, rgba(13, 23, 65, 0.04), rgba(255, 255, 255, 0)),
-    #fff;
-  box-shadow: 0 18px 36px -30px rgba(13, 23, 65, 0.42);
-  color: #0d1741;
-  cursor: pointer;
-  text-align: left;
-  transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.18s ease;
-}
-
-.agenda-popup-card:hover {
-  border-color: rgba(13, 23, 65, 0.3);
-  box-shadow: 0 22px 42px -28px rgba(13, 23, 65, 0.5);
-  transform: translateY(-2px);
-}
-
-.agenda-popup-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.agenda-popup-card__month {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 800;
-  color: #0d1741;
-}
-
-.agenda-popup-card__pill {
-  flex: 0 0 auto;
-  border-radius: 999px;
-  padding: 5px 10px;
-  background: #0d1741;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.agenda-popup-card__grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 7px;
-  margin-bottom: 18px;
-}
-
-.agenda-popup-card__day {
-  aspect-ratio: 1;
-  border-radius: 6px;
-  background: #eef3f7;
-}
-
-.agenda-popup-card__day.is-open {
-  background: #0d1741;
-  box-shadow: 0 0 0 3px rgba(13, 23, 65, 0.1);
-}
-
-.agenda-popup-card__cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  border-radius: 999px;
-  background: #0d1741;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 800;
-}
-
 @media (max-width: 860px) {
   .booking-card {
     grid-template-columns: 1fr;
@@ -2172,14 +2088,6 @@
   #my-cal-inline {
     min-height: 740px;
     height: auto;
-  }
-
-  .booking-card--popup {
-    grid-template-columns: 1fr;
-  }
-
-  .agenda-popup-card {
-    max-width: 340px;
   }
 }
 
