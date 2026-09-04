@@ -76,6 +76,10 @@
   color: var(--blue);
 }
 
+.mobile-simulator-cta {
+  display: none;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -165,6 +169,16 @@
   .site-nav a {
     width: 100%;
     padding: 10px 0;
+  }
+  .site-nav .mobile-simulator-cta {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 18px;
+    color: #fff;
+  }
+  .site-nav .mobile-simulator-cta:hover {
+    color: #fff;
   }
   .header-cta {
     display: none;

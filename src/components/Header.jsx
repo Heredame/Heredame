@@ -49,6 +49,13 @@ function Header() {
               {link.label}
             </a>
           ))}
+          <a
+            href="https://www.heredame.cl/simulador.html"
+            className="mobile-simulator-cta btn btn--primary"
+            onClick={() => setMenuOpen(false)}
+          >
+            Simular mi herencia
+          </a>
         </nav>
 
         <div className="header-actions">
