@@ -35,19 +35,35 @@ function Header() {
           />
         </a>
 
-        <nav id="site-nav" className={`site-nav ${menuOpen ? "open" : ""}`} aria-label="Navegación principal">
+        <nav
+          id="site-nav"
+          className={`site-nav ${menuOpen ? "open" : ""}`}
+          aria-label="Navegación principal"
+        >
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+            >
               {link.label}
             </a>
           ))}
         </nav>
 
         <div className="header-actions">
-          <button type="button" className="lang-switch" onClick={toggleLang} aria-label="Cambiar idioma / Switch language">
+          <button
+            type="button"
+            className="lang-switch"
+            onClick={toggleLang}
+            aria-label="Cambiar idioma / Switch language"
+          >
             {lang === "es" ? "EN" : "ES"}
           </button>
-          <a href="/simulador.html" className="btn btn--primary btn--sm header-cta">
+          <a
+            href="/simulador.html"
+            className="btn btn--primary btn--sm header-cta"
+          >
             {t.nav.cta}
           </a>
           <button

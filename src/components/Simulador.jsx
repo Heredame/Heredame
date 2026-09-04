@@ -6,7 +6,12 @@ const SIZE = 320;
 const CENTER = SIZE / 2;
 const RADIUS = 126;
 const EXPLODE = 0;
-const CHART_COLORS = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--bg)"];
+const CHART_COLORS = [
+  "var(--chart-1)",
+  "var(--chart-2)",
+  "var(--chart-3)",
+  "var(--bg)",
+];
 
 function polarToCartesian(angleDeg, radius = RADIUS) {
   const radians = ((angleDeg - 90) * Math.PI) / 180;
@@ -122,8 +127,20 @@ function PieChart({ arcs, ariaLabel }) {
           aria-label={ariaLabel}
         >
           <defs>
-            <filter id="sim-slice-shadow" x="-25%" y="-25%" width="150%" height="150%">
-              <feDropShadow dx="0" dy="5" stdDeviation="7" floodColor="#1f374c" floodOpacity="0.16" />
+            <filter
+              id="sim-slice-shadow"
+              x="-25%"
+              y="-25%"
+              width="150%"
+              height="150%"
+            >
+              <feDropShadow
+                dx="0"
+                dy="5"
+                stdDeviation="7"
+                floodColor="#1f374c"
+                floodOpacity="0.16"
+              />
             </filter>
             <radialGradient id="sim-slice-sheen" cx="0.3" cy="0.25" r="0.9">
               <stop offset="0%" stopColor="#fff" stopOpacity="0.26" />
@@ -147,8 +164,16 @@ function PieChart({ arcs, ariaLabel }) {
             const labelPos = polarToCartesian(midDeg, RADIUS * 0.58);
 
             return (
-              <g key={a.label} transform={`translate(${dx.toFixed(2)} ${dy.toFixed(2)})`}>
-                <path className="sim-pie-slice" d={d} fill={a.color} filter="url(#sim-slice-shadow)" />
+              <g
+                key={a.label}
+                transform={`translate(${dx.toFixed(2)} ${dy.toFixed(2)})`}
+              >
+                <path
+                  className="sim-pie-slice"
+                  d={d}
+                  fill={a.color}
+                  filter="url(#sim-slice-shadow)"
+                />
                 <path d={d} fill="url(#sim-slice-sheen)" />
                 <text
                   className="sim-pie-percent"
@@ -178,14 +203,18 @@ function Simulador() {
   const [hasStarted, setHasStarted] = useState(false);
   const [chartReady, setChartReady] = useState(() => {
     if (typeof window === "undefined") return true;
-    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     return prefersReducedMotion || typeof IntersectionObserver === "undefined";
   });
 
-  const segments = normalizeSegments(t.simulador.segments).map((segment, i) => ({
-    ...segment,
-    color: CHART_COLORS[i % CHART_COLORS.length],
-  }));
+  const segments = normalizeSegments(t.simulador.segments).map(
+    (segment, i) => ({
+      ...segment,
+      color: CHART_COLORS[i % CHART_COLORS.length],
+    }),
+  );
 
   useEffect(() => {
     const node = cardRef.current;
@@ -212,7 +241,9 @@ function Simulador() {
 
   const progress = useCountUp(chartReady, 1500);
   const arcs = computeArcs(segments, progress);
-  const ariaLabel = segments.map((s) => `${s.label} ${Math.round(s.value)}%`).join(", ");
+  const ariaLabel = segments
+    .map((s) => `${s.label} ${Math.round(s.value)}%`)
+    .join(", ");
 
   return (
     <section className="section simulador-section" id="simulador">
@@ -233,52 +264,72 @@ function Simulador() {
 
         <Reveal className="simulador-card" delay={90}>
           <div ref={cardRef}>
-          <div className="simulador-card-head">
-            <strong>{t.simulador.noteBrand}</strong>
-            <span>{t.simulador.note}</span>
-          </div>
-          <div className="simulador-badges">
-            {t.simulador.badges.map((badge) => (
-              <div className="simulador-badge" key={badge.label}>
-                <strong>{badge.value}</strong>
-                <span>{badge.label}</span>
-              </div>
-            ))}
-          </div>
-          <div className={`simulador-progress ${hasStarted || chartReady ? "is-animating" : ""}`}>
-            {t.simulador.processSteps.map((step, i) => (
-              <div className={`simulador-progress-step ${i < 4 ? "complete" : ""}`} style={{ "--step-index": i }} key={step}>
-                <span aria-hidden="true" />
-                <strong>{step}</strong>
-              </div>
-            ))}
-          </div>
-          <div className={`simulador-chart-panel ${chartReady ? "is-ready" : ""}`}>
-            <div className="simulador-chart-layout">
-              <PieChart arcs={arcs} ariaLabel={ariaLabel} />
-              <ul className="simulador-distribution">
-                {arcs.map((a) => (
-                  <li
-                    key={a.label}
-                    className={
-                      a.spanFrac > 0 ? (a.fill >= 1 ? "is-done" : a.fill > 0 ? "is-filling" : "") : ""
-                    }
-                  >
-                    <span
-                      className="sim-chart-dot"
-                      style={{ background: a.color, transform: `scale(${(0.55 + 0.45 * a.fill).toFixed(3)})` }}
-                      aria-hidden="true"
-                    />
-                    <span>{a.label}</span>
-                    <strong>{Math.round(a.shown)}%</strong>
-                  </li>
-                ))}
-              </ul>
+            <div className="simulador-card-head">
+              <strong>{t.simulador.noteBrand}</strong>
+              <span>{t.simulador.note}</span>
             </div>
-          </div>
-          <a href="/simulador.html" className="btn btn--primary simulador-card-cta">
-            {t.simulador.ctaCard}
-          </a>
+            <div className="simulador-badges">
+              {t.simulador.badges.map((badge) => (
+                <div className="simulador-badge" key={badge.label}>
+                  <strong>{badge.value}</strong>
+                  <span>{badge.label}</span>
+                </div>
+              ))}
+            </div>
+            <div
+              className={`simulador-progress ${hasStarted || chartReady ? "is-animating" : ""}`}
+            >
+              {t.simulador.processSteps.map((step, i) => (
+                <div
+                  className={`simulador-progress-step ${i < 4 ? "complete" : ""}`}
+                  style={{ "--step-index": i }}
+                  key={step}
+                >
+                  <span aria-hidden="true" />
+                  <strong>{step}</strong>
+                </div>
+              ))}
+            </div>
+            <div
+              className={`simulador-chart-panel ${chartReady ? "is-ready" : ""}`}
+            >
+              <div className="simulador-chart-layout">
+                <PieChart arcs={arcs} ariaLabel={ariaLabel} />
+                <ul className="simulador-distribution">
+                  {arcs.map((a) => (
+                    <li
+                      key={a.label}
+                      className={
+                        a.spanFrac > 0
+                          ? a.fill >= 1
+                            ? "is-done"
+                            : a.fill > 0
+                              ? "is-filling"
+                              : ""
+                          : ""
+                      }
+                    >
+                      <span
+                        className="sim-chart-dot"
+                        style={{
+                          background: a.color,
+                          transform: `scale(${(0.55 + 0.45 * a.fill).toFixed(3)})`,
+                        }}
+                        aria-hidden="true"
+                      />
+                      <span>{a.label}</span>
+                      <strong>{Math.round(a.shown)}%</strong>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <a
+              href="/simulador.html"
+              className="btn btn--primary simulador-card-cta"
+            >
+              {t.simulador.ctaCard}
+            </a>
           </div>
         </Reveal>
       </div>
