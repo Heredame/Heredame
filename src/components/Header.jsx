@@ -47,7 +47,7 @@ function Header() {
           <button type="button" className="lang-switch" onClick={toggleLang} aria-label="Cambiar idioma / Switch language">
             {lang === "es" ? "EN" : "ES"}
           </button>
-          <a href="#simulador" className="btn btn--primary btn--sm header-cta">
+          <a href="/simulador.html" className="btn btn--primary btn--sm header-cta">
             {t.nav.cta}
           </a>
           <button

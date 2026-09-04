@@ -68,23 +68,29 @@ function Contacto() {
 
     if (!trimmedName) {
       return {
-        message: lang === "en" ? "Name is required." : "El nombre es obligatorio.",
+        message:
+          lang === "en" ? "Name is required." : "El nombre es obligatorio.",
         fieldErrors: nextFieldErrors,
       };
     }
 
     if (!trimmedMessage) {
       nextFieldErrors.message =
-        lang === "en" ? "Please tell us your situation." : "Cuéntanos tu situación.";
+        lang === "en"
+          ? "Please tell us your situation."
+          : "Cuéntanos tu situación.";
       return {
-        message: lang === "en" ? "Message is required." : "El mensaje es obligatorio.",
+        message:
+          lang === "en" ? "Message is required." : "El mensaje es obligatorio.",
         fieldErrors: nextFieldErrors,
       };
     }
 
     if (!trimmedPhone) {
       nextFieldErrors.phone =
-        lang === "en" ? "Phone number is required." : "El teléfono es obligatorio.";
+        lang === "en"
+          ? "Phone number is required."
+          : "El teléfono es obligatorio.";
       return {
         message:
           lang === "en"
@@ -110,7 +116,9 @@ function Contacto() {
 
     if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
       nextFieldErrors.email =
-        lang === "en" ? "Enter a valid email, e.g. name@example.com" : "Ingresa un correo válido, ej. nombre@ejemplo.com";
+        lang === "en"
+          ? "Enter a valid email, e.g. name@example.com"
+          : "Ingresa un correo válido, ej. nombre@ejemplo.com";
       return {
         message:
           lang === "en"
@@ -197,6 +205,9 @@ function Contacto() {
             <p className="contacto-hours">{t.contacto.hours}</p>
             <ul className="contacto-list">
               <li>
+                <a href="tel:+56 9 3210 4944">+56 9 3210 4944</a>
+              </li>
+              <li>
                 <a href="mailto:info@heredame.cl">info@heredame.cl</a>
               </li>
               <li>Santiago, Chile</li>
@@ -218,7 +229,13 @@ function Contacto() {
               <label>
                 {t.contacto.form.phone}
                 {fieldErrors.phone && (
-                  <small style={{ display: "block", color: "#c62828", marginBottom: "6px" }}>
+                  <small
+                    style={{
+                      display: "block",
+                      color: "#c62828",
+                      marginBottom: "6px",
+                    }}
+                  >
                     {fieldErrors.phone}
                   </small>
                 )}
@@ -237,7 +254,13 @@ function Contacto() {
             <label>
               {t.contacto.form.email}
               {fieldErrors.email && (
-                <small style={{ display: "block", color: "#c62828", marginBottom: "6px" }}>
+                <small
+                  style={{
+                    display: "block",
+                    color: "#c62828",
+                    marginBottom: "6px",
+                  }}
+                >
                   {fieldErrors.email}
                 </small>
               )}
@@ -252,7 +275,13 @@ function Contacto() {
             <label>
               {t.contacto.form.message}
               {fieldErrors.message && (
-                <small style={{ display: "block", color: "#c62828", marginBottom: "6px" }}>
+                <small
+                  style={{
+                    display: "block",
+                    color: "#c62828",
+                    marginBottom: "6px",
+                  }}
+                >
                   {fieldErrors.message}
                 </small>
               )}

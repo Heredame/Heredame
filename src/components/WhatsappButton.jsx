@@ -2,7 +2,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 
 // TODO: swap for Herédame's real WhatsApp Business number (digits only,
 // with country code, no "+" and no spaces — Chile = 56 9 XXXX XXXX).
-const PHONE = "56993977894";
+const PHONE = "56932104944";
 
 function WhatsappButton() {
   const { t } = useLanguage();

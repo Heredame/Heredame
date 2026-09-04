@@ -276,7 +276,7 @@ function Simulador() {
               </ul>
             </div>
           </div>
-          <a href="#contacto" className="btn btn--primary simulador-card-cta">
+          <a href="/simulador.html" className="btn btn--primary simulador-card-cta">
             {t.simulador.ctaCard}
           </a>
           </div>

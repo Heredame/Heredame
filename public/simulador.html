@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Herencia Gratuito Chile | Herédame</title>
+<!-- SEO Standard -->
+<meta name="description" content="Calcula cómo se distribuye la herencia en Chile según el Código Civil. Simula sucesión intestada y con testamento: cónyuge, hijos, padres y libre disposición. Gratuito, online, en segundos.">
+<meta name="keywords" content="simulador herencia chile, calcular herencia chile, simulador sucesión chile, cuánto hereda cada hijo chile, herencia código civil chile, mitad legitimaria, cuarta de mejoras, sucesión intestada, testamento chile, simulador testamento herencia">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Spanish">
+<meta name="author" content="Herédame SpA">
+<link rel="canonical" href="https://heredame.cl/simulador.html">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="alternate" hreflang="es-CL" href="https://heredame.cl/simulador.html">
+<link rel="alternate" hreflang="x-default" href="https://heredame.cl/simulador.html">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://heredame.cl/simulador.html">
+<meta property="og:title" content="Simulador de Herencia Gratuito Chile | Herédame">
+<meta property="og:description" content="Calcula al instante cómo se divide la herencia en Chile. Sucesión intestada y con testamento. Basado en el Código Civil chileno.">
+<meta property="og:image" content="https://heredame.cl/images/hero-image.jpg">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Herédame">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Simulador de Herencia Gratuito Chile | Herédame">
+<meta name="twitter:description" content="Calcula al instante cómo se divide la herencia en Chile según el Código Civil.">
+<meta name="twitter:image" content="https://heredame.cl/images/hero-image.jpg">
+<!-- JSON-LD: WebApplication + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Simulador de Herencia — Herédame",
+      "url": "https://heredame.cl/simulador.html",
+      "description": "Simulador gratuito de sucesión hereditaria en Chile según el Código Civil. Calcula distribución intestada y con testamento.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CLP"},
+      "featureList": [
+        "Sucesión intestada (Art. 988-995 Código Civil)",
+        "Simulación con testamento",
+        "Testamento: mitad legitimaria, cuarta de mejoras y cuarta libre",
+        "Sociedad conyugal y separación de bienes",
+        "Gráficos y tabla de distribución por heredero"
+      ],
+      "keywords": "simulador herencia chile, testamento chile, calcular herencia chile, sucesión intestada, mitad legitimaria",
+      "about": {"@type": "Thing", "name": "Derecho Sucesorio Chileno"},
+      "provider": {"@type": "Organization", "name": "Herédame SpA", "url": "https://heredame.cl"},
+      "inLanguage": "es-CL"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Quiénes son los herederos forzosos en Chile?",
+          "acceptedAnswer": {"@type": "Answer", "text": "En Chile, los herederos forzosos (legitimarios) son: los hijos (y sus descendientes por representación), el cónyuge o conviviente civil sobreviviente, y los ascendientes (padres o abuelos). Están protegidos por la mitad legitimaria que es intangible según el Código Civil."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto le corresponde a cada hijo si hay cónyuge sobreviviente?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Según el Art. 988 del Código Civil: el cónyuge recibe el doble de lo que recibe cada hijo, pero nunca menos de una cuarta parte de la herencia. Con 2 hijos, el cónyuge recibe 50% y cada hijo 25%. Con 7 o más hijos, el cónyuge recibe el mínimo de 25% y el resto se divide en partes iguales entre los hijos."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la mitad legitimaria en la herencia chilena?",
+          "acceptedAnswer": {"@type": "Answer", "text": "La mitad legitimaria es el 50% del patrimonio del causante que la ley asigna obligatoriamente a los legitimarios (hijos, cónyuge, ascendientes). Es intangible: el testador no puede imponerle condiciones ni gravámenes. El 25% restante puede ir a la cuarta de mejoras (para descendientes, ascendientes o cónyuge) y el otro 25% a la cuarta de libre disposición (para cualquier persona)."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se puede desheredar a un hijo en Chile?",
+          "acceptedAnswer": {"@type": "Answer", "text": "No completamente. En Chile los hijos son legitimarios y tienen derecho a la mitad legitimaria (50% del patrimonio) que el testador no puede reducir salvo causales de desheredamiento expresamente establecidas en el Código Civil (injuria grave, maltrato, etc.). El simulador muestra la distribución legal mínima garantizada."}
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula la herencia sin testamento en Chile?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Sin testamento aplica la sucesión intestada según el Código Civil. Existen 5 órdenes de herederos: 1° hijos y cónyuge (Art. 988), 2° ascendientes y cónyuge (Art. 989), 3° hermanos (Art. 990), 4° otros colaterales hasta el 6° grado (Art. 992), y 5° el Fisco (Art. 995). Solo hereda el orden de mayor preferencia que exista."}
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f1f5f9}
+
+/* Static equivalent of the React site header. */
+#sim-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  min-height:56px;
+  background:rgba(255,255,255,.9);
+  color:#33414c;
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #e9edf1;
+  box-shadow:0 8px 24px -20px rgba(13,28,48,.3);
+}
+.sim-header-row{
+  min-height:56px;
+  display:grid;
+  grid-template-columns:minmax(220px,280px) minmax(0,1fr) minmax(220px,280px);
+  align-items:center;
+  gap:clamp(14px,2vw,28px);
+  padding:0 clamp(20px,4vw,56px);
+}
+.sim-header-logo{display:flex;align-items:center;flex-shrink:0}
+.sim-header-logo img{display:block;width:auto;height:68px;max-width:350px;object-fit:contain}
+.sim-site-nav{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.35vw,22px);min-width:0}
+.sim-site-nav a{font-size:clamp(12px,.92vw,14px);font-weight:600;color:#33414c;white-space:nowrap;transition:color .15s ease}
+.sim-site-nav a:hover{color:#6f9bbd}
+.sim-header-actions{display:flex;align-items:center;justify-content:flex-end;gap:clamp(8px,1.2vw,14px);min-width:0}
+.sim-header-cta{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:9px 18px;background:#2b4863;color:#fff;font:700 14px 'Inter',sans-serif;white-space:nowrap;box-shadow:0 18px 40px -28px rgba(31,55,76,.22);cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.sim-header-cta:hover{transform:translateY(-2px)}
+.sim-back-link{display:none}
+.sim-menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:0;cursor:pointer}
+.sim-menu-toggle span{display:block;width:100%;height:2px;background:#2b4863;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+.sim-menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.sim-menu-toggle.open span:nth-child(2){opacity:0}
+.sim-menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+@media(max-width:1120px){
+  .sim-header-row{display:flex;justify-content:space-between}
+  .sim-site-nav{position:fixed;top:56px;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 24px 24px;border-bottom:1px solid #e9edf1;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+  .sim-site-nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .sim-site-nav a{width:100%;padding:10px 0}
+  .sim-header-cta{display:none}
+  .sim-menu-toggle{display:flex}
+  .sim-header-logo img{height:58px;max-width:300px}
+  .sim-back-link{display:block;width:100%;margin-top:6px;padding-top:14px!important;border-top:1px solid #e9edf1;color:#6b7684!important}
+}
+
+.simulator-main{padding-top:72px}
+
+.tog{position:relative;display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.tog input{opacity:0;width:0;height:0;position:absolute}
+.tog-track{width:42px;height:23px;background:#cbd5e1;border-radius:12px;position:relative;transition:.2s;flex-shrink:0}
+.tog input:checked+.tog-track{background:#1A2744}
+.tog-thumb{position:absolute;top:2px;left:2px;width:19px;height:19px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.tog input:checked+.tog-track .tog-thumb{transform:translateX(19px)}
+
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;background:#e2e8f0;border-radius:2px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#1A2744;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+
+/* Inline percentage input — no spinners, no border, typed directly */
+input.pct-num{width:36px;border:none;background:transparent;font-weight:700;font-size:12px;text-align:right;outline:none;padding:0;cursor:text}
+input.pct-num::-webkit-inner-spin-button,
+input.pct-num::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+input.pct-num:focus{background:rgba(0,0,0,.04);border-radius:3px}
+
+.scroll::-webkit-scrollbar{width:4px}
+.scroll::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:2px}
+
+@media(max-width:768px){.split{flex-direction:column!important}.rp{position:static!important}}
+
+/* Match the React site's readable body scale without changing the simulator palette. */
+#sim-split{font-size:17px;line-height:1.5}
+#sim-split .text-xs{font-size:13px!important}
+#sim-split .text-sm{font-size:15px!important}
+#sim-split input[type=text],
+#sim-split select{font-size:16px!important}
+#sim-split label,
+#sim-split td,
+#sim-split th{line-height:1.45}
+#sim-split h2{font-size:18px}
+#sim-split [style*="height:200px"]{height:260px!important}
+#sim-split #intChartTitle,
+#sim-split #willChartCard>p{font-size:16px!important}
+#sim-split #chartLegend,
+#sim-split #willChartLegend{font-size:14px}
+
+@media(max-width:768px){
+  #sim-split [style*="height:200px"]{height:230px!important}
+}
+
+.sim-footer{background:#fff;border-top:1px solid #e9edf1}
+.sim-footer-top{display:flex;align-items:center;justify-content:center;padding:22px 24px 18px;text-align:center}
+.sim-footer-brand{display:flex;align-items:center;justify-content:center;gap:14px;color:#2b4863;font-weight:700}
+.sim-footer-brand img{display:block;width:auto;height:58px;max-width:272px;object-fit:contain}
+.sim-footer-bottom{background:radial-gradient(circle at 20% 0%,rgba(111,155,189,.3),transparent 30%),linear-gradient(135deg,#2b4863,#233d56)}
+.sim-footer-bottom-inner{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 24px;padding:14px 24px;color:rgba(255,255,255,.72);font-size:13px;text-align:center}
+.sim-footer-bottom a{color:#fff;text-decoration:none}
+@media(max-width:620px){.sim-footer-brand{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body class="min-h-screen">
+
+<h1 class="sr-only">Simulador de Herencia Chilena — Calcular Distribución</h1>
+
+<!-- Header -->
+<header id="sim-header">
+  <div class="sim-header-row">
+    <a href="/" class="sim-header-logo" aria-label="Ir al inicio de Herédame">
+      <img src="/images/logo%20horizontal%202.png" alt="Herédame">
+    </a>
+    <nav id="sim-site-nav" class="sim-site-nav" aria-label="Navegación principal">
+      <a href="/#quienes-somos">Quiénes somos</a>
+      <a href="/#diferenciadores">Por qué somos distintos</a>
+      <a href="/#beneficios">Beneficios</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/#como-funciona">Cómo Funciona</a>
+      <a href="/#reservar">Agenda una conversación</a>
+      <a href="/#preguntas">Preguntas</a>
+      <a href="/#contacto">Contacto</a>
+      <a href="/" class="sim-back-link">← Volver al sitio web</a>
+    </nav>
+    <div class="sim-header-actions">
+      <button type="button" class="sim-header-cta">Formulario</button>
+      <button type="button" class="sim-menu-toggle" aria-expanded="false" aria-controls="sim-site-nav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="sim-split" class="split flex simulator-main" style="height:calc(100vh - 72px)">
+
+  <!-- ===== LEFT PANEL ===== -->
+  <div class="scroll overflow-y-auto bg-white border-r border-slate-200" style="width:420px;min-width:320px;flex-shrink:0">
+
+    <!-- Section 1: Patrimonio -->
+    <div class="p-5 border-b border-slate-100">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:#1A2744">1</div>
+        <h2 class="font-semibold text-slate-700 text-sm">Patrimonio del Fallecido/a</h2>
+      </div>
+      <div class="mb-3">
+        <label class="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">Patrimonio total (CLP)</label>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+          <input id="inAssets" type="text" value="200.000.000" class="w-full pl-7 pr-3 py-2 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:border-blue-400">
+        </div>
+        <input id="slAssets" type="range" min="0" max="2000000000" step="5000000" value="200000000" class="mt-2">
+        <div class="flex justify-between text-xs text-slate-400 mt-0.5"><span>$0</span><span>$2.000M</span></div>
+      </div>
+      <div class="mb-3">
+        <label class="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1">Deudas / Pasivos</label>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">$</span>
+          <input id="inDebts" type="text" value="0" class="w-full pl-7 pr-3 py-2 border border-slate-200 rounded-lg text-sm font-medium focus:outline-none focus:border-blue-400">
+        </div>
+      </div>
+      <label class="tog">
+        <input type="checkbox" id="ckProp">
+        <div class="tog-track"><div class="tog-thumb"></div></div>
+        <span class="text-sm text-slate-700">Incluir inmuebles específicos</span>
+      </label>
+      <div id="propSection" class="hidden mt-3">
+        <div id="propList"></div>
+        <button onclick="addProp()" class="w-full py-2 text-xs font-medium text-blue-600 border border-dashed border-blue-300 rounded-lg hover:bg-blue-50 transition-colors">+ Agregar inmueble</button>
+      </div>
+    </div>
+
+    <!-- Section 2: Herederos -->
+    <div class="p-5 border-b border-slate-100">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:#1A2744">2</div>
+        <h2 class="font-semibold text-slate-700 text-sm">Herederos Sobrevivientes</h2>
+      </div>
+      <div class="mb-4">
+        <label class="tog">
+          <input type="checkbox" id="ckSpouse" checked>
+          <div class="tog-track"><div class="tog-thumb"></div></div>
+          <span class="text-sm text-slate-700">¿Cónyuge o AUC sobreviviente?</span>
+        </label>
+        <div id="regimeDiv" class="mt-2 pl-1">
+          <p class="text-xs text-slate-400 mb-1.5">Régimen patrimonial:</p>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-600"><input type="radio" name="regime" value="community" checked class="accent-blue-700"> Sociedad Conyugal</label>
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-600"><input type="radio" name="regime" value="separation" class="accent-blue-700"> Separación de Bienes</label>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="tog">
+          <input type="checkbox" id="ckChildren" checked>
+          <div class="tog-track"><div class="tog-thumb"></div></div>
+          <span class="text-sm text-slate-700">¿Hijos?</span>
+        </label>
+        <div id="childrenDiv" class="mt-2 pl-1">
+          <p class="text-xs text-slate-400 mb-1.5">Número de hijos:</p>
+          <div class="flex items-center gap-3">
+            <button onclick="chg('children',-1)" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-colors font-light text-lg leading-none">−</button>
+            <span id="dispChildren" class="text-2xl font-bold w-8 text-center" style="color:#1A2744">2</span>
+            <button onclick="chg('children',+1)" class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-colors font-light text-lg leading-none">+</button>
+            <span class="text-xs text-slate-400">máx. 12</span>
+          </div>
+        </div>
+      </div>
+      <div id="parentsWrap" class="mb-3 hidden">
+        <label class="tog">
+          <input type="checkbox" id="ckParents">
+          <div class="tog-track"><div class="tog-thumb"></div></div>
+          <span class="text-sm text-slate-700">¿Padres vivos?</span>
+        </label>
+        <div id="parentsDiv" class="mt-2 pl-1 hidden">
+          <div class="flex gap-4">
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-600"><input type="radio" name="parents" value="1" class="accent-blue-700"> 1 padre/madre</label>
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-600"><input type="radio" name="parents" value="2" checked class="accent-blue-700"> Ambos</label>
+          </div>
+        </div>
+      </div>
+      <div id="noHeirsNote" class="hidden text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-2.5">
+        Sin hijos ni padres configurados. Pueden heredar hermanos (3.er orden) o el Fisco (Art. 995).
+      </div>
+    </div>
+
+    <!-- Section 3: Testamento -->
+    <div class="p-5">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:#1A2744">3</div>
+        <h2 class="font-semibold text-slate-700 text-sm">Testamento</h2>
+      </div>
+      <label class="tog">
+        <input type="checkbox" id="ckWill">
+        <div class="tog-track"><div class="tog-thumb"></div></div>
+        <span class="text-sm text-slate-700">¿La persona fallecida tiene testamento?</span>
+      </label>
+
+      <!-- Will mode selector — shown when ckWill is checked -->
+      <div id="willModeDiv" class="hidden mt-4">
+        <label class="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-1.5">Escenario base del testamento</label>
+        <select id="willScenSel"
+          class="w-full text-xs border border-slate-200 rounded-lg px-2.5 py-2 focus:outline-none focus:border-blue-400 bg-white"
+          onchange="updWillScenario(this.value)">
+          <option value="auto">🔗 Automático (herederos de Sección 2)</option>
+          <optgroup label="Con descendientes">
+            <option value="1C1S">1 hijo + cónyuge · Art. 988</option>
+            <option value="NCS">N hijos + cónyuge · Art. 988</option>
+            <option value="ONLYC">Solo hijos (sin cónyuge) · Art. 988</option>
+          </optgroup>
+          <optgroup label="Sin descendientes">
+            <option value="ONLYS">Solo cónyuge · Art. 989</option>
+            <option value="SP">Cónyuge + padres · Art. 989</option>
+            <option value="ONLYP">Solo padres · Art. 989</option>
+          </optgroup>
+          <optgroup label="Sin legitimarios">
+            <option value="NONE">Sin legitimarios (100% libre disposición)</option>
+          </optgroup>
+        </select>
+
+        <!-- Mini-config for manual scenarios -->
+        <div id="willScenCfg" class="hidden mt-2 pl-1">
+          <div id="willNRow" class="hidden flex items-center gap-2 mb-2">
+            <span class="text-xs text-slate-400">Nº hijos:</span>
+            <button onclick="chgWill('N',-1)" class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 font-light text-lg leading-none">−</button>
+            <span id="dispWillN" class="text-xl font-bold w-6 text-center" style="color:#1A2744">2</span>
+            <button onclick="chgWill('N',+1)" class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100 font-light text-lg leading-none">+</button>
+          </div>
+          <div id="willPRow" class="hidden flex gap-4">
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-600"><input type="radio" name="willP" value="1" class="accent-blue-700" onchange="S.willP=1;resetMejoras();update()"> 1 padre/madre</label>
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-600"><input type="radio" name="willP" value="2" checked class="accent-blue-700" onchange="S.willP=2;resetMejoras();update()"> Ambos</label>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400 mt-2">Panel de testamento disponible a la derecha →</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RIGHT PANEL ===== -->
+  <div class="rp scroll flex-1 overflow-y-auto p-5" style="background:#f1f5f9">
+
+    <!-- Scenario badge -->
+    <div class="flex items-center gap-2 mb-4 flex-wrap">
+      <span id="scenBadge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-white" style="background:#1A2744">2 hijos + cónyuge · Art. 988</span>
+      <span id="lawBadge" class="text-xs text-slate-400">LEY 19.585</span>
+    </div>
+
+    <!-- Community notice -->
+    <div id="commNotice" class="hidden text-xs rounded-lg p-3 mb-4 border" style="background:#FFF8EE;border-color:#e3c48a;color:#8B6914">
+      <strong>Sociedad conyugal:</strong> <span id="commText"></span>
+    </div>
+
+    <!-- Charts + table grid -->
+    <div id="chartsGrid" class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-4">
+
+      <!-- Chart 1: Intestate -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-4">
+        <p id="intChartTitle" class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">Distribución Hereditaria</p>
+        <div style="position:relative;height:200px"><canvas id="pieChart"></canvas></div>
+        <div id="chartLegend" class="mt-3 flex flex-wrap gap-x-3 gap-y-1"></div>
+      </div>
+
+      <!-- Chart 2: Testament (shown only when hasWill) -->
+      <div id="willChartCard" class="hidden bg-white rounded-xl shadow-sm border border-slate-100 p-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">Con Testamento</p>
+        <div style="position:relative;height:200px"><canvas id="willChart"></canvas></div>
+        <div id="willChartLegend" class="mt-3 flex flex-wrap gap-x-3 gap-y-1"></div>
+      </div>
+
+      <!-- Table -->
+      <div id="tableCard" class="bg-white rounded-xl shadow-sm border border-slate-100 p-4">
+        <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">Resumen por Heredero</p>
+        <div id="heirTable"></div>
+      </div>
+    </div>
+
+    <!-- Property results -->
+    <div id="propResults" class="mb-4"></div>
+
+    <!-- Will config panel -->
+    <div id="willPanel" class="hidden">
+      <p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Asignaciones Forzosas — Configuración del Testamento</p>
+      <div id="willContent" class="bg-white rounded-xl shadow-sm border border-slate-100 p-4"></div>
+    </div>
+
+    <!-- Conversion CTA — visible in standalone mode only -->
+    <div id="sim-cta" style="display:none" class="mt-4 rounded-xl border border-slate-200 bg-white p-5 text-center">
+      <p class="text-sm text-slate-500 mb-3">¿Quieres tu informe oficial de herencia con validez legal?</p>
+      <button onclick="goToForm()"
+         style="background:#1A2744"
+         class="inline-block px-6 py-3 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer border-0">
+        Obtener mi Informe Completo →
+      </button>
+      <p class="text-xs text-slate-400 mt-2">Solo orientativo · No constituye asesoría legal</p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="sim-footer">
+  <div class="sim-footer-top">
+    <div class="sim-footer-brand">
+      <img src="/images/logo%20horizontal%202.png" alt="Herédame">
+      <span>Herédame — mediación y gestión de herencias en Chile.</span>
+    </div>
+  </div>
+  <div class="sim-footer-bottom">
+    <div class="sim-footer-bottom-inner">
+      <span>© 2026 heredame.cl — Todos los derechos reservados.</span>
+      <a href="#">Términos de Uso y Aviso Legal</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+const S = {
+  assets: 200000000, debts: 0,
+  regime: 'community',
+  hasSpouse: true, hasChildren: true, childrenCount: 2,
+  hasParents: false, parentsCount: 2,
+  props: [],
+  hasWill: false,
+  willMode: 'auto',   // 'auto' | scenario code
+  willN: 2,           // children count for manual will scenario
+  willP: 2,           // parents count for manual will scenario
+  heirNames: {},      // { heirId: customName }
+  mejorasAlloc: {},   // { heirId: 0–100 }
+  libreAlloc: [{ name: 'Beneficencia / Tercero', pct: 100, heirId: null }],
+};
+
+let propCounter = 0;
+let intChart = null;
+let willChartInst = null;
+
+// ═══════════════════════════════════════════════════════
+// COLORS
+// ═══════════════════════════════════════════════════════
+const C = ['#C9973A','#1A2744','#2E4F8C','#4A7BBF','#6B9ED2','#8FB5E0','#A8C4E0','#3A6098','#5580B0','#7399C5','#365E96','#4A78B8','#5E92CA'];
+const LC = ['#4E9F6F','#7A5C9E','#9E5C5C','#5C7A9E','#9E7A5C','#5C9E7A']; // libre beneficiary colors
+const FISCO_C = '#94a3b8';
+
+function heirColor(h, idx) {
+  if (h.type === 'fisco') return FISCO_C;
+  if (h.type === 'spouse') return C[0];
+  if (h.type === 'child') return C[1 + (h.ci % 12)];
+  if (h.type === 'parent') return C[1 + (h.ci % 12)];
+  return C[idx % C.length];
+}
+
+// ═══════════════════════════════════════════════════════
+// FORMATTERS
+// ═══════════════════════════════════════════════════════
+function fCLP(n) { return '$' + Math.round(n).toLocaleString('es-CL'); }
+function fPct(p) { return (p * 100).toFixed(1).replace('.',',') + '%'; }
+function parseCLP(s) { return parseInt(String(s).replace(/\./g,'').replace(/\D/g,'')) || 0; }
+function fmtI(n) { return Math.round(n).toLocaleString('es-CL'); }
+
+// ═══════════════════════════════════════════════════════
+// SCENARIO DETECTION (Section 2)
+// ═══════════════════════════════════════════════════════
+function scenario() {
+  const { hasSpouse, hasChildren, childrenCount, hasParents, parentsCount } = S;
+  if (hasChildren && hasSpouse) {
+    if (childrenCount === 1) return { code:'1C1S', label:'1 hijo + cónyuge · Art. 988', art:'988' };
+    return { code:'NCS', label:`${childrenCount} hijos + cónyuge · Art. 988`, art:'988' };
+  }
+  if (hasChildren) return { code:'ONLYC', label:`${childrenCount} hijo${childrenCount>1?'s':''} · Art. 988`, art:'988' };
+  if (!hasChildren && hasSpouse && !hasParents) return { code:'ONLYS', label:'Solo cónyuge · Art. 989', art:'989' };
+  if (!hasChildren && hasSpouse && hasParents) return { code:'SP', label:`Cónyuge + ${parentsCount===1?'1 padre/madre':'padres'} · Art. 989`, art:'989' };
+  if (!hasChildren && !hasSpouse && hasParents) return { code:'ONLYP', label:`${parentsCount===1?'1 padre/madre':'Padres'} · Art. 989`, art:'989' };
+  return { code:'FISCO', label:'Sin herederos · Herencia vacante', art:null };
+}
+
+// ═══════════════════════════════════════════════════════
+// INTESTATE CALCULATION
+// ═══════════════════════════════════════════════════════
+function calc() {
+  const sc = scenario();
+  let pool = S.assets - S.debts;
+  let communityAmt = 0;
+  if (S.regime === 'community' && S.hasSpouse) {
+    communityAmt = S.assets * 0.5;
+    pool = S.assets * 0.5 - S.debts;
+  }
+  pool = Math.max(0, pool);
+  let heirs = buildHeirs(sc.code, S.childrenCount, S.parentsCount, communityAmt, pool, 's','c','p');
+  heirs = heirs.map((h,i)=>({...h, amt:pool*h.pct, color:heirColor(h,i), label:S.heirNames[h.id]||h.label}));
+  return { sc, heirs, pool, communityAmt };
+}
+
+// Build heirs array for any scenario code
+function buildHeirs(code, N, P, communityAmt, pool, sid, cid, pid) {
+  const heirs = [];
+  switch(code) {
+    case 'ONLYC':
+      for(let i=0;i<N;i++) heirs.push({id:`${cid}${i}`,label:`Hijo ${i+1}`,pct:1/N,type:'child',ci:i});
+      break;
+    case '1C1S':
+      heirs.push({id:sid,label:'Cónyuge',pct:.5,type:'spouse',ci:0,comm:communityAmt});
+      heirs.push({id:`${cid}0`,label:'Hijo 1',pct:.5,type:'child',ci:0});
+      break;
+    case 'NCS': {
+      const x=1/(N+2), t2x=2*x, sp=t2x<0.25?0.25:t2x, cp=(1-sp)/N;
+      heirs.push({id:sid,label:'Cónyuge',pct:sp,type:'spouse',ci:0,comm:communityAmt});
+      for(let i=0;i<N;i++) heirs.push({id:`${cid}${i}`,label:`Hijo ${i+1}`,pct:cp,type:'child',ci:i});
+      break;
+    }
+    case 'ONLYS':
+      heirs.push({id:sid,label:'Cónyuge',pct:1,type:'spouse',ci:0,comm:communityAmt});
+      break;
+    case 'SP': {
+      heirs.push({id:sid,label:'Cónyuge',pct:2/3,type:'spouse',ci:0,comm:communityAmt});
+      const pp=(1/3)/P;
+      for(let i=0;i<P;i++) heirs.push({id:`${pid}${i}`,label:i===0?'Padre':'Madre',pct:pp,type:'parent',ci:i});
+      break;
+    }
+    case 'ONLYP': {
+      const pp=1/P;
+      for(let i=0;i<P;i++) heirs.push({id:`${pid}${i}`,label:i===0?'Padre':'Madre',pct:pp,type:'parent',ci:i});
+      break;
+    }
+    case 'FISCO': case 'NONE':
+      if(code==='FISCO') heirs.push({id:'fisco',label:'Fisco (Estado)',pct:1,type:'fisco',ci:0});
+      break;
+  }
+  return heirs;
+}
+
+// ═══════════════════════════════════════════════════════
+// WILL HEIRS (either auto or manual scenario)
+// ═══════════════════════════════════════════════════════
+function getWillHeirs(pool, communityAmt) {
+  if (S.willMode === 'auto') {
+    const {heirs} = calc();
+    return heirs; // already has custom names applied
+  }
+  // Manual scenario — use will-specific N/P with 'w' prefix IDs
+  const raw = buildHeirs(S.willMode, S.willN, S.willP, communityAmt, pool, 'ws','wc','wp');
+  return raw.map((h,i)=>({...h, amt:pool*h.pct, color:heirColor(h,i), label:S.heirNames[h.id]||h.label}));
+}
+
+function resetMejoras() { S.mejorasAlloc = {}; }
+
+// ═══════════════════════════════════════════════════════
+// WILL CHART
+// ═══════════════════════════════════════════════════════
+function initWillChart() {
+  if (willChartInst) return;
+  const ctx = document.getElementById('willChart').getContext('2d');
+  willChartInst = new Chart(ctx, {
+    type:'doughnut',
+    data:{labels:[],datasets:[{data:[],backgroundColor:[],borderWidth:3,borderColor:'#ffffff',hoverBorderColor:'#ffffff'}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:'52%',
+      animation:{duration:350,easing:'easeInOutQuart'},
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>{
+          const tot=ctx.dataset.data.reduce((a,b)=>a+b,0);
+          const pct=tot>0?(ctx.parsed/tot*100).toFixed(1):0;
+          return ` ${ctx.label}: ${pct}% · ${fCLP(ctx.parsed)}`;
+        }}}
+      }
+    }
+  });
+}
+
+function updateWillChart(willHeirs, pool) {
+  if (!willChartInst || !S.hasWill) return;
+
+  const legits = willHeirs.filter(h=>['child','spouse','parent'].includes(h.type));
+
+  if (!legits.length) {
+    // 100% libre — show only libre alloc
+    const labels=[], data=[], colors=[];
+    let remaining = pool;
+    S.libreAlloc.forEach((it,i) => {
+      if(it.pct>0) {
+        const amt = pool*(it.pct/100);
+        labels.push(it.name||`Beneficiario ${i+1}`);
+        data.push(amt);
+        colors.push(LC[i%LC.length]);
+        remaining -= amt;
+      }
+    });
+    if(remaining > 1) { labels.push('Sin asignar'); data.push(remaining); colors.push('#e2e8f0'); }
+    willChartInst.data.labels=labels;
+    willChartInst.data.datasets[0].data=data;
+    willChartInst.data.datasets[0].backgroundColor=colors;
+    willChartInst.update();
+    // legend
+    const leg = document.getElementById('willChartLegend');
+    if(leg) leg.innerHTML = labels.map((l,i)=>`<div class="flex items-center gap-1 text-xs text-slate-600"><div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:${colors[i]}"></div><span>${l}</span></div>`).join('');
+    return;
+  }
+
+  const mitadAmt = pool*0.5, mejorasAmt = pool*0.25, libreAmt = pool*0.25;
+  const legitTotal = legits.reduce((s,h)=>s+h.pct,0);
+
+  const labels=[], data=[], colors=[];
+
+  // Each legitimario: mitad + mejoras + any libre assigned to them
+  legits.forEach(h=>{
+    const fromMitad = mitadAmt*(h.pct/legitTotal);
+    const fromMejoras = mejorasAmt*((S.mejorasAlloc[h.id]||0)/100);
+    const fromLibre = libreAmt*(S.libreAlloc.filter(it=>it.heirId===h.id).reduce((s,it)=>s+it.pct,0)/100);
+    const total = fromMitad + fromMejoras + fromLibre;
+    labels.push(S.heirNames[h.id]||h.label);
+    data.push(total);
+    colors.push(h.color);
+  });
+
+  // External libre beneficiaries only (heirId is null)
+  const libreUsedTotal = S.libreAlloc.reduce((s,it)=>s+it.pct,0);
+  let extIdx = 0;
+  S.libreAlloc.forEach((it,i)=>{
+    if(it.pct>0 && !it.heirId){
+      labels.push(it.name||`Beneficiario ${i+1}`);
+      data.push(libreAmt*(it.pct/100));
+      colors.push(LC[extIdx++%LC.length]);
+    }
+  });
+  // Unallocated libre
+  if(libreUsedTotal < 100) { labels.push('Libre sin asignar'); data.push(libreAmt*(100-libreUsedTotal)/100); colors.push('#e2e8f0'); }
+
+  // Unallocated mejoras
+  const mejorasUsed = Object.values(S.mejorasAlloc).reduce((a,b)=>a+b,0);
+  if(mejorasUsed < 100) { labels.push('Mejoras sin asignar'); data.push(mejorasAmt*(100-mejorasUsed)/100); colors.push('#f0e8d8'); }
+
+  willChartInst.data.labels=labels;
+  willChartInst.data.datasets[0].data=data;
+  willChartInst.data.datasets[0].backgroundColor=colors;
+  willChartInst.update();
+
+  // legend
+  const leg = document.getElementById('willChartLegend');
+  if(leg) leg.innerHTML = labels.map((l,i)=>`<div class="flex items-center gap-1 text-xs text-slate-600"><div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:${colors[i]}"></div><span>${l}</span></div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+// INTESTATE CHART
+// ═══════════════════════════════════════════════════════
+function initIntChart() {
+  const ctx = document.getElementById('pieChart').getContext('2d');
+  intChart = new Chart(ctx, {
+    type:'doughnut',
+    data:{labels:[],datasets:[{data:[],backgroundColor:[],borderWidth:3,borderColor:'#ffffff',hoverBorderColor:'#ffffff'}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,cutout:'52%',
+      animation:{duration:350,easing:'easeInOutQuart'},
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>{
+          const tot=ctx.dataset.data.reduce((a,b)=>a+b,0);
+          const pct=tot>0?(ctx.parsed/tot*100).toFixed(1):0;
+          return ` ${ctx.label}: ${pct}% · ${fCLP(ctx.parsed)}`;
+        }}}
+      }
+    }
+  });
+}
+
+function updateIntChart(heirs) {
+  if (!intChart) return;
+  intChart.data.labels=heirs.map(h=>h.label);
+  intChart.data.datasets[0].data=heirs.map(h=>h.amt);
+  intChart.data.datasets[0].backgroundColor=heirs.map(h=>h.color);
+  intChart.update();
+  const leg=document.getElementById('chartLegend');
+  if(leg) leg.innerHTML=heirs.map(h=>`<div class="flex items-center gap-1 text-xs text-slate-600"><div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:${h.color}"></div><span>${h.label}</span></div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+// HEIR TABLE
+// ═══════════════════════════════════════════════════════
+function renderTable(heirs, communityAmt) {
+  const el=document.getElementById('heirTable');
+  if(!heirs.length){el.innerHTML='<p class="text-xs text-slate-400 text-center py-6">Sin herederos configurados</p>';return;}
+  const rows=heirs.map((h,i)=>`
+    <tr class="${i%2===0?'bg-white':'bg-slate-50/50'}">
+      <td class="py-2 px-2 text-xs"><div class="flex items-center gap-2">
+        <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background:${h.color}"></div>
+        <span class="font-medium text-slate-700">${h.label}</span>
+      </div></td>
+      <td class="py-2 px-2 text-xs font-bold text-right" style="color:#1A2744">${fPct(h.pct)}</td>
+      <td class="py-2 px-2 text-xs text-right text-slate-600">${fCLP(h.amt)}</td>
+    </tr>`).join('');
+  const total=heirs.reduce((s,h)=>s+h.amt,0);
+  const commRow=communityAmt>0?`
+    <tr style="background:#FFF8EE;border-top:1px solid #e3c48a">
+      <td colspan="3" class="py-2 px-2 text-xs" style="color:#8B6914">
+        <strong>+</strong> Cónyuge recibe además <strong>${fCLP(communityAmt)}</strong> como cuota societaria (no hereditaria)
+      </td>
+    </tr>`:'';
+  el.innerHTML=`
+    <table class="w-full">
+      <thead><tr class="border-b border-slate-100">
+        <th class="pb-2 px-2 text-left text-xs font-medium text-slate-400">Heredero</th>
+        <th class="pb-2 px-2 text-right text-xs font-medium text-slate-400">%</th>
+        <th class="pb-2 px-2 text-right text-xs font-medium text-slate-400">Monto</th>
+      </tr></thead>
+      <tbody>${rows}${commRow}</tbody>
+      <tfoot><tr class="border-t border-slate-200">
+        <td class="pt-2 px-2 text-xs font-semibold text-slate-600">Total herencia</td>
+        <td class="pt-2 px-2 text-xs font-bold text-right" style="color:#1A2744">100%</td>
+        <td class="pt-2 px-2 text-xs font-bold text-right" style="color:#1A2744">${fCLP(total)}</td>
+      </tr></tfoot>
+    </table>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// PROPERTY RESULTS
+// ═══════════════════════════════════════════════════════
+function renderPropResults(heirs) {
+  const el=document.getElementById('propResults');
+  if(!S.props.length){el.innerHTML='';return;}
+  el.innerHTML='<p class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Participación en Inmuebles</p>'+
+  S.props.map(p=>{
+    const commu=S.regime==='community'&&S.hasSpouse;
+    const heritable=commu?p.value*0.5:p.value, directSpouse=commu?p.value*0.5:0;
+    const shares=heirs.map(h=>{const inh=heritable*h.pct,dir=h.type==='spouse'?directSpouse:0,tot=inh+dir;return{...h,inh,dir,tot,totPct:tot/p.value};});
+    const shareRows=shares.map((s,i)=>`
+      <div class="flex items-center justify-between py-1.5 ${i<shares.length-1?'border-b border-slate-50':''}">
+        <div class="flex items-center gap-1.5">
+          <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:${s.color}"></div>
+          <span class="text-xs text-slate-700">${s.label}</span>
+        </div>
+        <div class="text-right">
+          <span class="text-xs font-bold" style="color:#1A2744">${fPct(s.totPct)}</span>
+          <span class="text-xs text-slate-400 ml-1">${fCLP(s.tot)}</span>
+          ${s.dir>0?`<div style="font-size:10px;color:#C9973A">${fCLP(s.dir)} societario + ${fCLP(s.inh)} hereditario</div>`:''}
+        </div>
+      </div>`).join('');
+    return `
+      <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-4 mb-3">
+        <div class="flex items-start justify-between mb-3">
+          <div><div class="font-semibold text-sm text-slate-800">${p.name}</div><div class="text-xs text-slate-400">Avalúo: ${fCLP(p.value)}</div></div>
+          ${commu?`<span class="text-xs rounded px-2 py-0.5 font-medium" style="background:#FFF8EE;color:#C9973A">Sociedad conyugal</span>`:''}
+        </div>${shareRows}
+      </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+// WILL PANEL (config + mejoras + libre)
+// ═══════════════════════════════════════════════════════
+function renderWill(heirs, pool, communityAmt) {
+  const wp=document.getElementById('willPanel');
+  const wc=document.getElementById('willContent');
+  const wCard=document.getElementById('willChartCard');
+  const tableCard=document.getElementById('tableCard');
+
+  if(!S.hasWill){
+    wp.classList.add('hidden'); wCard.classList.add('hidden');
+    tableCard.style.gridColumn='';
+    document.getElementById('intChartTitle').textContent='Distribución Hereditaria';
+    return;
+  }
+
+  wp.classList.remove('hidden'); wCard.classList.remove('hidden');
+  tableCard.style.gridColumn='1 / -1'; // table spans full width when will chart is visible
+  document.getElementById('intChartTitle').textContent='Sin Testamento';
+
+  // Init will chart once (resize if already exists, handles hidden → visible transition)
+  initWillChart();
+  setTimeout(()=>{ if(willChartInst) willChartInst.resize(); }, 0);
+
+  const willHeirs = getWillHeirs(pool, communityAmt);
+  const legits = willHeirs.filter(h=>['child','spouse','parent'].includes(h.type));
+
+  // Clean up libre entries referencing heirs that no longer exist
+  const legitIds = new Set(legits.map(h=>h.id));
+  S.libreAlloc.forEach(it=>{ if(it.heirId && !legitIds.has(it.heirId)) it.heirId=null; });
+
+  // Update will chart
+  updateWillChart(willHeirs, pool);
+
+  if(!legits.length){
+    const libreSum=S.libreAlloc.reduce((s,i)=>s+i.pct,0);
+    wc.innerHTML=`
+      <div class="text-center py-4">
+        <div class="text-3xl mb-2">📝</div>
+        <p class="font-semibold text-slate-700 text-sm">Sin legitimarios</p>
+        <p class="text-xs text-slate-500 mt-1">La persona fallecida dispone libremente del 100% de la herencia</p>
+        <div class="mt-3 rounded-lg p-3" style="background:#1A2744">
+          <p class="font-bold text-white">100% Libre Disposición</p>
+          <p class="text-xs mt-1" style="color:#A8C4E0">${fCLP(pool)}</p>
+        </div>
+      </div>
+      <div class="mt-3 rounded-lg p-2.5 border border-blue-100 bg-blue-50">
+        ${renderLibreRows()}
+        <button onclick="addLibre()" class="text-xs text-blue-500 hover:text-blue-700 mt-1">+ Agregar beneficiario</button>
+        <div class="flex items-center justify-between mt-2 pt-1.5 border-t border-blue-100">
+          <span id="libreSum" class="text-xs text-slate-500">Total asignado: <strong>${libreSum}%</strong></span>
+          <span id="libreStatus" class="text-xs ${libreSum>100?'text-red-500':libreSum<100?'text-blue-500':'text-green-600'}">${libreSum>100?'⚠ Excede 100%':libreSum<100?`Quedan ${100-libreSum}% sin asignar`:'✓ Completo'}</span>
+        </div>
+      </div>`;
+    return;
+  }
+
+  const mitadAmt=pool*0.5, mejorasAmt=pool*0.25, libreAmt=pool*0.25;
+  const legitTotal=legits.reduce((s,h)=>s+h.pct,0);
+
+  // Init mejoras
+  initMejoras(legits);
+  const mejorasSum=Object.values(S.mejorasAlloc).reduce((a,b)=>a+b,0);
+  const libreSum=S.libreAlloc.reduce((s,i)=>s+i.pct,0);
+
+  // Mitad rows
+  const mitadRows=legits.map(h=>{
+    const p=h.pct/legitTotal;
+    return `
+      <div class="flex items-center justify-between py-1">
+        <div class="flex items-center gap-1.5">
+          <div class="w-2 h-2 rounded-full" style="background:${h.color}"></div>
+          <span class="text-xs text-slate-700">${S.heirNames[h.id]||h.label}</span>
+        </div>
+        <span class="text-xs font-semibold text-slate-700">${fPct(p)} → ${fCLP(mitadAmt*p)}</span>
+      </div>`;
+  }).join('');
+
+  // Mejoras rows (bidirectional slider + editable number input + editable name)
+  const mejorasRows=legits.map(h=>{
+    const v=S.mejorasAlloc[h.id]||0;
+    const nm=S.heirNames[h.id]||h.label;
+    const bg=`linear-gradient(to right,#C9973A ${v}%,#e2e8f0 ${v}%)`;
+    return `
+      <div class="flex items-center gap-2 py-1.5">
+        <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:${h.color}"></div>
+        <input type="text" value="${nm}" placeholder="Nombre"
+          class="text-xs border border-slate-200 rounded px-1.5 py-0.5 focus:outline-none focus:border-blue-300"
+          style="width:80px;flex-shrink:0"
+          oninput="updHeirName('${h.id}',this.value)">
+        <input type="range" id="msl_${h.id}" min="0" max="100" value="${v}"
+          style="flex:1;height:4px;${bg}"
+          oninput="updMejoras('${h.id}',+this.value,this)">
+        <input type="number" id="mnm_${h.id}" class="pct-num" style="color:#C9973A"
+          min="0" max="100" value="${v}"
+          oninput="updMejoras('${h.id}',Math.max(0,Math.min(100,+this.value||0)),this)">
+        <span class="text-xs text-slate-400">%</span>
+      </div>`;
+  }).join('');
+
+  wc.innerHTML=`<div class="space-y-5">
+
+    <!-- Mitad Legitimaria -->
+    <div>
+      <div class="flex items-center justify-between mb-1.5">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded" style="background:#1A2744"></div>
+          <span class="text-xs font-semibold text-slate-700">Mitad Legitimaria</span>
+          <span class="text-xs text-slate-400">· Intocable · Art. 1184</span>
+        </div>
+        <div>
+          <span class="text-sm font-bold" style="color:#1A2744">50%</span>
+          <span class="text-xs text-slate-400 ml-1">${fCLP(mitadAmt)}</span>
+        </div>
+      </div>
+      <div class="rounded-lg p-2.5 border border-slate-200 bg-slate-50">${mitadRows}</div>
+      <p class="text-xs text-slate-400 mt-1">Se distribuye según proporciones intestadas entre los legitimarios.</p>
+    </div>
+
+    <!-- Cuarta Mejoras -->
+    <div>
+      <div class="flex items-center justify-between mb-1.5">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded" style="background:#C9973A"></div>
+          <span class="text-xs font-semibold text-slate-700">Cuarta de Mejoras</span>
+          <span class="text-xs text-slate-400">· Solo legitimarios · Art. 1184</span>
+        </div>
+        <div>
+          <span class="text-sm font-bold" style="color:#C9973A">25%</span>
+          <span class="text-xs text-slate-400 ml-1">${fCLP(mejorasAmt)}</span>
+        </div>
+      </div>
+      <div class="rounded-lg p-2.5 border" style="background:#FFF8EE;border-color:#e3c48a">
+        ${mejorasRows}
+        <div class="flex items-center justify-between mt-2 pt-1.5 border-t" style="border-color:#e3c48a">
+          <span id="mejorasSum" class="text-xs text-slate-500">Total asignado: <strong>${mejorasSum}%</strong></span>
+          <span id="mejorasStatus" class="text-xs ${mejorasSum>100?'text-red-500':mejorasSum<100?'text-amber-600':'text-green-600'}">${mejorasSum>100?'⚠ Excede 100%':mejorasSum<100?`Quedan ${100-mejorasSum}% sin asignar`:'✓ Completo'}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuarta Libre -->
+    <div>
+      <div class="flex items-center justify-between mb-1.5">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded" style="background:#2E4F8C"></div>
+          <span class="text-xs font-semibold text-slate-700">Cuarta de Libre Disposición</span>
+          <span class="text-xs text-slate-400">· Cualquier persona · Art. 1184</span>
+        </div>
+        <div>
+          <span class="text-sm font-bold" style="color:#2E4F8C">25%</span>
+          <span class="text-xs text-slate-400 ml-1">${fCLP(libreAmt)}</span>
+        </div>
+      </div>
+      <div class="rounded-lg p-2.5 border border-blue-100 bg-blue-50">
+        ${renderLibreRows(legits)}
+        <button onclick="addLibre()" class="text-xs text-blue-500 hover:text-blue-700 mt-1">+ Agregar beneficiario</button>
+        <div class="flex items-center justify-between mt-2 pt-1.5 border-t border-blue-100">
+          <span id="libreSum" class="text-xs text-slate-500">Total asignado: <strong>${libreSum}%</strong></span>
+          <span id="libreStatus" class="text-xs ${libreSum>100?'text-red-500':libreSum<100?'text-blue-500':'text-green-600'}">${libreSum>100?'⚠ Excede 100%':libreSum<100?`Quedan ${100-libreSum}% sin asignar`:'✓ Completo'}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>`;
+}
+
+function renderLibreRows(legits=[]) {
+  return S.libreAlloc.map((it,idx)=>{
+    const v=it.pct;
+    const heir = legits.find(h=>h.id===it.heirId);
+    const dotColor = heir ? heir.color : '#2E4F8C';
+    const bg=`linear-gradient(to right,${dotColor} ${v}%,#e2e8f0 ${v}%)`;
+
+    // Dropdown to pick heir or external beneficiary (only when there are legits)
+    let selectHtml='';
+    if(legits.length){
+      const opts=[
+        `<option value="" ${!it.heirId?'selected':''}>Persona externa</option>`,
+        ...legits.map(h=>`<option value="${h.id}" ${it.heirId===h.id?'selected':''}>${S.heirNames[h.id]||h.label}</option>`)
+      ].join('');
+      selectHtml=`<select onchange="updLibreHeir(${idx},this.value)"
+        class="text-xs border border-slate-200 rounded px-1.5 py-0.5 bg-white focus:outline-none focus:border-blue-300"
+        style="max-width:110px;flex-shrink:0">${opts}</select>`;
+    }
+
+    // Name input only for external beneficiaries
+    const nameHtml = !heir
+      ? `<input type="text" value="${it.name}" placeholder="Nombre del beneficiario"
+          class="flex-1 text-xs border border-slate-200 rounded px-2 py-1 focus:outline-none focus:border-blue-300 bg-white min-w-0"
+          oninput="updLibreName(${idx},this.value)">`
+      : '';
+
+    return `
+      <div class="flex items-center gap-1.5 mb-1.5 flex-wrap">
+        <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:${dotColor}"></div>
+        ${selectHtml}${nameHtml}
+        <input type="range" id="lsl_${idx}" min="0" max="100" value="${v}"
+          style="width:60px;height:4px;flex-shrink:0;${bg}"
+          oninput="updLibrePct(${idx},+this.value,this)">
+        <input type="number" id="lnm_${idx}" class="pct-num" style="color:${dotColor}"
+          min="0" max="100" value="${v}"
+          oninput="updLibrePct(${idx},Math.max(0,Math.min(100,+this.value||0)),this)">
+        <span class="text-xs text-slate-400">%</span>
+        ${S.libreAlloc.length>1?`<button onclick="rmLibre(${idx})" class="text-slate-300 hover:text-red-400 text-xs flex-shrink-0">✕</button>`:''}
+      </div>`;
+  }).join('');
+}
+
+function initMejoras(legits) {
+  const ids=new Set(legits.map(h=>h.id));
+  Object.keys(S.mejorasAlloc).forEach(k=>{if(!ids.has(k))delete S.mejorasAlloc[k];});
+  legits.forEach(h=>{if(!(h.id in S.mejorasAlloc))S.mejorasAlloc[h.id]=0;});
+  if(legits.length&&Object.values(S.mejorasAlloc).reduce((a,b)=>a+b,0)===0)
+    S.mejorasAlloc[legits[0].id]=100;
+}
+
+// ═══════════════════════════════════════════════════════
+// SURGICAL UPDATES (no focus loss)
+// ═══════════════════════════════════════════════════════
+function updMejoras(id, val, src) {
+  const v=Math.max(0,Math.min(100,val));
+  S.mejorasAlloc[id]=v;
+
+  const sl=document.getElementById(`msl_${id}`);
+  if(sl&&sl!==src){sl.value=v;}
+  if(sl) sl.style.background=`linear-gradient(to right,#C9973A ${v}%,#e2e8f0 ${v}%)`;
+
+  const nm=document.getElementById(`mnm_${id}`);
+  if(nm&&nm!==src) nm.value=v;
+
+  const sum=Object.values(S.mejorasAlloc).reduce((a,b)=>a+b,0);
+  const sumEl=document.getElementById('mejorasSum');
+  if(sumEl) sumEl.innerHTML=`Total asignado: <strong>${sum}%</strong>`;
+  const statEl=document.getElementById('mejorasStatus');
+  if(statEl){statEl.textContent=sum>100?'⚠ Excede 100%':sum<100?`Quedan ${100-sum}% sin asignar`:'✓ Completo';statEl.className=`text-xs ${sum>100?'text-red-500':sum<100?'text-amber-600':'text-green-600'}`;}
+
+  // Update will chart surgically
+  const {pool,communityAmt}=calc();
+  updateWillChart(getWillHeirs(pool,communityAmt),pool);
+}
+
+function updLibrePct(idx, val, src) {
+  const v=Math.max(0,Math.min(100,val));
+  S.libreAlloc[idx].pct=v;
+
+  const sl=document.getElementById(`lsl_${idx}`);
+  if(sl&&sl!==src) sl.value=v;
+  if(sl) sl.style.background=`linear-gradient(to right,#2E4F8C ${v}%,#e2e8f0 ${v}%)`;
+
+  const nm=document.getElementById(`lnm_${idx}`);
+  if(nm&&nm!==src) nm.value=v;
+
+  const sum=S.libreAlloc.reduce((s,i)=>s+i.pct,0);
+  const sumEl=document.getElementById('libreSum');
+  if(sumEl) sumEl.innerHTML=`Total asignado: <strong>${sum}%</strong>`;
+  const statEl=document.getElementById('libreStatus');
+  if(statEl){statEl.textContent=sum>100?'⚠ Excede 100%':sum<100?`Quedan ${100-sum}% sin asignar`:'✓ Completo';statEl.className=`text-xs ${sum>100?'text-red-500':sum<100?'text-blue-500':'text-green-600'}`;}
+
+  const {pool,communityAmt}=calc();
+  updateWillChart(getWillHeirs(pool,communityAmt),pool);
+}
+
+function updLibreName(idx, name) {
+  S.libreAlloc[idx].name=name;
+  const {pool,communityAmt}=calc();
+  updateWillChart(getWillHeirs(pool,communityAmt),pool);
+}
+
+function updLibreHeir(idx, heirId) {
+  S.libreAlloc[idx].heirId=heirId||null;
+  if(!heirId) S.libreAlloc[idx].name=S.libreAlloc[idx].name||'';
+  const {heirs,pool,communityAmt}=calc();
+  renderWill(heirs,pool,communityAmt);
+}
+
+function updHeirName(id, name) {
+  S.heirNames[id]=name;
+  // Update heir table + int chart labels without full re-render
+  const {heirs,pool,communityAmt}=calc();
+  updateIntChart(heirs);
+  renderTable(heirs,communityAmt);
+  updateWillChart(getWillHeirs(pool,communityAmt),pool);
+}
+
+function addLibre(){S.libreAlloc.push({name:'',pct:0,heirId:null});const{heirs,pool,communityAmt}=calc();renderWill(heirs,pool,communityAmt);}
+function rmLibre(idx){S.libreAlloc.splice(idx,1);const{heirs,pool,communityAmt}=calc();renderWill(heirs,pool,communityAmt);}
+
+// ═══════════════════════════════════════════════════════
+// WILL SCENARIO OVERRIDE
+// ═══════════════════════════════════════════════════════
+const WILL_SCEN_META = {
+  auto: {hasN:false,hasP:false},
+  '1C1S':{hasN:false,hasP:false},
+  NCS:  {hasN:true, hasP:false},
+  ONLYC:{hasN:true, hasP:false},
+  ONLYS:{hasN:false,hasP:false},
+  SP:   {hasN:false,hasP:true},
+  ONLYP:{hasN:false,hasP:true},
+  NONE: {hasN:false,hasP:false},
+};
+
+function updWillScenario(val) {
+  S.willMode=val;
+  S.mejorasAlloc={};
+  const meta=WILL_SCEN_META[val]||{};
+  const cfgDiv=document.getElementById('willScenCfg');
+  cfgDiv.classList.toggle('hidden', val==='auto');
+  document.getElementById('willNRow').classList.toggle('hidden', !meta.hasN);
+  document.getElementById('willPRow').classList.toggle('hidden', !meta.hasP);
+  update();
+}
+
+function chgWill(type, delta) {
+  if(type==='N'){
+    S.willN=Math.max(1,Math.min(12,S.willN+delta));
+    document.getElementById('dispWillN').textContent=S.willN;
+    S.mejorasAlloc={};
+  }
+  update();
+}
+
+// ═══════════════════════════════════════════════════════
+// MASTER UPDATE
+// ═══════════════════════════════════════════════════════
+function update() {
+  const {sc,heirs,pool,communityAmt}=calc();
+
+  // Badges
+  document.getElementById('scenBadge').textContent=sc.label;
+  document.getElementById('lawBadge').textContent=sc.art?`LEY 19.585 · Art. ${sc.art}`:'';
+
+  // Community notice
+  const cn=document.getElementById('commNotice');
+  if(communityAmt>0){
+    cn.classList.remove('hidden');
+    document.getElementById('commText').textContent=` El/la cónyuge ya es titular de ${fCLP(communityAmt)} (50% del patrimonio total) como cuota de la sociedad conyugal. La masa hereditaria se calcula sobre los ${fCLP(pool)} restantes.`;
+  } else cn.classList.add('hidden');
+
+  updateIntChart(heirs);
+  renderTable(heirs,communityAmt);
+  renderPropResults(heirs);
+  renderWill(heirs,pool,communityAmt);
+
+  // Parents/siblings visibility
+  const noKids=!S.hasChildren;
+  document.getElementById('parentsWrap').classList.toggle('hidden',!noKids);
+  document.getElementById('noHeirsNote').classList.toggle('hidden',!noKids||S.hasParents);
+}
+
+// ═══════════════════════════════════════════════════════
+// PROPERTY MANAGEMENT
+// ═══════════════════════════════════════════════════════
+function addProp(){const id=`p${++propCounter}`;S.props.push({id,name:`Inmueble ${propCounter}`,value:50000000});renderPropList();update();}
+function rmProp(id){S.props=S.props.filter(p=>p.id!==id);renderPropList();update();}
+function updProp(id,f,v){const p=S.props.find(x=>x.id===id);if(p){p[f]=f==='value'?parseCLP(v):v;update();}}
+
+function renderPropList(){
+  document.getElementById('propList').innerHTML=S.props.map(p=>`
+    <div class="border border-slate-200 rounded-lg p-2.5 mb-2 bg-white">
+      <div class="flex gap-2 mb-1.5">
+        <input type="text" value="${p.name}" placeholder="Nombre"
+          class="flex-1 text-xs border border-slate-200 rounded px-2 py-1 focus:outline-none focus:border-blue-300"
+          oninput="updProp('${p.id}','name',this.value)">
+        <button onclick="rmProp('${p.id}')" class="text-slate-300 hover:text-red-400 text-xs px-1">✕</button>
+      </div>
+      <div class="flex items-center gap-1">
+        <span class="text-xs text-slate-400">$</span>
+        <input type="text" value="${fmtI(p.value)}" placeholder="Avalúo"
+          class="flex-1 text-xs border border-slate-200 rounded px-2 py-1 focus:outline-none focus:border-blue-300"
+          oninput="updProp('${p.id}','value',this.value)">
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+// STEPPER
+// ═══════════════════════════════════════════════════════
+function chg(type,delta){
+  if(type==='children'){
+    S.childrenCount=Math.max(1,Math.min(12,S.childrenCount+delta));
+    document.getElementById('dispChildren').textContent=S.childrenCount;
+    if(S.willMode==='auto') S.mejorasAlloc={};
+  }
+  update();
+}
+
+// ═══════════════════════════════════════════════════════
+// EVENT SETUP
+// ═══════════════════════════════════════════════════════
+function setup(){
+  const inA=document.getElementById('inAssets'), slA=document.getElementById('slAssets');
+  inA.addEventListener('input',()=>{S.assets=parseCLP(inA.value);if(slA)slA.value=S.assets;update();});
+  inA.addEventListener('blur',()=>{inA.value=fmtI(S.assets);});
+  if(slA) slA.addEventListener('input',function(){S.assets=+this.value;inA.value=fmtI(S.assets);update();});
+
+  const inD=document.getElementById('inDebts');
+  inD.addEventListener('input',()=>{S.debts=parseCLP(inD.value);update();});
+  inD.addEventListener('blur',()=>{inD.value=fmtI(S.debts);});
+
+  document.getElementById('ckProp').addEventListener('change',function(){document.getElementById('propSection').classList.toggle('hidden',!this.checked);update();});
+
+  document.getElementById('ckSpouse').addEventListener('change',function(){
+    S.hasSpouse=this.checked;
+    document.getElementById('regimeDiv').style.opacity=this.checked?'1':'0.4';
+    if(S.willMode==='auto') S.mejorasAlloc={};
+    update();
+  });
+
+  document.querySelectorAll('input[name="regime"]').forEach(r=>r.addEventListener('change',function(){S.regime=this.value;update();}));
+
+  document.getElementById('ckChildren').addEventListener('change',function(){
+    S.hasChildren=this.checked;
+    document.getElementById('childrenDiv').classList.toggle('hidden',!this.checked);
+    if(!this.checked){S.hasParents=false;document.getElementById('ckParents').checked=false;document.getElementById('parentsDiv').classList.add('hidden');}
+    if(S.willMode==='auto') S.mejorasAlloc={};
+    update();
+  });
+
+  document.getElementById('ckParents').addEventListener('change',function(){
+    S.hasParents=this.checked;
+    document.getElementById('parentsDiv').classList.toggle('hidden',!this.checked);
+    if(S.willMode==='auto') S.mejorasAlloc={};
+    update();
+  });
+
+  document.querySelectorAll('input[name="parents"]').forEach(r=>r.addEventListener('change',function(){S.parentsCount=+this.value;if(S.willMode==='auto')S.mejorasAlloc={};update();}));
+
+  document.getElementById('ckWill').addEventListener('change',function(){
+    S.hasWill=this.checked;
+    document.getElementById('willModeDiv').classList.toggle('hidden',!this.checked);
+    update();
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded',()=>{
+  initIntChart();
+  setup();
+  update();
+});
+</script>
+
+<script>
+// Mobile navigation for the static site header.
+(function(){
+  var toggle = document.querySelector('.sim-menu-toggle');
+  var nav = document.getElementById('sim-site-nav');
+  if(!toggle || !nav) return;
+
+  function closeMenu(){
+    toggle.classList.remove('open');
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Abrir menú');
+  }
+
+  toggle.addEventListener('click',function(){
+    var isOpen = !nav.classList.contains('open');
+    toggle.classList.toggle('open',isOpen);
+    nav.classList.toggle('open',isOpen);
+    toggle.setAttribute('aria-expanded',String(isOpen));
+    toggle.setAttribute('aria-label',isOpen ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  nav.querySelectorAll('a').forEach(function(link){ link.addEventListener('click',closeMenu); });
+  document.addEventListener('keydown',function(event){ if(event.key === 'Escape') closeMenu(); });
+})();
+
+// Embed-mode detection: hide header when inside an iframe or ?embed param
+(function(){
+  var isEmbed = window.self !== window.top || /[?&]embed/.test(window.location.search);
+  if(isEmbed){
+    var hdr = document.getElementById('sim-header');
+    var spl = document.getElementById('sim-split');
+    if(hdr) hdr.style.display = 'none';
+    if(spl) spl.style.height = '100vh';
+    var ni = document.createElement('meta');
+    ni.name = 'robots'; ni.content = 'noindex';
+    document.head.appendChild(ni);
+  } else {
+    var cta = document.getElementById('sim-cta');
+    if(cta) cta.style.display = 'block';
+  }
+})();
+
+function goToForm() {
+  // Map simulator regime to form marriageRegime value
+  const regimeMap = { community: 'sociedad_conyugal', separation: 'separacion_bienes', participation: 'participacion_gananciales' };
+
+  // Build children array from simulator state
+  const children = S.hasChildren
+    ? Array.from({ length: S.childrenCount }, (_, i) => ({
+        fullName: S.heirNames['c' + i] || ('Hijo ' + (i + 1)),
+        isAlive: true,
+        numberOfHeirs: null
+      }))
+    : [];
+
+  // Build parents array
+  const parents = S.hasParents
+    ? Array.from({ length: S.parentsCount }, (_, i) => ({
+        fullName: S.heirNames['p' + i] || (i === 0 ? 'Padre' : 'Madre'),
+        isAlive: true
+      }))
+    : [];
+
+  const prefill = {
+    deceased: {
+      civilStatus: S.hasSpouse ? 'casado' : 'soltero'
+    },
+    marriage: {
+      hasMarriage: S.hasSpouse,
+      spouseName: S.heirNames['s'] || (S.hasSpouse ? 'Cónyuge' : ''),
+      marriageRegime: regimeMap[S.regime] || ''
+    },
+    testament: {
+      hasWill: S.hasWill
+    },
+    heirs: {
+      spouse: S.hasSpouse ? { fullName: S.heirNames['s'] || 'Cónyuge', isAlive: true } : null,
+      children,
+      parents,
+      siblings: []
+    },
+    assetTypesSelected: {
+      realEstate: S.props.length > 0,
+      vehicles: false,
+      bankAccounts: false,
+      otherAssets: false,
+      debts: S.debts > 0
+    }
+  };
+
+  try {
+    sessionStorage.setItem('heredame_sim_prefill', JSON.stringify(prefill));
+  } catch (e) { /* sessionStorage unavailable — navigate anyway */ }
+
+  window.location.href = '/formulario.html';
+}
+</script>
+</body>
+</html>
