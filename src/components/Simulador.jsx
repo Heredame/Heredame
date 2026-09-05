@@ -253,10 +253,10 @@ function Simulador() {
           <h2>{t.simulador.title}</h2>
           <p>{t.simulador.subtitle}</p>
           <div className="simulador-actions">
-            <a href="#reservar" className="btn btn--primary">
+            <a href="/formulario.html" className="btn btn--primary">
               {t.simulador.ctaPrimary}
             </a>
-            <a href="#contacto" className="btn btn--secondary">
+            <a href="/#reservar" className="btn btn--secondary">
               {t.simulador.ctaSecondary}
             </a>
           </div>

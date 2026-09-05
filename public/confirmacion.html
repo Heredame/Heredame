@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud Recibida - Herédame</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- TailwindCSS (CLI build) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap"></noscript>
+
+  <style>
+    body {
+      font-family: 'Red Hat Text', sans-serif;
+    }
+
+    .success-checkmark {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+    }
+
+    .checkmark-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: #0D1741;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+
+    .checkmark {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 2;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      margin: 10% auto;
+      box-shadow: inset 0px 0px 0px #0D1741;
+      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+
+    .checkmark-check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes scale {
+      0%, 100% {
+        transform: none;
+      }
+      50% {
+        transform: scale3d(1.1, 1.1, 1);
+      }
+    }
+
+    @keyframes fill {
+      100% {
+        box-shadow: inset 0px 0px 0px 30px #0D1741;
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: .5;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-cream min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4 py-4">
+      <a href="/" class="flex items-center gap-2">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="8" fill="#0D1741"/>
+          <rect x="8" y="8" width="6" height="20" rx="1.5" fill="#5a7db0"/>
+          <rect x="22" y="8" width="6" height="20" rx="1.5" fill="#5a7db0"/>
+          <rect x="8" y="15.5" width="20" height="5" rx="1.5" fill="#5a7db0"/>
+        </svg>
+        <span class="text-xl font-bold text-primary-600 tracking-tight">Herédame</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-16 max-w-3xl">
+
+    <!-- Success Animation -->
+    <div class="success-checkmark mb-8">
+      <div class="checkmark-circle">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="text-center mb-12 fade-in">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        ¡Solicitud Recibida!
+      </h1>
+      <p class="text-xl text-gray-600">
+        Tu formulario ha sido enviado correctamente
+      </p>
+    </div>
+
+    <!-- Information Card -->
+    <div class="bg-white rounded-xl shadow-lg p-8 mb-8 fade-in" style="animation-delay: 0.3s;">
+      <div class="space-y-6">
+
+        <!-- Form ID -->
+        <div class="border-b border-gray-200 pb-6">
+          <p class="text-sm text-gray-600 mb-2">Número de Solicitud</p>
+          <p class="text-2xl font-bold text-primary-600" id="form-id">-</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="bg-primary-50 border border-primary-200 rounded-lg p-6">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-primary-900 mb-2">
+                Tu Informe Estará Listo en 3-4 Horas
+              </h3>
+              <p class="text-primary-800 mb-3">
+                Nuestro equipo está procesando tu solicitud. Recibirás tu informe de herencia personalizado en el correo electrónico que proporcionaste.
+              </p>
+              <p class="text-sm text-primary-700">
+                <strong>Email de contacto:</strong> <span id="contact-email">-</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- What's Next -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">¿Qué Sigue?</h3>
+          <ol class="space-y-3">
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
+              <span class="text-gray-700">Revisaremos tu comprobante de pago y la información proporcionada</span>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
+              <span class="text-gray-700">Generaremos tu informe de herencia personalizado</span>
+            </li>
+            <li class="flex items-start">
+              <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm mr-3">3</span>
+              <span class="text-gray-700">Enviaremos el informe a tu correo en formato PDF</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Email Check Reminder -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div class="flex items-start space-x-3">
+            <svg class="w-5 h-5 text-yellow-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <div>
+              <p class="text-sm font-medium text-yellow-800 mb-1">Revisa tu bandeja de spam</p>
+              <p class="text-xs text-yellow-700">A veces los correos automáticos pueden llegar a la carpeta de spam. Si no ves nuestro email, revisa allí también.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Help Section -->
+    <div class="bg-white rounded-xl shadow-lg p-8 fade-in" style="animation-delay: 0.6s;">
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">¿Necesitas Ayuda?</h3>
+      <div class="space-y-4">
+        <p class="text-sm text-gray-600 mb-4">
+          Si tienes alguna pregunta sobre tu informe o necesitas asesoría legal adicional, nuestro equipo está disponible para ayudarte.
+        </p>
+        <a href="/asesores-legales.html"
+           class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-300 hover:shadow-lg">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          Contáctanos
+        </a>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-12 text-center space-y-4">
+      <a href="/" class="inline-block px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors shadow-lg">
+        Volver al Inicio
+      </a>
+      <p class="text-sm text-gray-600">
+        ¿Preguntas? Revisa nuestras <a href="/preguntas-frecuentes.html" class="text-primary-600 hover:text-primary-700">Preguntas Frecuentes</a>
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-600 text-sm">
+    <p>&copy; 2026 Herédame SpA. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- JavaScript to get form ID from URL -->
+  <script>
+    // Get form ID from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const formId = urlParams.get('id');
+    const email = urlParams.get('email');
+
+    // Redirect if accessed directly without submission params
+    if (!formId && !email) {
+      window.location.replace('/formulario.html');
+    }
+
+    // Display form ID
+    if (formId) {
+      document.getElementById('form-id').textContent = formId;
+    }
+
+    // Display contact email
+    if (email) {
+      document.getElementById('contact-email').textContent = email;
+    }
+
+    // Clear localStorage
+    localStorage.removeItem('heredame_form_data');
+    localStorage.removeItem('heredame_current_step');
+    localStorage.removeItem('heredame_selected_tier');
+  </script>
+
+</body>
+</html>

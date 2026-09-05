@@ -2642,6 +2642,53 @@
   margin: 0;
 }
 
+.terms-consent {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.terms-consent-label {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.5;
+  color: var(--muted) !important;
+  cursor: pointer;
+}
+
+.terms-consent-label input {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  margin: 2px 0 0;
+  accent-color: var(--navy);
+}
+
+.terms-consent-label a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terms-error {
+  color: #c62828;
+  font-size: 13px;
+}
+
+.legal-page {
+  flex: 1;
+  min-height: 58vh;
+  padding: 150px 0 96px;
+}
+
+.legal-page h1 {
+  margin-bottom: 16px;
+}
+
 @media (max-width: 860px) {
   .contacto-grid {
     grid-template-columns: 1fr;

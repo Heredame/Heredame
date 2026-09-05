@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-function Header() {
+function Header({ isLegalPage = false }) {
   const { lang, toggleLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,11 +23,16 @@ function Header() {
     { href: "#preguntas", label: t.nav.preguntas },
     { href: "#contacto", label: t.nav.contacto },
   ];
+  const getNavHref = (href) => (isLegalPage ? `/${href}` : href);
 
   return (
     <header id="site-header" className={scrolled ? "scrolled" : ""}>
       <div className="wrap header-row">
-        <a href="#inicio" className="logo" onClick={() => setMenuOpen(false)}>
+        <a
+          href={isLegalPage ? "/#inicio" : "#inicio"}
+          className="logo"
+          onClick={() => setMenuOpen(false)}
+        >
           <img
             className="site-logo site-logo--header"
             src="/images/logo%20horizontal%202.png"
@@ -43,7 +48,7 @@ function Header() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={getNavHref(link.href)}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}

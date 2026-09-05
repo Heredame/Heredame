@@ -17,10 +17,12 @@ function Contacto() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({
     phone: "",
     email: "",
     message: "",
+    terms: "",
   });
 
   useEffect(() => {
@@ -64,6 +66,7 @@ function Contacto() {
       phone: "",
       email: "",
       message: "",
+      terms: "",
     };
 
     if (!trimmedName) {
@@ -114,7 +117,21 @@ function Contacto() {
       };
     }
 
-    if (trimmedEmail && !emailRegex.test(trimmedEmail)) {
+    if (!trimmedEmail) {
+      nextFieldErrors.email =
+        lang === "en"
+          ? "Email is required."
+          : "El correo electrónico es obligatorio.";
+      return {
+        message:
+          lang === "en"
+            ? "Please enter your email address."
+            : "Debes ingresar tu correo electrónico.",
+        fieldErrors: nextFieldErrors,
+      };
+    }
+
+    if (!emailRegex.test(trimmedEmail)) {
       nextFieldErrors.email =
         lang === "en"
           ? "Enter a valid email, e.g. name@example.com"
@@ -124,6 +141,15 @@ function Contacto() {
           lang === "en"
             ? "Please enter a valid email address."
             : "Ingresa un correo electrónico válido.",
+        fieldErrors: nextFieldErrors,
+      };
+    }
+
+    if (!termsAccepted) {
+      nextFieldErrors.terms =
+        "Debes aceptar los Términos y Condiciones para continuar.";
+      return {
+        message: "Debes aceptar los Términos y Condiciones para continuar.",
         fieldErrors: nextFieldErrors,
       };
     }
@@ -141,17 +167,19 @@ function Contacto() {
     const validationResult = validateForm();
     if (validationResult.message) {
       setSuccessMessage("");
-      setErrorMessage(validationResult.message);
+      setErrorMessage(
+        validationResult.fieldErrors.terms ? "" : validationResult.message,
+      );
       setFieldErrors(validationResult.fieldErrors);
       return;
     }
 
-    setFieldErrors({ phone: "", email: "", message: "" });
+    setFieldErrors({ phone: "", email: "", message: "", terms: "" });
 
     setIsSubmitting(true);
     setErrorMessage("");
     setSuccessMessage("");
-    setFieldErrors({ phone: "", email: "", message: "" });
+    setFieldErrors({ phone: "", email: "", message: "", terms: "" });
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -181,6 +209,7 @@ function Contacto() {
       );
       setErrorMessage("");
       setFormData(emptyForm);
+      setTermsAccepted(false);
     } catch (error) {
       console.error("EmailJS error:", error);
       setErrorMessage(
@@ -224,6 +253,7 @@ function Contacto() {
                   value={formData.name}
                   onChange={handleChange}
                   autoComplete="name"
+                  required
                 />
               </label>
               <label>
@@ -270,6 +300,7 @@ function Contacto() {
                 value={formData.email}
                 onChange={handleChange}
                 autoComplete="email"
+                required
               />
             </label>
             <label>
@@ -291,6 +322,7 @@ function Contacto() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder={t.contacto.form.messagePlaceholder}
+                required
               />
             </label>
 
@@ -312,6 +344,34 @@ function Contacto() {
                 tabIndex={-1}
                 autoComplete="off"
               />
+            </div>
+
+            <div className="terms-consent">
+              <label className="terms-consent-label" htmlFor="termsAccepted">
+                <input
+                  id="termsAccepted"
+                  name="termsAccepted"
+                  type="checkbox"
+                  checked={termsAccepted}
+                  required
+                  onChange={(event) => {
+                    setTermsAccepted(event.target.checked);
+                    if (event.target.checked) {
+                      setFieldErrors((current) => ({ ...current, terms: "" }));
+                    }
+                  }}
+                  aria-describedby={fieldErrors.terms ? "terms-error" : undefined}
+                />
+                <span>
+                  Acepto los <a href="/terminos">Términos</a> y{" "}
+                  <a href="/condiciones">Condiciones</a>.
+                </span>
+              </label>
+              {fieldErrors.terms && (
+                <small id="terms-error" className="terms-error" role="alert">
+                  {fieldErrors.terms}
+                </small>
+              )}
             </div>
 
             <button

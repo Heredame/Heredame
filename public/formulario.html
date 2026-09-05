@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="cache-control" content="no-cache">
+  <meta name="expires" content="0">
+  <meta name="pragma" content="no-cache">
+  <meta name="version" content="2.4.3">
+  <title>Formulario de Herencia - Herédame</title>
+  <link rel="canonical" href="https://heredame.cl/formulario.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://heredame.cl/formulario.html">
+  <meta property="og:title" content="Solicitar Informe de Herencia — Herédame">
+  <meta property="og:description" content="Completa el formulario para obtener tu informe de herencia personalizado en minutos. Proceso seguro y confidencial.">
+  <meta property="og:image" content="https://heredame.cl/images/hero-image.jpg">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="Herédame">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- TailwindCSS (CLI build) -->
+  <link rel="stylesheet" href="/css/tailwind.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap"></noscript>
+
+  <style>
+    body {
+      font-family: 'Red Hat Text', sans-serif;
+    }
+
+    .form-section {
+      min-height: 500px;
+    }
+
+    .input-field {
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #0D1741;
+      box-shadow: 0 0 0 3px rgba(13, 23, 65, 0.1);
+    }
+
+    /* Safari-specific fixes for select elements */
+    select.input-field {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1.25em 1.25em;
+      padding-right: 2.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3d5f96 0%, #0D1741 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(13, 23, 65, 0.3);
+    }
+
+    .btn-secondary {
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f3f4f6;
+    }
+
+    .progress-bar {
+      transition: width 0.4s ease;
+    }
+
+    .error-message {
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .file-preview-img {
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    /* Shared static header from simulador.html. */
+    #sim-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      min-height: 56px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #33414c;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e9edf1;
+      box-shadow: 0 8px 24px -20px rgba(13, 28, 48, 0.3);
+    }
+    .sim-header-row {
+      min-height: 56px;
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr) minmax(220px, 280px);
+      align-items: center;
+      gap: clamp(14px, 2vw, 28px);
+      padding: 0 clamp(20px, 4vw, 56px);
+    }
+    .sim-header-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .sim-header-logo img { display: block; width: auto; height: 68px; max-width: 350px; object-fit: contain; }
+    .sim-site-nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 1.35vw, 22px); min-width: 0; }
+    .sim-site-nav a { font-size: clamp(12px, .92vw, 14px); font-weight: 600; color: #33414c; white-space: nowrap; transition: color .15s ease; text-decoration: none; }
+    .sim-site-nav a:hover { color: #6f9bbd; }
+    .sim-header-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(8px, 1.2vw, 14px); min-width: 0; }
+    .sim-header-cta { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; padding: 9px 18px; background: #2b4863; color: #fff; font: 700 14px "Inter", sans-serif; white-space: nowrap; box-shadow: 0 18px 40px -28px rgba(31, 55, 76, .22); cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+    .sim-header-cta:hover { transform: translateY(-2px); }
+    .sim-mobile-form-button, .sim-back-link { display: none; }
+    .sim-menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: 0; cursor: pointer; }
+    .sim-menu-toggle span { display: block; width: 100%; height: 2px; background: #2b4863; border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+    .sim-menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .sim-menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .sim-menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .form-page-main { padding-top: 96px !important; }
+    .sim-footer { background: #fff; border-top: 1px solid #e9edf1; }
+    .sim-footer-top { display: flex; align-items: center; justify-content: center; padding: 22px 24px 18px; text-align: center; }
+    .sim-footer-brand { display: flex; align-items: center; justify-content: center; gap: 14px; color: #2b4863; font-weight: 700; }
+    .sim-footer-brand img { display: block; width: auto; height: 58px; max-width: 272px; object-fit: contain; }
+    .sim-footer-bottom { background: radial-gradient(circle at 20% 0%, rgba(111,155,189,.3), transparent 30%), linear-gradient(135deg, #2b4863, #233d56); }
+    .sim-footer-bottom-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 24px; padding: 14px 24px; color: rgba(255,255,255,.72); font-size: 13px; text-align: center; }
+    .sim-footer-bottom a { color: #fff; text-decoration: none; }
+    @media (max-width: 1120px) {
+      .sim-header-row { display: flex; justify-content: space-between; }
+      .sim-site-nav { position: fixed; top: 56px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 24px 24px; border-bottom: 1px solid #e9edf1; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+      .sim-site-nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      .sim-site-nav a { width: 100%; padding: 10px 0; }
+      .sim-header-cta { display: none; }
+      .sim-site-nav .sim-mobile-form-button { display: inline-flex; width: 100%; margin-top: 8px; padding: 12px 18px; color: #fff; }
+      .sim-menu-toggle { display: flex; }
+      .sim-header-logo img { height: 58px; max-width: 300px; }
+      .sim-back-link { display: block; width: 100%; margin-top: 6px; padding-top: 14px !important; border-top: 1px solid #e9edf1; color: #6b7684 !important; }
+    }
+    @media (max-width: 620px) { .sim-footer-brand { flex-direction: column; gap: 10px; } }
+  </style>
+
+  <!-- Firebase SDK -->
+  <!-- Site Configuration - Load FIRST -->
+  <script src="/js/site-config.js?v=2.5.2"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+  <!-- Firebase Configuration -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBc_W8YGAFMS9h2yJ5BnRPPZJRvebvEuxE",
+      authDomain: "heredame.firebaseapp.com",
+      projectId: "heredame",
+      storageBucket: "heredame.firebasestorage.app",
+      messagingSenderId: "276407465575",
+      appId: "1:276407465575:web:9cbe251babcc9fa4b346c2"
+    };
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Application Scripts (site-config.js already loaded above) -->
+  <script src="/js/form-data.js?v=2.4.8"></script>
+  <script src="/js/file-upload.js?v=2.4.8"></script>
+  <script src="/js/form-controller-mvp.js?v=2.4.8"></script>
+
+  <!-- Petite-Vue -->
+  <script src="https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init></script>
+
+  <!-- Helper Functions -->
+  <script>
+    // Format file size for display
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    // Format date to DD/MM/YYYY
+    // Fixed for Safari/Firefox timezone issues
+    function formatDateDDMMYYYY(dateString) {
+      if (!dateString) return '';
+
+      // Parse YYYY-MM-DD format manually to avoid timezone issues
+      if (dateString.includes('-')) {
+        const parts = dateString.split('-');
+        if (parts.length === 3) {
+          const year = parts[0];
+          const month = parts[1].padStart(2, '0');
+          const day = parts[2].padStart(2, '0');
+          return `${day}/${month}/${year}`;
+        }
+      }
+
+      // Fallback to Date object parsing
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return dateString;
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+
+    // Convert DD/MM/YYYY to YYYY-MM-DD for input
+    function convertToInputDate(ddmmyyyy) {
+      if (!ddmmyyyy || ddmmyyyy.length !== 10) return '';
+      const [day, month, year] = ddmmyyyy.split('/');
+      return `${year}-${month}-${day}`;
+    }
+  </script>
+</head>
+
+<body class="bg-cream min-h-screen" v-scope="createFormApp(firebase)" @vue:mounted="mounted()">
+
+  <!-- Skip navigation -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary-600 focus:rounded focus:shadow-lg focus:outline-none">Saltar al contenido principal</a>
+
+  <!-- Progress Bar -->
+  <div class="fixed top-0 left-0 right-0 h-2 bg-gray-200 z-50">
+    <div class="progress-bar h-full bg-gradient-to-r from-primary-500 to-primary-700"
+         :style="{ width: progress + '%' }"></div>
+  </div>
+
+  <!-- Shared header/navigation -->
+  <header id="sim-header">
+    <div class="sim-header-row">
+      <a href="/" class="sim-header-logo" aria-label="Ir al inicio de Herédame">
+        <img src="/images/logo%20horizontal%202.png" alt="Herédame">
+      </a>
+      <nav id="sim-site-nav" class="sim-site-nav" aria-label="Navegación principal">
+        <a href="/#quienes-somos">Quiénes somos</a>
+        <a href="/#diferenciadores">Por qué somos distintos</a>
+        <a href="/#beneficios">Beneficios</a>
+        <a href="/#servicios">Servicios</a>
+        <a href="/#como-funciona">Cómo Funciona</a>
+        <a href="/#reservar">Agenda una conversación</a>
+        <a href="/#preguntas">Preguntas</a>
+        <a href="/#contacto">Contacto</a>
+        <button type="button" class="sim-header-cta sim-mobile-form-button">Formulario</button>
+        <a href="/" class="sim-back-link">← Volver al sitio web</a>
+      </nav>
+      <div class="sim-header-actions">
+        <button type="button" class="sim-header-cta">Formulario</button>
+        <button type="button" class="sim-menu-toggle" aria-expanded="false" aria-controls="sim-site-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Estimated time (step 0 only) -->
+  <div v-if="currentStep === 0" class="fixed top-4 right-4 z-40">
+    <span class="text-sm text-gray-500">⏱ ~10 minutos para completar</span>
+  </div>
+
+  <!-- 4-Phase Progress Bar (steps 1-12) -->
+  <div v-if="currentStep >= 1" class="fixed top-2 left-1/2 transform -translate-x-1/2 z-40 hidden sm:flex items-center gap-0">
+    <!-- Phase 1: Fallecido/a — steps 1-2 -->
+    <div class="flex flex-col items-center">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors bg-primary-600 text-white">
+        <svg v-if="currentStep > 2" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <span v-if="currentStep <= 2">1</span>
+      </div>
+      <span class="text-xs mt-1 whitespace-nowrap" :class="currentStep <= 2 ? 'text-primary-600 font-semibold' : 'text-primary-600'">Fallecido/a</span>
+    </div>
+    <div class="w-12 h-0.5 mb-4 transition-colors" :class="currentStep > 2 ? 'bg-primary-600' : 'bg-gray-200'"></div>
+    <!-- Phase 2: Herederos — steps 3-4 -->
+    <div class="flex flex-col items-center">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors" :class="currentStep >= 3 ? 'bg-primary-600 text-white' : 'bg-gray-200 text-gray-400'">
+        <svg v-if="currentStep > 4" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <span v-if="currentStep <= 4">2</span>
+      </div>
+      <span class="text-xs mt-1 whitespace-nowrap" :class="currentStep >= 3 && currentStep <= 4 ? 'text-primary-600 font-semibold' : currentStep > 4 ? 'text-primary-600' : 'text-gray-400'">Herederos</span>
+    </div>
+    <div class="w-12 h-0.5 mb-4 transition-colors" :class="currentStep > 4 ? 'bg-primary-600' : 'bg-gray-200'"></div>
+    <!-- Phase 3: Bienes — steps 5-9 -->
+    <div class="flex flex-col items-center">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors" :class="currentStep >= 5 ? 'bg-primary-600 text-white' : 'bg-gray-200 text-gray-400'">
+        <svg v-if="currentStep > 9" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        <span v-if="currentStep <= 9">3</span>
+      </div>
+      <span class="text-xs mt-1 whitespace-nowrap" :class="currentStep >= 5 && currentStep <= 9 ? 'text-primary-600 font-semibold' : currentStep > 9 ? 'text-primary-600' : 'text-gray-400'">
+        <span v-if="currentStep === 5">Inmuebles</span>
+        <span v-else-if="currentStep === 6">Vehículos</span>
+        <span v-else-if="currentStep === 7">Cuentas</span>
+        <span v-else-if="currentStep === 8">Otros Bienes</span>
+        <span v-else-if="currentStep === 9">Deudas</span>
+        <span v-else>Bienes</span>
+      </span>
+    </div>
+    <div class="w-12 h-0.5 mb-4 transition-colors" :class="currentStep > 9 ? 'bg-primary-600' : 'bg-gray-200'"></div>
+    <!-- Phase 4: Pago — steps 10-12 -->
+    <div class="flex flex-col items-center">
+      <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors" :class="currentStep >= 10 ? 'bg-primary-600 text-white' : 'bg-gray-200 text-gray-400'">
+        <span>4</span>
+      </div>
+      <span class="text-xs mt-1 whitespace-nowrap" :class="currentStep >= 10 ? 'text-primary-600 font-semibold' : 'text-gray-400'">Pago</span>
+    </div>
+  </div>
+
+  <!-- Mobile Step Progress (steps 1-12, hidden on sm+) -->
+  <div v-if="currentStep >= 1" class="fixed top-2 left-1/2 transform -translate-x-1/2 z-40 flex sm:hidden items-center bg-white rounded-full px-3 py-1 shadow-md text-xs font-medium text-primary-600 border border-primary-100">
+    Paso {{ currentStep }} de {{ totalSteps }}
+  </div>
+
+  <!-- Save Progress Button (steps 1+, not in view mode) -->
+  <div v-if="currentStep >= 1 && !viewMode && !showReview" class="fixed top-3 right-4 z-40">
+    <button @click="saveProgressToCloud()" :disabled="isSaving"
+            class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-600 bg-white border border-gray-200 rounded-full shadow-sm hover:border-primary-400 hover:text-primary-600 transition-all disabled:opacity-50">
+      <svg v-if="!isSaving" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+      <div v-if="isSaving" class="animate-spin rounded-full h-3.5 w-3.5 border-b-2 border-primary-600"></div>
+      {{ isSaving ? 'Guardando…' : 'Guardar progreso' }}
+    </button>
+  </div>
+
+  <!-- Save Dialog Overlay -->
+  <div v-if="saveDialog" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4">
+      <h3 class="text-lg font-bold text-gray-900 mb-2">Progreso guardado</h3>
+      <p class="text-sm text-gray-600 mb-4">Copia el enlace para continuar desde otro dispositivo, o compártelo para que alguien más pueda ver el resumen.</p>
+
+      <div class="mb-3">
+        <p class="text-xs font-medium text-gray-500 mb-1">Enlace para continuar (solo tú)</p>
+        <div class="flex items-center gap-2">
+          <input :value="saveUrl" readonly
+                 class="flex-1 text-xs px-3 py-2 border border-gray-200 rounded-lg bg-gray-50 truncate" />
+          <button @click="navigator.clipboard.writeText(saveUrl)"
+                  class="px-3 py-2 text-xs font-medium bg-primary-600 text-white rounded-lg hover:bg-primary-700">Copiar</button>
+        </div>
+      </div>
+
+      <div class="mb-6" v-if="_resumeId">
+        <p class="text-xs font-medium text-gray-500 mb-1">Enlace de solo lectura (para compartir)</p>
+        <div class="flex items-center gap-2">
+          <input :value="getViewUrl()" readonly
+                 class="flex-1 text-xs px-3 py-2 border border-gray-200 rounded-lg bg-gray-50 truncate" />
+          <button @click="navigator.clipboard.writeText(getViewUrl())"
+                  class="px-3 py-2 text-xs font-medium bg-gray-600 text-white rounded-lg hover:bg-gray-700">Copiar</button>
+        </div>
+      </div>
+
+      <button @click="saveDialog = false"
+              class="w-full py-2.5 text-sm font-semibold text-primary-600 border border-primary-200 rounded-lg hover:bg-primary-50">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- Autosave Indicator -->
+  <div v-if="isLoading" class="fixed top-20 right-4 z-40">
+    <div class="bg-white px-4 py-2 rounded-lg shadow-md flex items-center space-x-2">
+      <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-600"></div>
+      <span class="text-sm text-gray-600">Guardando...</span>
+    </div>
+  </div>
+
+  <!-- Main Form Container -->
+  <main id="main-content" class="form-page-main container mx-auto px-4 py-24 max-w-4xl">
+    <h1 class="sr-only">Solicitar Informe de Herencia — Herédame</h1>
+
+    <!-- Global Error Message -->
+    <div v-if="errorMessage" role="alert" class="error-message mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Global Success Message -->
+    <div v-if="successMessage" class="fade-in mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
+      {{ successMessage }}
+    </div>
+
+    <!-- Step 0: Tier Selection (only if multiple tiers enabled) -->
+    <div v-if="currentStep === 0" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Selecciona tu Plan</h2>
+      <p class="text-gray-600 mb-8">Elige el tipo de informe que mejor se adapte a tus necesidades</p>
+
+      <div class="space-y-6">
+        <!-- Tier Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div v-for="tier in getEnabledTiers()" :key="tier.slug"
+               @click="selectTier(tier.slug)"
+               class="relative border-2 rounded-xl p-6 cursor-pointer transition-all hover:shadow-xl"
+               :class="selectedTier.slug === tier.slug ? 'border-primary-600 bg-primary-50 shadow-lg scale-105' : 'border-gray-200 hover:border-primary-300'">
+
+            <!-- Badge -->
+            <div v-if="tier.badge" class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+              <span class="inline-block bg-primary-600 text-white text-xs font-bold px-4 py-1 rounded-full shadow-md whitespace-nowrap">{{ tier.badge }}</span>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center mb-4 mt-2">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{{ tier.name }}</h3>
+              <div class="flex items-baseline justify-center">
+                <span class="text-3xl font-bold text-primary-600">{{ tier.priceFormatted }}</span>
+                <span class="text-gray-500 ml-2">CLP</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-sm text-gray-600 text-center mb-6">{{ tier.description }}</p>
+
+            <!-- Features -->
+            <ul class="space-y-3 mb-6">
+              <li v-for="feature in tier.features" :key="feature" class="flex items-start text-sm">
+                <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">{{ feature }}</span>
+              </li>
+            </ul>
+
+            <!-- Limitations (if any) -->
+            <div v-if="tier.limitations && tier.limitations.length > 0" class="border-t border-gray-200 pt-4">
+              <p class="text-xs text-gray-500 font-semibold mb-2">Limitaciones:</p>
+              <ul class="space-y-2">
+                <li v-for="limitation in tier.limitations" :key="limitation" class="flex items-start text-xs text-gray-500">
+                  <svg class="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{{ limitation }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Radio Button -->
+            <div class="absolute top-6 right-6">
+              <input type="radio" name="tier" :value="tier.slug" :checked="selectedTier.slug === tier.slug" @change="selectTier(tier.slug)" class="h-5 w-5 text-primary-600">
+            </div>
+          </div>
+        </div>
+
+        <!-- Process Description -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
+          <h4 class="text-lg font-semibold text-blue-900 mb-3" v-text="getWhatHappensNextTitle()"></h4>
+          <div class="space-y-3 text-sm text-blue-800">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div>
+                <p class="font-semibold" v-text="getWhatHappensNextContent().title"></p>
+                <p class="text-blue-700" v-text="getWhatHappensNextContent().text"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset Pre-selector (basic tier only, since others skip to document upload) -->
+      <div v-if="selectedTier && selectedTier.slug === 'basico'" class="mt-8 border-t border-gray-100 pt-8">
+        <h4 class="text-lg font-semibold text-gray-800 mb-1">¿Qué bienes dejó la persona fallecida?</h4>
+        <p class="text-sm text-gray-500 mb-5">Selecciona todo lo que aplica. No es necesario tener todos.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <label v-for="(item, key) in {
+              realEstate: { icon: '🏠', text: 'Inmuebles', sub: 'Casas, terrenos, deptos' },
+              vehicles:   { icon: '🚗', text: 'Vehículos', sub: 'Autos, motos, camionetas' },
+              bankAccounts: { icon: '🏦', text: 'Cuentas bancarias', sub: 'Depósitos y saldos' },
+              otherAssets:  { icon: '💼', text: 'Otros bienes', sub: 'Joyas, acciones, muebles' },
+              debts:        { icon: '📋', text: 'Deudas', sub: 'Créditos y préstamos' }
+            }" :key="key"
+            class="flex flex-col items-center text-center p-5 border-2 rounded-xl cursor-pointer transition-all select-none"
+            :class="formData.assetTypesSelected[key]
+              ? 'border-primary-600 bg-primary-50 shadow-sm'
+              : 'border-gray-200 bg-white hover:border-primary-300 hover:bg-primary-50/30'">
+            <input type="checkbox" :checked="formData.assetTypesSelected[key]"
+                   @change="formData.assetTypesSelected[key] = $event.target.checked; autosave()"
+                   class="sr-only">
+            <span class="text-3xl mb-2 leading-none">{{ item.icon }}</span>
+            <span class="text-sm font-semibold text-gray-800 leading-tight">{{ item.text }}</span>
+            <span class="text-xs text-gray-400 mt-0.5 leading-tight">{{ item.sub }}</span>
+            <span v-if="formData.assetTypesSelected[key]"
+                  class="mt-2 text-xs font-medium text-primary-600">✓ Seleccionado</span>
+          </label>
+        </div>
+        <p v-if="!Object.values(formData.assetTypesSelected).some(v => v)" class="text-xs text-gray-400 text-center mt-4">
+          Sin bienes seleccionados — el informe mostrará la distribución legal sin valorización de activos.
+        </p>
+      </div>
+
+      <div class="mt-8 flex justify-end">
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg"
+                :disabled="!selectedTier">
+          Continuar con {{ selectedTier.name }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 1: Deceased Information -->
+    <div v-if="currentStep === 1" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Persona Fallecida</h2>
+      <p class="text-gray-600 mb-8">Comencemos con los datos básicos de la persona fallecida</p>
+
+      <div class="space-y-6">
+        <div>
+          <label for="deceased-fullName" class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo *</label>
+          <input id="deceased-fullName" v-model="formData.deceased.fullName" type="text"
+                 class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                 placeholder="Nombre completo del fallecido"
+                 @blur="validateField('fullName')"
+                 :class="{ 'border-red-500': errors.fullName }">
+          <p v-if="errors.fullName" role="alert" class="text-red-500 text-sm mt-1">{{ errors.fullName }}</p>
+        </div>
+
+        <div>
+          <label for="deceased-dateOfDeath" class="block text-sm font-medium text-gray-700 mb-2">Fecha de Fallecimiento</label>
+          <input id="deceased-dateOfDeath" v-model="formData.deceased.dateOfDeath" type="date"
+                 class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                 :class="{ 'border-red-500': errors.dateOfDeath }"
+                 :disabled="formData.deceased.isSimulation">
+          <p v-if="formData.deceased.dateOfDeath && !formData.deceased.isSimulation" class="text-xs text-gray-500 mt-1">
+            Fecha seleccionada: {{ formatDateDDMMYYYY(formData.deceased.dateOfDeath) }}
+          </p>
+          <p v-if="errors.dateOfDeath" role="alert" class="text-red-500 text-sm mt-1">{{ errors.dateOfDeath }}</p>
+
+          <label class="flex items-center space-x-3 mt-3">
+            <input type="checkbox" v-model="formData.deceased.isSimulation"
+                   class="h-5 w-5 text-primary-600 rounded">
+            <span class="text-gray-700">Solo deseo simular la herencia (sin fecha de fallecimiento real)</span>
+          </label>
+          <p v-if="formData.deceased.isSimulation" class="text-amber-600 text-sm mt-2 italic">
+            ⚠️ Este será un informe de simulación. Recuerde que legalmente no pueden existir acuerdos sobre herencias futuras. Se recomienda consultar con un asesor legal para disposiciones testamentarias.
+          </p>
+        </div>
+
+        <div>
+          <label for="deceased-civilStatus" class="block text-sm font-medium text-gray-700 mb-2">Estado Civil *</label>
+          <select id="deceased-civilStatus" v-model="formData.deceased.civilStatus"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                  :class="{ 'border-red-500': errors.civilStatus }">
+            <option value="">Seleccionar...</option>
+            <option value="soltero">Soltero(a)</option>
+            <option value="casado">Casado(a)</option>
+            <option value="viudo">Viudo(a)</option>
+            <option value="divorciado">Divorciado(a)</option>
+          </select>
+          <p v-if="errors.civilStatus" role="alert" class="text-red-500 text-sm mt-1">{{ errors.civilStatus }}</p>
+        </div>
+
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button v-if="getEnabledTiers().length > 1" @click="goToStep(0)"
+                class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← {{ SITE_CONFIG.form.buttons.changePlan }}
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg"
+                :class="{ 'ml-auto': getEnabledTiers().length === 1 }">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Marriage Information -->
+    <div v-if="currentStep === 2" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Información Matrimonial</h2>
+      <p class="text-gray-600 mb-8">Datos del cónyuge</p>
+
+      <div class="space-y-6">
+        <template v-if="formData.deceased.civilStatus === 'casado'">
+          <div>
+            <label for="marriage-spouseName" class="block text-sm font-medium text-gray-700 mb-2">Nombre del Cónyuge *</label>
+            <input id="marriage-spouseName" v-model="formData.marriage.spouseName" type="text"
+                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                   placeholder="Nombre completo"
+                   @blur="validateField('spouseName')"
+                   :class="{ 'border-red-500': errors.spouseName }">
+            <p v-if="errors.spouseName" role="alert" class="text-red-500 text-sm mt-1">{{ errors.spouseName }}</p>
+          </div>
+
+          <div>
+            <label for="marriage-regime" class="block text-sm font-medium text-gray-700 mb-2">Régimen Matrimonial *</label>
+            <select id="marriage-regime" v-model="formData.marriage.marriageRegime"
+                    class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                    :class="{ 'border-red-500': errors.marriageRegime }">
+              <option value="">Seleccionar...</option>
+              <option value="sociedad_conyugal">Sociedad Conyugal</option>
+              <option value="separacion_bienes">Separación de Bienes</option>
+              <option value="participacion_gananciales">Participación en Gananciales</option>
+            </select>
+            <p v-if="errors.marriageRegime" role="alert" class="text-red-500 text-sm mt-1">{{ errors.marriageRegime }}</p>
+          </div>
+
+          <div>
+            <label for="marriage-date" class="block text-sm font-medium text-gray-700 mb-2">Fecha de Matrimonio *</label>
+            <input id="marriage-date" v-model="formData.marriage.marriageDate" type="date"
+                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                   @blur="validateField('marriageDate')"
+                   :class="{ 'border-red-500': errors.marriageDate }">
+            <p v-if="errors.marriageDate" role="alert" class="text-red-500 text-sm mt-1">{{ errors.marriageDate }}</p>
+          </div>
+
+          <div>
+            <label class="flex items-center space-x-3">
+              <input type="checkbox" v-model="formData.marriage.spouseDeceased"
+                     class="h-5 w-5 text-primary-600 rounded">
+              <span class="text-gray-700">El cónyuge también ha fallecido</span>
+            </label>
+          </div>
+        </template>
+
+        <!-- Message for non-married users -->
+        <div v-if="formData.deceased.civilStatus !== 'casado'" class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <p class="text-blue-900">La persona fallecida no estaba casada(o) al momento del fallecimiento. Puede continuar al siguiente paso.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: Testament Information - Stage 1: Testament Existence -->
+    <div v-if="currentStep === 3" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Testamento</h2>
+      <p class="text-gray-600 mb-8">Primera etapa: ¿La persona fallecida dejó testamento?</p>
+
+      <div class="space-y-6">
+        <!-- Testament Question -->
+        <div class="space-y-4">
+          <label class="block text-lg font-medium text-gray-900 mb-4">¿La persona fallecida dejó testamento? *</label>
+
+          <div class="flex flex-col space-y-3">
+            <label class="flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50"
+                   :class="formData.testament.hasWill === true ? 'border-primary-600 bg-primary-50' : 'border-gray-300'">
+              <input type="radio" :value="true" v-model="formData.testament.hasWill"
+                     class="h-5 w-5 text-primary-600">
+              <div>
+                <span class="text-gray-900 font-medium">Sí</span>
+                <p class="text-sm text-gray-600">La persona fallecida dejó un testamento válido</p>
+              </div>
+            </label>
+
+            <label class="flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50"
+                   :class="formData.testament.hasWill === false ? 'border-primary-600 bg-primary-50' : 'border-gray-300'">
+              <input type="radio" :value="false" v-model="formData.testament.hasWill"
+                     class="h-5 w-5 text-primary-600">
+              <div>
+                <span class="text-gray-900 font-medium">No</span>
+                <p class="text-sm text-gray-600">No dejó testamento (sucesión intestada o abintestato)</p>
+              </div>
+            </label>
+          </div>
+
+          <p v-if="formData.testament.hasWill === true" class="text-sm p-3 bg-blue-50 border border-blue-200 rounded-lg text-blue-900">
+            📋 Herencia <strong>testada</strong>: Se aplicarán las disposiciones del testamento conforme a la ley.
+          </p>
+          <p v-if="formData.testament.hasWill === false" class="text-sm p-3 bg-green-50 border border-green-200 rounded-lg text-green-900">
+            📋 Herencia <strong>intestada o abintestato</strong>: Se aplicarán las reglas de sucesión legal.
+          </p>
+        </div>
+
+        <!-- Posesión Efectiva Question (Stage 2) -->
+        <div v-if="formData.testament.hasWill !== null" class="space-y-4 pt-6 border-t border-gray-200">
+          <label class="block text-lg font-medium text-gray-900 mb-4">¿Se tramitó la posesión efectiva? *</label>
+
+          <div class="flex flex-col space-y-3">
+            <label class="flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50"
+                   :class="formData.testament.hasPosesionEfectiva === true ? 'border-primary-600 bg-primary-50' : 'border-gray-300'">
+              <input type="radio" :value="true" v-model="formData.testament.hasPosesionEfectiva"
+                     class="h-5 w-5 text-primary-600">
+              <div>
+                <span class="text-gray-900 font-medium">Sí</span>
+                <p class="text-sm text-gray-600">La posesión efectiva ya fue decretada</p>
+              </div>
+            </label>
+
+            <label class="flex items-center space-x-3 p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50"
+                   :class="formData.testament.hasPosesionEfectiva === false ? 'border-primary-600 bg-primary-50' : 'border-gray-300'">
+              <input type="radio" :value="false" v-model="formData.testament.hasPosesionEfectiva"
+                     class="h-5 w-5 text-primary-600">
+              <div>
+                <span class="text-gray-900 font-medium">No</span>
+                <p class="text-sm text-gray-600">Aún no se ha tramitado la posesión efectiva</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Additional fields if posesión efectiva was processed -->
+          <template v-if="formData.testament.hasPosesionEfectiva === true">
+            <div class="mt-4 space-y-4 p-4 bg-gray-50 rounded-lg">
+              <div>
+                <label for="testament-posesionDate" class="block text-sm font-medium text-gray-700 mb-2">¿Cuándo se decretó la posesión efectiva? *</label>
+                <input id="testament-posesionDate" v-model="formData.testament.posesionEfectivaDate" type="date"
+                       class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                       :class="{ 'border-red-500': errors.posesionEfectivaDate }">
+                <p v-if="formData.testament.posesionEfectivaDate" class="text-xs text-gray-500 mt-1">
+                  Fecha seleccionada: {{ formatDateDDMMYYYY(formData.testament.posesionEfectivaDate) }}
+                </p>
+                <p v-if="errors.posesionEfectivaDate" role="alert" class="text-red-500 text-sm mt-1">{{ errors.posesionEfectivaDate }}</p>
+              </div>
+
+              <div>
+                <label class="flex items-center space-x-3">
+                  <input type="checkbox" v-model="formData.testament.posesionEfectivaInscribedCBR"
+                         class="h-5 w-5 text-primary-600 rounded">
+                  <span class="text-gray-700">Se inscribió en el CBR (Conservador de Bienes Raíces)</span>
+                </label>
+              </div>
+            </div>
+          </template>
+
+          <!-- Guidance if posesión efectiva NOT processed -->
+          <div v-if="formData.testament.hasPosesionEfectiva === false" class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+            <p v-if="formData.testament.hasWill === true" class="text-sm text-amber-900" v-text="SITE_CONFIG.formAlerts.posesionEfectiva.testada">
+            </p>
+            <p v-else class="text-sm text-amber-900" v-text="SITE_CONFIG.formAlerts.posesionEfectiva.intestada">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 4: Heirs Information -->
+    <div v-if="currentStep === 4" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Herederos</h2>
+      <p class="text-gray-600 mb-8">Información de los herederos</p>
+
+      <!-- Children -->
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Hijos</h3>
+        <div v-for="(child, index) in formData.heirs.children" :key="index"
+             class="mb-4 p-4 border border-gray-200 rounded-lg bg-gray-50">
+          <div class="space-y-3">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Nombre completo *</label>
+              <input v-model="child.fullName" type="text"
+                     class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                     placeholder="Nombre completo del hijo(a)">
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <input type="checkbox" v-model="child.isAlive"
+                     class="h-4 w-4 text-primary-600 rounded">
+              <label class="text-sm text-gray-700">Vivo(a)</label>
+            </div>
+
+            <!-- If child is deceased, show numberOfHeirs input -->
+            <div v-if="!child.isAlive" class="pt-3 border-t border-gray-300">
+              <div class="p-3 bg-amber-50 border border-amber-200 rounded-lg mb-3">
+                <p class="text-xs text-amber-900">
+                  <strong>⚠️ Hijo(a) fallecido(a):</strong> Si este hijo(a) tenía herederos (nietos de la persona fallecida), indique cuántos para considerar el derecho de representación.
+                </p>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  ¿Cuántos herederos (hijos/as) tiene este hijo(a) fallecido(a)?
+                </label>
+                <input v-model.number="child.numberOfHeirs" type="number" min="0" step="1"
+                       class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                       placeholder="Ej: 2 (número de nietos)">
+                <p class="text-xs text-gray-500 mt-1">
+                  Ingrese 0 si no tiene herederos o no aplica derecho de representación
+                </p>
+              </div>
+            </div>
+
+            <div class="flex justify-end pt-2">
+              <button @click="removeChild(index)" class="text-red-600 hover:text-red-700 text-sm font-medium">
+                🗑️ Eliminar hijo(a)
+              </button>
+            </div>
+          </div>
+        </div>
+        <button @click="addChild"
+                class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600">
+          + Agregar Hijo(a)
+        </button>
+      </div>
+
+      <!-- Parents (only shown if no children) -->
+      <div v-if="formData.heirs.children.length === 0" class="mb-8">
+        <div class="p-4 bg-amber-50 border border-amber-200 rounded-lg mb-6">
+          <p class="text-sm text-amber-900">
+            <strong>ℹ️ Sin hijos:</strong> Cuando la persona fallecida no tiene hijos (ni representantes por derecho de representación), la herencia pasa en primer lugar a los <strong>padres</strong>, y en su ausencia, a los <strong>hermanos</strong>. Agrega los que correspondan.
+          </p>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Padres</h3>
+        <div v-for="(parent, index) in formData.heirs.parents" :key="index"
+             class="mb-4 p-4 border border-gray-200 rounded-lg">
+          <div class="mb-2">
+            <input v-model="parent.fullName" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg"
+                   placeholder="Nombre completo">
+          </div>
+          <button @click="removeParent(index)" class="text-red-600 hover:text-red-700 text-sm">
+            Eliminar
+          </button>
+        </div>
+        <button @click="addParent"
+                class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600">
+          + Agregar Padre/Madre
+        </button>
+      </div>
+
+      <!-- Siblings (only shown if no children) -->
+      <div v-if="formData.heirs.children.length === 0">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Hermanos</h3>
+        <div v-for="(sibling, index) in formData.heirs.siblings" :key="index"
+             class="mb-4 p-4 border border-gray-200 rounded-lg">
+          <div class="mb-2">
+            <input v-model="sibling.fullName" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg"
+                   placeholder="Nombre completo">
+          </div>
+          <button @click="removeSibling(index)" class="text-red-600 hover:text-red-700 text-sm">
+            Eliminar
+          </button>
+        </div>
+        <button @click="addSibling"
+                class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600">
+          + Agregar Hermano(a)
+        </button>
+      </div>
+
+      <!-- Info message when children exist -->
+      <div v-if="formData.heirs.children.length > 0" class="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <p class="text-blue-900">
+          <strong>ℹ️ Información Legal:</strong> Cuando existen hijos, estos excluyen a los padres y hermanos de la persona fallecida de la herencia según la ley chilena. Por lo tanto, no es necesario agregar información sobre padres o hermanos.
+        </p>
+      </div>
+
+      <!-- Testamentary Dispositions (only for testate with posesión efectiva) -->
+      <template v-if="formData.testament.hasWill === true && formData.testament.hasPosesionEfectiva === true">
+        <div class="mt-8 pt-8 border-t-2 border-gray-300">
+          <div class="p-4 bg-blue-50 border border-blue-200 rounded-lg mb-6">
+            <p class="text-sm text-blue-900">
+              <strong>ℹ️ Disposiciones Testamentarias:</strong> En una herencia testada, el testador puede disponer de la "cuarta de mejoras" (para mejorar a ciertos herederos, máximo 25%) y la "cuarta de libre disposición" (para asignar libremente, máximo 25%). Por favor, indique cómo fueron distribuidas según el testamento.
+            </p>
+          </div>
+
+          <!-- Cuarta de Mejoras -->
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-1">Cuarta de Mejoras <span class="text-base font-normal text-gray-500">(máx. 25%)</span></h3>
+            <p class="text-sm text-gray-500 mb-4">Porción especial para beneficiar a herederos directos (hijos, nietos, cónyuge o ascendientes)</p>
+            <p class="text-sm text-gray-600 mb-4">Seleccione qué herederos fueron mejorados y con qué porcentaje.</p>
+
+            <div v-for="(mejora, index) in formData.testament.cuartaDeMejoras" :key="index"
+                 class="mb-4 p-4 border border-gray-200 rounded-lg bg-white">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Heredero mejorado *</label>
+                  <select v-model="mejora.heirName"
+                          class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg">
+                    <option value="">Seleccionar heredero...</option>
+
+                    <!-- Spouse (if exists) -->
+                    <optgroup v-if="formData.heirs.spouse && formData.heirs.spouse.fullName" label="Cónyuge">
+                      <option :value="formData.heirs.spouse.fullName">
+                        {{ formData.heirs.spouse.fullName }} (Cónyuge sobreviviente)
+                      </option>
+                    </optgroup>
+
+                    <!-- Children -->
+                    <optgroup v-if="formData.heirs.children && formData.heirs.children.length > 0" label="Hijos">
+                      <option v-for="child in formData.heirs.children" :key="child.fullName" :value="child.fullName">
+                        {{ child.fullName }}
+                      </option>
+                    </optgroup>
+
+                    <!-- Parents -->
+                    <optgroup v-if="formData.heirs.parents && formData.heirs.parents.length > 0" label="Padres">
+                      <option v-for="parent in formData.heirs.parents" :key="parent.fullName" :value="parent.fullName">
+                        {{ parent.fullName }}
+                      </option>
+                    </optgroup>
+
+                    <!-- Siblings -->
+                    <optgroup v-if="formData.heirs.siblings && formData.heirs.siblings.length > 0" label="Hermanos">
+                      <option v-for="sibling in formData.heirs.siblings" :key="sibling.fullName" :value="sibling.fullName">
+                        {{ sibling.fullName }}
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Porcentaje asignado (0-25%) *</label>
+                  <input v-model.number="mejora.percentage" type="number" min="0" max="25" step="0.01"
+                         class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg"
+                         placeholder="Ej: 12.5">
+                  <p class="text-xs text-gray-500 mt-1">De la cuarta de mejoras (máx. 25% total)</p>
+                </div>
+              </div>
+              <button @click="removeCuartaMejora(index)" class="mt-3 text-red-600 hover:text-red-700 text-sm font-medium">
+                Eliminar
+              </button>
+            </div>
+
+            <button @click="addCuartaMejora"
+                    class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600">
+              + Agregar Heredero Mejorado
+            </button>
+
+            <p v-if="getTotalCuartaMejoras() > 25" class="mt-2 text-red-600 text-sm font-medium">
+              ⚠️ El total de la cuarta de mejoras no puede exceder el 25% (actual: {{ getTotalCuartaMejoras().toFixed(2) }}%)
+            </p>
+          </div>
+
+          <!-- Cuarta de Libre Disposición -->
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-1">Cuarta de Libre Disposición <span class="text-base font-normal text-gray-500">(máx. 25%)</span></h3>
+            <p class="text-sm text-gray-500 mb-4">Porción de libre asignación — puede dejarse a cualquier persona, sea o no heredero</p>
+            <p class="text-sm text-gray-600 mb-4">Indique a quién se asignó la cuarta de libre disposición (puede ser un heredero o un tercero).</p>
+
+            <div v-for="(disposicion, index) in formData.testament.cuartaDeLibreDisposicion" :key="index"
+                 class="mb-4 p-4 border border-gray-200 rounded-lg bg-white">
+              <div class="space-y-4">
+                <!-- Select existing heir or new beneficiary -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de beneficiario *</label>
+                  <select v-model="disposicion.isHeir"
+                          @change="clearBeneficiaryName(index)"
+                          class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg">
+                    <option :value="true">Heredero existente</option>
+                    <option :value="false">Otra persona (tercero)</option>
+                  </select>
+                </div>
+
+                <!-- If existing heir, show dropdown -->
+                <div v-if="disposicion.isHeir === true">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Seleccionar heredero *</label>
+                  <select v-model="disposicion.beneficiaryName"
+                          class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg">
+                    <option value="">Seleccionar heredero...</option>
+
+                    <!-- Spouse (if exists) -->
+                    <optgroup v-if="formData.heirs.spouse && formData.heirs.spouse.fullName" label="Cónyuge">
+                      <option :value="formData.heirs.spouse.fullName">
+                        {{ formData.heirs.spouse.fullName }} (Cónyuge sobreviviente)
+                      </option>
+                    </optgroup>
+
+                    <!-- Children -->
+                    <optgroup v-if="formData.heirs.children && formData.heirs.children.length > 0" label="Hijos">
+                      <option v-for="child in formData.heirs.children" :key="child.fullName" :value="child.fullName">
+                        {{ child.fullName }}
+                      </option>
+                    </optgroup>
+
+                    <!-- Parents -->
+                    <optgroup v-if="formData.heirs.parents && formData.heirs.parents.length > 0" label="Padres">
+                      <option v-for="parent in formData.heirs.parents" :key="parent.fullName" :value="parent.fullName">
+                        {{ parent.fullName }}
+                      </option>
+                    </optgroup>
+
+                    <!-- Siblings -->
+                    <optgroup v-if="formData.heirs.siblings && formData.heirs.siblings.length > 0" label="Hermanos">
+                      <option v-for="sibling in formData.heirs.siblings" :key="sibling.fullName" :value="sibling.fullName">
+                        {{ sibling.fullName }}
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <!-- If new beneficiary, show text input -->
+                <div v-if="disposicion.isHeir === false">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Nombre del beneficiario *</label>
+                  <input v-model="disposicion.beneficiaryName" type="text"
+                         class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg"
+                         placeholder="Nombre completo del beneficiario">
+                </div>
+
+                <!-- Percentage -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Porcentaje asignado (0-25%) *</label>
+                  <input v-model.number="disposicion.percentage" type="number" min="0" max="25" step="0.01"
+                         class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg"
+                         placeholder="Ej: 25">
+                  <p class="text-xs text-gray-500 mt-1">De la cuarta de libre disposición (máx. 25% total)</p>
+                </div>
+              </div>
+              <button @click="removeCuartaLibreDisposicion(index)" class="mt-3 text-red-600 hover:text-red-700 text-sm font-medium">
+                Eliminar
+              </button>
+            </div>
+
+            <button @click="addCuartaLibreDisposicion"
+                    class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600">
+              + Agregar Beneficiario
+            </button>
+
+            <p v-if="getTotalCuartaLibreDisposicion() > 25" class="mt-2 text-red-600 text-sm font-medium">
+              ⚠️ El total de la cuarta de libre disposición no puede exceder el 25% (actual: {{ getTotalCuartaLibreDisposicion().toFixed(2) }}%)
+            </p>
+          </div>
+        </div>
+      </template>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 5: Real Estate -->
+    <div v-if="currentStep === 5" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Bienes Raíces</h2>
+      <p class="text-gray-600 mb-6">Propiedades inmuebles de la persona fallecida</p>
+
+      <div v-for="(property, index) in formData.assets.realEstate" :key="index"
+           class="mb-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+        <h3 class="font-semibold text-gray-900 mb-4">Propiedad {{ index + 1 }}</h3>
+
+        <!-- Search tabs (shown when property not yet selected) -->
+        <div v-if="!property.hpPropertyId && !property.isManual" class="space-y-3">
+
+          <!-- Mode tabs -->
+          <div class="flex gap-2 mb-3">
+            <button @click="property.hpSearch.mode = 'address'"
+                    class="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                    :style="property.hpSearch.mode === 'address' ? 'background-color: #0D1741; color: white;' : 'background-color: white; color: #6b7280; border: 1px solid #d1d5db;'">
+              Por dirección
+            </button>
+            <button @click="property.hpSearch.mode = 'rol'"
+                    :style="property.hpSearch.mode === 'rol' ? 'background-color: #0D1741; color: white;' : 'background-color: white; color: #6b7280; border: 1px solid #d1d5db;'"
+                    class="px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+              Por Rol SII
+            </button>
+          </div>
+
+          <!-- Address search -->
+          <div v-if="property.hpSearch.mode === 'address'" class="relative">
+            <div class="flex gap-2 mb-2">
+              <input
+                :value="property.hpSearch.commune"
+                @input="e => property.hpSearch.commune = e.target.value"
+                type="text"
+                class="input-field w-40 px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                placeholder="Comuna *">
+              <input
+                :value="property.hpSearch.query"
+                @input="e => { property.hpSearch.query = e.target.value; buscarPropiedadDebounced(index); }"
+                type="text"
+                class="input-field flex-1 px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                placeholder="Dirección (calle y número)">
+              <span v-if="property.hpSearch.loading" class="flex items-center px-3 text-gray-400 text-sm">Buscando...</span>
+            </div>
+            <p v-if="property.hpSearch.query && property.hpSearch.query.length >= 3 && !property.hpSearch.commune"
+               class="text-xs text-amber-600 mb-1">Ingresa la comuna para buscar</p>
+            <!-- Suggestions dropdown -->
+            <ul v-if="property.hpSearch.suggestions && property.hpSearch.suggestions.length > 0"
+                class="absolute z-20 w-full bg-white border border-gray-200 shadow-lg rounded-lg mt-1 max-h-48 overflow-y-auto">
+              <li v-for="s in property.hpSearch.suggestions" :key="s.property_id"
+                  @click="seleccionarPropiedad(index, s)"
+                  class="px-4 py-3 hover:bg-gray-50 cursor-pointer text-sm border-b border-gray-100 last:border-0">
+                <span class="font-medium" v-text="s.address"></span>
+                <span class="text-gray-500 text-xs ml-2" v-text="s.commune"></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Rol SII search -->
+          <div v-if="property.hpSearch.mode === 'rol'" class="space-y-2">
+            <div class="flex gap-2">
+              <input
+                :value="property.hpSearch.rol"
+                @input="e => property.hpSearch.rol = e.target.value"
+                @keyup.enter="buscarPorRol(index)"
+                type="text"
+                class="input-field flex-1 px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                placeholder="Rol SII (ej: 195-67)">
+              <input
+                :value="property.hpSearch.rolCodigoSiiComuna"
+                @input="e => property.hpSearch.rolCodigoSiiComuna = parseInt(e.target.value) || null"
+                type="number"
+                class="input-field w-32 px-3 py-2 border border-gray-300 rounded-lg bg-white"
+                placeholder="Cód. SII *">
+              <button @click="buscarPorRol(index)"
+                      :disabled="property.hpSearch.loading"
+                      class="px-4 py-2 rounded-lg text-sm font-medium text-white"
+                      style="background-color: #0D1741;">
+                Buscar
+              </button>
+            </div>
+            <p class="text-xs text-gray-400">
+              Rol: número-número (ej: 195-67). Cód. SII: código numérico de la comuna en sii.cl → Bienes Raíces → tu propiedad.
+            </p>
+          </div>
+
+          <!-- Error message -->
+          <p v-if="property.hpSearch.error" class="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+            {{ property.hpSearch.error }}
+          </p>
+
+          <!-- Manual fallback link -->
+          <button @click="property.isManual = true"
+                  class="text-sm text-gray-400 underline hover:text-gray-600 mt-1 block">
+            ¿No encuentras la propiedad? Ingresarla manualmente →
+          </button>
+        </div>
+
+        <!-- Selected property confirmation -->
+        <div v-if="property.hpPropertyId && !property.isManual"
+             class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg flex justify-between items-start">
+          <div>
+            <p class="font-medium text-sm text-gray-900" v-text="property.displayAddress"></p>
+            <p class="text-xs text-gray-500 mt-0.5" v-text="[property.commune, property.region].filter(Boolean).join(', ')"></p>
+            <p class="text-xs text-blue-600 mt-1">Los valores de tasación se incluirán automáticamente en tu informe.</p>
+          </div>
+          <button @click="limpiarPropiedad(index)" class="text-xs text-gray-400 underline ml-3 shrink-0">Cambiar</button>
+        </div>
+
+        <!-- Manual entry fields -->
+        <div v-if="property.isManual" class="space-y-3 mb-4 p-4 bg-white border border-gray-200 rounded-lg">
+          <p class="text-xs text-gray-500 font-medium">Ingreso manual</p>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Dirección *</label>
+            <input v-model="property.manualAddress" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: Av. Las Flores 456, Depto 12">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Comuna *</label>
+              <input v-model="property.manualCommune" type="text"
+                     class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                     placeholder="Comuna">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Región</label>
+              <input v-model="property.manualRegion" type="text"
+                     class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                     placeholder="Región">
+            </div>
+          </div>
+          <button @click="property.isManual = false; property.manualAddress = ''; property.manualCommune = ''; property.manualRegion = '';"
+                  class="text-xs text-gray-400 underline hover:text-gray-600">
+            ← Volver al buscador
+          </button>
+        </div>
+
+        <!-- Acquisition date + fiscal value (shown once property identified) -->
+        <div v-if="property.hpPropertyId || property.isManual" class="space-y-3 mt-3">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de Adquisición *</label>
+            <input v-model="property.acquisitionDate" type="date"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+            <p v-if="property.acquisitionDate" class="text-xs text-gray-500 mt-1">
+              Fecha: {{ formatDateDDMMYYYY(property.acquisitionDate) }}
+            </p>
+            <p class="text-xs text-gray-500 mt-1" v-text="SITE_CONFIG.formAlerts.propertyAcquisitionDate"></p>
+          </div>
+        </div>
+
+        <button @click="removeRealEstate(index)" class="mt-4 text-red-600 hover:text-red-700 text-sm font-medium">
+          🗑️ Eliminar Propiedad
+        </button>
+      </div>
+
+      <button @click="addRealEstate"
+              class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-blue-400 hover:text-blue-600 font-medium transition-colors">
+        + Agregar Propiedad
+      </button>
+
+      <p v-if="formData.assets.realEstate.length === 0" class="text-sm text-gray-500 text-center mt-3">
+        Si no hay bienes raíces, puedes continuar sin agregar ninguno.
+      </p>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 6: Vehicles -->
+    <div v-if="currentStep === 6" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Vehículos</h2>
+      <p class="text-gray-600 mb-8">Automóviles, motos, etc.</p>
+
+      <div v-for="(vehicle, index) in formData.assets.vehicles" :key="index"
+           class="mb-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+        <h3 class="font-semibold text-gray-900 mb-4">Vehículo {{ index + 1 }}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Marca *</label>
+            <input v-model="vehicle.make" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: Toyota, Honda">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Modelo *</label>
+            <input v-model="vehicle.model" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: Corolla, Civic">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Año *</label>
+            <input v-model.number="vehicle.year" type="number"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: 2015">
+          </div>
+        </div>
+        <button @click="removeVehicle(index)" class="mt-4 text-red-600 hover:text-red-700 text-sm font-medium">
+          🗑️ Eliminar Vehículo
+        </button>
+      </div>
+
+      <button @click="addVehicle"
+              class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600 font-medium">
+        + Agregar Vehículo
+      </button>
+
+      <p v-if="formData.assets.vehicles.length === 0" class="text-sm text-gray-500 text-center mt-3">
+        Si no hay vehículos, puedes continuar sin agregar ninguno.
+      </p>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 7: Bank Accounts -->
+    <div v-if="currentStep === 7" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Cuentas Bancarias</h2>
+      <p class="text-gray-600 mb-8">Dinero en bancos e instituciones financieras</p>
+
+      <div v-for="(account, index) in formData.assets.bankAccounts" :key="index"
+           class="mb-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+        <h3 class="font-semibold text-gray-900 mb-4">Cuenta {{ index + 1 }}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre del Banco *</label>
+            <input v-model="account.bankName" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: Banco de Chile, Santander">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Cuenta *</label>
+            <select v-model="account.accountType"
+                    class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+              <option value="">Seleccionar tipo...</option>
+              <option value="corriente">Cuenta Corriente</option>
+              <option value="ahorro">Cuenta de Ahorro</option>
+              <option value="vista">Cuenta Vista</option>
+              <option value="cuenta_rut">CuentaRUT (BancoEstado)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Saldo Aproximado (CLP) *</label>
+            <input v-model.number="account.estimatedBalance" type="number"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: 2500000">
+            <p class="text-xs text-gray-500 mt-1">Saldo estimado al momento del fallecimiento</p>
+          </div>
+        </div>
+        <button @click="removeBankAccount(index)" class="mt-4 text-red-600 hover:text-red-700 text-sm font-medium">
+          🗑️ Eliminar Cuenta
+        </button>
+      </div>
+
+      <button @click="addBankAccount"
+              class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600 font-medium">
+        + Agregar Cuenta Bancaria
+      </button>
+
+      <p v-if="formData.assets.bankAccounts.length === 0" class="text-sm text-gray-500 text-center mt-3">
+        Si no hay cuentas bancarias, puedes continuar sin agregar ninguna.
+      </p>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 8: Other Assets -->
+    <div v-if="currentStep === 8" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Otros Bienes</h2>
+      <p class="text-gray-600 mb-8">Inversiones, acciones, joyas, muebles, etc.</p>
+
+      <div v-for="(asset, index) in formData.assets.otherAssets" :key="index"
+           class="mb-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+        <h3 class="font-semibold text-gray-900 mb-4">Bien {{ index + 1 }}</h3>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Bien *</label>
+            <select v-model="asset.type"
+                    class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+              <option value="">Seleccionar tipo...</option>
+              <option value="acciones">Acciones o Derechos Sociales</option>
+              <option value="inversiones">Inversiones Financieras</option>
+              <option value="cuotas_fondos">Cuotas de Fondos Mutuos</option>
+              <option value="seguro_de_vida">Seguro de Vida (valor de rescate)</option>
+              <option value="creditos">Créditos a Cobrar</option>
+              <option value="joyas">Joyas</option>
+              <option value="arte">Obras de Arte</option>
+              <option value="muebles">Muebles y Menaje</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Descripción del Bien *</label>
+            <input v-model="asset.description" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: Acciones de empresa XYZ, Reloj Rolex, Set de muebles">
+          </div>
+        </div>
+        <button @click="removeOtherAsset(index)" class="mt-4 text-red-600 hover:text-red-700 text-sm font-medium">
+          🗑️ Eliminar Bien
+        </button>
+      </div>
+
+      <button @click="addOtherAsset"
+              class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600 font-medium">
+        + Agregar Otro Bien
+      </button>
+
+      <p v-if="formData.assets.otherAssets.length === 0" class="text-sm text-gray-500 text-center mt-3">
+        Si no hay otros bienes, puedes continuar sin agregar ninguno.
+      </p>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 9: Debts -->
+    <div v-if="currentStep === 9" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Deudas</h2>
+      <p class="text-gray-600 mb-8">Créditos, préstamos y otras obligaciones de la persona fallecida</p>
+
+      <div v-for="(debt, index) in formData.debts" :key="index"
+           class="mb-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+        <h3 class="font-semibold text-gray-900 mb-4">Deuda {{ index + 1 }}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Descripción de la Deuda</label>
+            <input v-model="debt.description" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: Crédito hipotecario">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Acreedor *</label>
+            <input v-model="debt.creditor" type="text"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   :class="{ 'border-red-500': errors[`debtCreditor_${index}`] }"
+                   placeholder="Ej: Banco BCI, ANATEL, Isapre Cruz Blanca">
+            <p v-if="errors[`debtCreditor_${index}`]" role="alert" class="text-red-500 text-xs mt-1">{{ errors[`debtCreditor_${index}`] }}</p>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Saldo Pendiente (CLP) *</label>
+            <input v-model.number="debt.outstandingBalance" type="number"
+                   class="input-field w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                   placeholder="Ej: 15000000">
+            <p class="text-xs text-gray-500 mt-1">Monto adeudado al momento del fallecimiento</p>
+          </div>
+        </div>
+        <button @click="removeDebt(index)" class="mt-4 text-red-600 hover:text-red-700 text-sm font-medium">
+          🗑️ Eliminar Deuda
+        </button>
+      </div>
+
+      <button @click="addDebt"
+              class="w-full py-3 border-2 border-dashed border-gray-300 rounded-lg text-gray-600 hover:border-primary-600 hover:text-primary-600">
+        + Agregar Deuda
+      </button>
+
+      <p v-if="formData.debts.length === 0" class="text-sm text-gray-500 text-center mt-3">
+        Si no hay deudas, puedes continuar sin agregar ninguna.
+      </p>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Review Screen (shown before step 10) -->
+    <div v-if="showReview" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">{{ viewMode ? 'Resumen de herencia' : 'Revisa la información' }}</h2>
+      <p class="text-gray-600 mb-8">{{ viewMode ? 'Vista compartida — solo lectura.' : 'Verifica que todo esté correcto antes de continuar con tu información de contacto.' }}</p>
+
+      <!-- Deceased -->
+      <div class="mb-6 p-5 border border-gray-200 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold text-gray-900">Persona Fallecida</h3>
+          <button v-if="!viewMode" @click="editFromReview(1)" class="text-sm text-primary-600 hover:underline">Editar</button>
+        </div>
+        <p class="text-gray-700">{{ formData.deceased.fullName || '—' }}</p>
+        <p class="text-sm text-gray-500">
+          {{ formData.deceased.dateOfDeath || '—' }}
+          <span v-if="formData.deceased.civilStatus"> · {{ formData.deceased.civilStatus }}</span>
+          <span v-if="formData.deceased.isSimulation"> · Simulación</span>
+        </p>
+      </div>
+
+      <!-- Testament -->
+      <div class="mb-6 p-5 border border-gray-200 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold text-gray-900">Testamento</h3>
+          <button v-if="!viewMode" @click="editFromReview(3)" class="text-sm text-primary-600 hover:underline">Editar</button>
+        </div>
+        <p class="text-gray-700" v-if="formData.testament.hasWill === true">Con testamento</p>
+        <p class="text-gray-700" v-else-if="formData.testament.hasWill === false">Sin testamento (sucesión intestada)</p>
+        <p class="text-gray-400 italic" v-else>No indicado</p>
+        <p class="text-sm text-gray-500 mt-1" v-if="formData.testament.hasPosesionEfectiva">
+          Posesión efectiva: {{ formData.testament.posesionEfectivaDate || 'fecha no indicada' }}
+        </p>
+      </div>
+
+      <!-- Heirs -->
+      <div class="mb-6 p-5 border border-gray-200 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold text-gray-900">Herederos</h3>
+          <button v-if="!viewMode" @click="editFromReview(4)" class="text-sm text-primary-600 hover:underline">Editar</button>
+        </div>
+        <div v-if="formData.heirs.spouse" class="text-sm text-gray-700 mb-1">
+          <span class="text-gray-400">Cónyuge:</span> {{ formData.heirs.spouse.fullName }}
+        </div>
+        <div v-for="child in formData.heirs.children" :key="child.fullName" class="text-sm text-gray-700 mb-1">
+          <span class="text-gray-400">Hijo(a):</span> {{ child.fullName }}
+          <span v-if="!child.isAlive" class="text-gray-400"> (fallecido(a))</span>
+        </div>
+        <div v-for="parent in formData.heirs.parents" :key="parent.fullName" class="text-sm text-gray-700 mb-1">
+          <span class="text-gray-400">Padre/Madre:</span> {{ parent.fullName }}
+        </div>
+        <div v-for="sibling in formData.heirs.siblings" :key="sibling.fullName" class="text-sm text-gray-700 mb-1">
+          <span class="text-gray-400">Hermano(a):</span> {{ sibling.fullName }}
+        </div>
+        <p v-if="!formData.heirs.spouse && !formData.heirs.children.length && !formData.heirs.parents.length && !formData.heirs.siblings.length"
+           class="text-gray-400 italic text-sm">Sin herederos registrados</p>
+      </div>
+
+      <!-- Assets selected -->
+      <div class="mb-8 p-5 border border-gray-200 rounded-xl">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-semibold text-gray-900">Bienes y Deudas</h3>
+          <button v-if="!viewMode" @click="editFromReview(0)" class="text-sm text-primary-600 hover:underline">Editar</button>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span v-if="formData.assetTypesSelected.realEstate"
+                class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">🏠 Inmuebles ({{ formData.assets.realEstate.length }})</span>
+          <span v-if="formData.assetTypesSelected.vehicles"
+                class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">🚗 Vehículos ({{ formData.assets.vehicles.length }})</span>
+          <span v-if="formData.assetTypesSelected.bankAccounts"
+                class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">🏦 Cuentas ({{ formData.assets.bankAccounts.length }})</span>
+          <span v-if="formData.assetTypesSelected.otherAssets"
+                class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">💼 Otros bienes ({{ formData.assets.otherAssets.length }})</span>
+          <span v-if="formData.assetTypesSelected.debts"
+                class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">📋 Deudas ({{ formData.debts.length }})</span>
+          <span v-if="!Object.values(formData.assetTypesSelected).some(v => v)"
+                class="text-gray-400 italic text-sm">Sin bienes seleccionados</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button v-if="!viewMode" @click="showReview = false" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Volver a editar
+        </button>
+        <button v-if="viewMode" @click="window.history.back()" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Volver
+        </button>
+        <button v-if="!viewMode" @click="confirmReview()" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Confirmar y continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 10: Contact Information -->
+    <div v-if="currentStep === 10 && !showReview" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Información de Contacto</h2>
+      <p class="text-gray-600 mb-8">¿Cómo podemos contactarte?</p>
+
+      <div class="space-y-6">
+        <div>
+          <label for="contact-fullName" class="block text-sm font-medium text-gray-700 mb-2">Tu Nombre Completo *</label>
+          <input id="contact-fullName" v-model="formData.contact.fullName" type="text"
+                 class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                 placeholder="Nombre completo"
+                 @blur="validateField('contactName')"
+                 :class="{ 'border-red-500': errors.contactName }">
+          <p v-if="errors.contactName" role="alert" class="text-red-500 text-sm mt-1">{{ errors.contactName }}</p>
+        </div>
+
+        <div>
+          <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Tu Email *</label>
+          <input id="contact-email" v-model="formData.contact.email" type="email"
+                 class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                 placeholder="tu@email.com"
+                 @blur="validateField('email')"
+                 :class="{ 'border-red-500': errors.email }">
+          <p v-if="errors.email" role="alert" class="text-red-500 text-sm mt-1">{{ errors.email }}</p>
+        </div>
+
+        <div>
+          <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Tu Teléfono *</label>
+          <input id="contact-phone" v-model="formData.contact.phone" type="tel"
+                 class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                 placeholder="+56 9 1234 5678"
+                 @blur="validateField('phone')"
+                 :class="{ 'border-red-500': errors.phone }">
+          <p v-if="errors.phone" role="alert" class="text-red-500 text-sm mt-1">{{ errors.phone }}</p>
+        </div>
+
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="nextStep" class="btn-primary px-8 py-3 text-white font-semibold rounded-lg">
+          Continuar →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 11: Payment / File Upload -->
+    <div v-if="currentStep === 11" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Comprobante de Pago</h2>
+      <p class="text-gray-600 mb-8">Sube tu comprobante de transferencia bancaria</p>
+
+      <!-- Bank Transfer Information -->
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+        <h3 class="text-lg font-semibold text-blue-900 mb-4">Datos para Transferencia</h3>
+        <div class="space-y-2 text-sm text-blue-800">
+          <p><strong>Banco:</strong> {{ SITE_CONFIG.payment.bankTransfer.bankName }}</p>
+          <p><strong>Tipo de cuenta:</strong> {{ SITE_CONFIG.payment.bankTransfer.accountType }}</p>
+          <p><strong>Número de cuenta:</strong> {{ SITE_CONFIG.payment.bankTransfer.accountNumber }}</p>
+          <p><strong>RUT:</strong> {{ SITE_CONFIG.payment.bankTransfer.rut }}</p>
+          <p><strong>Nombre:</strong> {{ SITE_CONFIG.payment.bankTransfer.accountHolder }}</p>
+          <p><strong>Email:</strong> {{ SITE_CONFIG.payment.bankTransfer.email }}</p>
+          <p><strong>Monto:</strong> {{ selectedTier.priceFormatted }} {{ SITE_CONFIG.payment.currency }}</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <!-- File Upload -->
+        <div>
+          <label for="receipt-upload" class="block text-sm font-medium text-gray-700 mb-2">
+            Subir Comprobante *
+            <span class="text-gray-500 font-normal">(PDF, JPG, PNG - Máx. 5MB)</span>
+          </label>
+          <input id="receipt-upload" type="file" @change="handleFileSelect"
+                 accept=".pdf,.jpg,.jpeg,.png,.webp"
+                 class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+        </div>
+
+        <!-- File Preview -->
+        <div v-if="selectedFile" class="p-4 bg-gray-50 rounded-lg">
+          <p class="text-sm text-gray-700 mb-2">
+            <strong>Archivo seleccionado:</strong> {{ selectedFile.name }}
+          </p>
+          <p class="text-xs text-gray-500">
+            Tamaño: {{ formatFileSize(selectedFile.size) }}
+          </p>
+          <button v-if="!uploadedFileUrl" @click="uploadFile"
+                  class="mt-3 btn-primary px-6 py-2 text-white text-sm font-semibold rounded-lg"
+                  :disabled="isLoading">
+            {{ isLoading ? 'Subiendo...' : 'Subir Archivo' }}
+          </button>
+        </div>
+
+        <!-- Upload Progress -->
+        <div v-if="uploadProgress > 0 && uploadProgress < 100" class="w-full bg-gray-200 rounded-full h-2"
+             role="progressbar" :aria-valuenow="uploadProgress" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de subida">
+          <div class="bg-primary-600 h-2 rounded-full transition-all duration-300"
+               :style="{ width: uploadProgress + '%' }"></div>
+        </div>
+
+        <!-- Upload Success -->
+        <div v-if="uploadedFileUrl" class="p-4 bg-green-50 border border-green-200 rounded-lg">
+          <p class="text-green-700">✓ Comprobante subido exitosamente</p>
+        </div>
+
+        <!-- Payment Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="payment-transferDate" class="block text-sm font-medium text-gray-700 mb-2">Fecha de Transferencia *</label>
+            <input id="payment-transferDate" v-model="formData.payment.transferDate" type="date"
+                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                   :class="{ 'border-red-500': errors.transferDate }">
+            <p v-if="formData.payment.transferDate" class="text-xs text-gray-500 mt-1">
+              Fecha seleccionada: {{ formatDateDDMMYYYY(formData.payment.transferDate) }}
+            </p>
+            <p v-if="errors.transferDate" role="alert" class="text-red-500 text-sm mt-1">{{ errors.transferDate }}</p>
+          </div>
+
+          <div>
+            <label for="payment-amount" class="block text-sm font-medium text-gray-700 mb-2">Monto Transferido (CLP) *</label>
+            <input id="payment-amount" v-model.number="formData.payment.transferAmount" type="number"
+                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                   :class="{ 'border-red-500': errors.transferAmount }">
+            <p v-if="errors.transferAmount" role="alert" class="text-red-500 text-sm mt-1">{{ errors.transferAmount }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms and Conditions -->
+      <div class="mt-8 bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+        <div class="flex items-start space-x-3">
+          <input type="checkbox"
+                 v-model="termsAccepted"
+                 :disabled="!termsLinkClicked"
+                 class="h-5 w-5 text-primary-600 rounded mt-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                 id="termsCheckbox">
+          <label for="termsCheckbox" class="flex-1 text-sm text-gray-700">
+            <span :class="{ 'text-gray-400': !termsLinkClicked }">
+              He leído y acepto los
+              <a href="/terminos-legales.html"
+                 target="_blank"
+                 @click="handleTermsLinkClick"
+                 class="text-primary-600 underline font-semibold hover:text-primary-700">
+                Términos y Condiciones
+              </a>
+            </span>
+            <p class="text-xs text-gray-500 mt-1" v-if="!termsLinkClicked">
+              ⚠️ Debes hacer clic en el enlace para leer los términos antes de poder aceptarlos
+            </p>
+            <p class="text-xs text-green-600 mt-1" v-if="termsLinkClicked && !termsAccepted">
+              ✓ Ahora puedes marcar la casilla para aceptar los términos
+            </p>
+          </label>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="submitForm"
+                :disabled="!uploadedFileUrl || !termsAccepted || isLoading"
+                class="btn-primary px-8 py-3 text-white font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed">
+          {{ isLoading ? 'Enviando...' : 'Enviar Formulario' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 12: Document Upload (for Normal/Premium tiers) -->
+    <div v-if="currentStep === 12" class="form-section fade-in bg-white rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">Carga de Documentos</h2>
+      <p class="text-gray-600 mb-8">Sube los documentos relacionados con la herencia (hasta 10 archivos, 10MB cada uno)</p>
+
+      <!-- Selected Tier Info -->
+      <div class="bg-primary-50 border border-primary-200 rounded-lg p-6 mb-8">
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+          </svg>
+          <div class="flex-1">
+            <h3 class="text-lg font-semibold text-primary-900 mb-2">{{ selectedTier.name }}</h3>
+            <p class="text-sm text-primary-800 mb-3">{{ selectedTier.description }}</p>
+            <div class="bg-white rounded-lg p-4">
+              <p class="text-sm font-semibold text-gray-700 mb-2">Documentos sugeridos:</p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Certificado de defunción</li>
+                <li>• Escrituras de bienes raíces</li>
+                <li>• Títulos de vehículos</li>
+                <li>• Estados de cuenta bancarios</li>
+                <li>• Testamento (si existe)</li>
+                <li>• Posesión efectiva (si existe)</li>
+                <li>• Certificados de matrimonio/nacimiento de herederos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank Transfer Information -->
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+        <h3 class="text-lg font-semibold text-blue-900 mb-4">Datos para Transferencia</h3>
+        <div class="space-y-2 text-sm text-blue-800">
+          <p><strong>Banco:</strong> {{ SITE_CONFIG.payment.bankTransfer.bankName }}</p>
+          <p><strong>Tipo de cuenta:</strong> {{ SITE_CONFIG.payment.bankTransfer.accountType }}</p>
+          <p><strong>Número de cuenta:</strong> {{ SITE_CONFIG.payment.bankTransfer.accountNumber }}</p>
+          <p><strong>RUT:</strong> {{ SITE_CONFIG.payment.bankTransfer.rut }}</p>
+          <p><strong>Nombre:</strong> {{ SITE_CONFIG.payment.bankTransfer.accountHolder }}</p>
+          <p><strong>Email:</strong> {{ SITE_CONFIG.payment.bankTransfer.email }}</p>
+          <p><strong>Monto:</strong> {{ selectedTier.priceFormatted }} {{ SITE_CONFIG.payment.currency }}</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Multi-File Upload Input -->
+        <div>
+          <label for="s12-doc-upload" class="block text-sm font-medium text-gray-700 mb-2">
+            Seleccionar Documentos *
+            <span class="text-gray-500 font-normal">(PDF, JPG, PNG - Máx. 10MB cada uno)</span>
+          </label>
+          <input id="s12-doc-upload" type="file" @change="handleMultipleFilesSelect"
+                 accept=".pdf,.jpg,.jpeg,.png"
+                 multiple
+                 class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100">
+          <p class="text-xs text-gray-500 mt-2">
+            Archivos seleccionados: {{ selectedFiles.length }} / 10
+          </p>
+        </div>
+
+        <!-- Selected Files Preview -->
+        <div v-if="selectedFiles.length > 0" class="space-y-2">
+          <h4 class="text-sm font-semibold text-gray-700">Archivos Seleccionados</h4>
+          <div v-for="(file, index) in selectedFiles" :key="index" class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div class="flex items-center flex-1 min-w-0">
+              <svg class="w-5 h-5 text-gray-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
+              </svg>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-gray-900 font-medium truncate">{{ file.name }}</p>
+                <p class="text-xs text-gray-500">{{ formatFileSize(file.size) }}</p>
+              </div>
+            </div>
+            <button @click="removeSelectedFile(index)" type="button" class="ml-3 text-red-600 hover:text-red-800 flex-shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Upload Button -->
+          <button v-if="selectedFiles.length > 0 && uploadedFiles.length < selectedFiles.length + uploadedFiles.length"
+                  @click="uploadMultipleFiles"
+                  class="w-full mt-3 btn-primary px-6 py-3 text-white font-semibold rounded-lg"
+                  :disabled="isLoading">
+            <span v-if="!isLoading">Subir {{ selectedFiles.length }} Archivo(s)</span>
+            <span v-else class="flex items-center justify-center">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Subiendo archivo {{ uploadingFileIndex + 1 }} de {{ selectedFiles.length }}...
+            </span>
+          </button>
+        </div>
+
+        <!-- Upload Progress -->
+        <div v-if="uploadProgress > 0 && uploadProgress < 100" class="w-full"
+             role="progressbar" :aria-valuenow="uploadProgress" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de subida de documentos">
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="bg-primary-600 h-2.5 rounded-full transition-all duration-300"
+                 :style="{ width: uploadProgress + '%' }"></div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2 text-center">{{ uploadProgress }}%</p>
+        </div>
+
+        <!-- Uploaded Files List -->
+        <div v-if="uploadedFiles.length > 0" class="space-y-2">
+          <h4 class="text-sm font-semibold text-green-700">✓ Archivos Subidos ({{ uploadedFiles.length }})</h4>
+          <div v-for="(file, index) in uploadedFiles" :key="index" class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+            <div class="flex items-center flex-1 min-w-0">
+              <svg class="w-5 h-5 text-green-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm text-gray-900 font-medium truncate">{{ file.name }}</p>
+                <p class="text-xs text-gray-500">{{ formatFileSize(file.size) }}</p>
+              </div>
+            </div>
+            <button @click="removeUploadedFile(index)" type="button" class="ml-3 text-red-600 hover:text-red-800 flex-shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Info Message -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="flex">
+            <svg class="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+            </svg>
+            <div class="text-sm text-blue-800">
+              <p class="font-semibold mb-1" v-text="getWhatHappensNextTitle()"></p>
+              <p v-text="getWhatHappensNextContent().text"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Information Section (for complete/premium tiers) -->
+        <div class="border-b border-gray-200 pb-6 mb-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Información de Contacto</h3>
+          <p class="text-sm text-gray-600 mb-4">Para enviar tu informe de herencia necesitamos tus datos de contacto</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="s12-contact-fullName" class="block text-sm font-medium text-gray-700 mb-2">Tu Nombre Completo *</label>
+              <input id="s12-contact-fullName" v-model="formData.contact.fullName" type="text"
+                     class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                     placeholder="Ejemplo: Juan Pérez García"
+                     :class="{ 'border-red-500': errors.contactName }">
+              <p v-if="errors.contactName" role="alert" class="text-red-500 text-sm mt-1">{{ errors.contactName }}</p>
+            </div>
+
+            <div>
+              <label for="s12-contact-email" class="block text-sm font-medium text-gray-700 mb-2">Tu Email *</label>
+              <input id="s12-contact-email" v-model="formData.contact.email" type="email"
+                     class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                     placeholder="ejemplo@correo.com"
+                     :class="{ 'border-red-500': errors.email }">
+              <p v-if="errors.email" role="alert" class="text-red-500 text-sm mt-1">{{ errors.email }}</p>
+            </div>
+
+            <div>
+              <label for="s12-contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Tu Teléfono *</label>
+              <input id="s12-contact-phone" v-model="formData.contact.phone" type="tel"
+                     class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                     placeholder="+56 9 1234 5678"
+                     :class="{ 'border-red-500': errors.phone }">
+              <p v-if="errors.phone" role="alert" class="text-red-500 text-sm mt-1">{{ errors.phone }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Details -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div>
+            <label for="s12-payment-date" class="block text-sm font-medium text-gray-700 mb-2">Fecha de Transferencia *</label>
+            <input id="s12-payment-date" v-model="formData.payment.transferDate" type="date"
+                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                   :class="{ 'border-red-500': errors.transferDate }">
+            <p v-if="formData.payment.transferDate" class="text-xs text-gray-500 mt-1">
+              Fecha seleccionada: {{ formatDateDDMMYYYY(formData.payment.transferDate) }}
+            </p>
+            <p v-if="errors.transferDate" role="alert" class="text-red-500 text-sm mt-1">{{ errors.transferDate }}</p>
+          </div>
+
+          <div>
+            <label for="s12-payment-amount" class="block text-sm font-medium text-gray-700 mb-2">Monto Transferido (CLP) *</label>
+            <input id="s12-payment-amount" v-model.number="formData.payment.transferAmount" type="number"
+                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"
+                   placeholder="Ejemplo: 24990"
+                   :class="{ 'border-red-500': errors.transferAmount }">
+            <p v-if="errors.transferAmount" role="alert" class="text-red-500 text-sm mt-1">{{ errors.transferAmount }}</p>
+          </div>
+        </div>
+
+        <!-- Bank Receipt Upload Section -->
+        <div class="mt-8 border-t border-gray-200 pt-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Comprobante de Transferencia</h3>
+          <p class="text-sm text-gray-600 mb-4">Sube una captura de pantalla o foto del comprobante de tu transferencia bancaria</p>
+
+          <div>
+            <label for="s12-bank-receipt" class="block text-sm font-medium text-gray-700 mb-2">
+              Subir Comprobante *
+              <span class="text-gray-500 font-normal">(PDF, JPG, PNG - Máx. 10MB)</span>
+            </label>
+            <input id="s12-bank-receipt" type="file" @change="handleBankReceiptSelect"
+                   accept=".pdf,.jpg,.jpeg,.png"
+                   class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+          </div>
+
+          <!-- Bank Receipt Preview -->
+          <div v-if="selectedBankReceipt" class="mt-4">
+            <div class="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+              <div class="flex items-center flex-1 min-w-0">
+                <svg class="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
+                </svg>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm text-gray-900 font-medium truncate">{{ selectedBankReceipt.name }}</p>
+                  <p class="text-xs text-gray-500">{{ formatFileSize(selectedBankReceipt.size) }}</p>
+                </div>
+              </div>
+              <button @click="removeBankReceipt" type="button" class="ml-3 text-red-600 hover:text-red-800 flex-shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Upload Button for Bank Receipt -->
+            <button v-if="!uploadedBankReceipt" @click="uploadBankReceipt"
+                    class="w-full mt-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg"
+                    :disabled="isLoading">
+              <span v-if="!isLoading">Subir Comprobante</span>
+              <span v-else class="flex items-center justify-center">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Subiendo comprobante...
+              </span>
+            </button>
+
+            <!-- Uploaded Bank Receipt Confirmation -->
+            <div v-if="uploadedBankReceipt" class="mt-3 p-3 bg-green-50 rounded-lg border border-green-200">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-green-800 font-medium">✓ Comprobante subido correctamente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms and Conditions -->
+      <div class="mt-8 bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6">
+        <div class="flex items-start space-x-3">
+          <input type="checkbox"
+                 v-model="termsAccepted"
+                 :disabled="!termsLinkClicked"
+                 class="h-5 w-5 text-primary-600 rounded mt-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                 id="termsCheckbox12">
+          <label for="termsCheckbox12" class="flex-1 text-sm text-gray-700">
+            <span :class="{ 'text-gray-400': !termsLinkClicked }">
+              He leído y acepto los
+              <a href="/terminos-legales.html"
+                 target="_blank"
+                 @click="handleTermsLinkClick"
+                 class="text-primary-600 underline font-semibold hover:text-primary-700">
+                Términos y Condiciones
+              </a>
+            </span>
+            <p class="text-xs text-gray-500 mt-1" v-if="!termsLinkClicked">
+              ⚠️ Debes hacer clic en el enlace para leer los términos antes de poder aceptarlos
+            </p>
+            <p class="text-xs text-green-600 mt-1" v-if="termsLinkClicked && !termsAccepted">
+              ✓ Ahora puedes marcar la casilla para aceptar los términos
+            </p>
+          </label>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-between">
+        <button @click="prevStep" class="btn-secondary px-6 py-3 text-gray-700 font-semibold rounded-lg border border-gray-300">
+          ← Atrás
+        </button>
+        <button @click="submitForm"
+                :disabled="uploadedFiles.length === 0 || !uploadedBankReceipt || !termsAccepted || isLoading"
+                class="btn-primary px-8 py-3 text-white font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed">
+          {{ isLoading ? 'Enviando...' : 'Finalizar y Enviar' }}
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Shared footer -->
+  <footer class="sim-footer">
+    <div class="sim-footer-top">
+      <div class="sim-footer-brand">
+        <img src="/images/logo%20horizontal%202.png" alt="Herédame">
+        <span>Herédame — mediación y gestión de herencias en Chile.</span>
+      </div>
+    </div>
+    <div class="sim-footer-bottom">
+      <div class="sim-footer-bottom-inner">
+        <span>© 2026 heredame.cl — Todos los derechos reservados.</span>
+        <a href="#">Términos de Uso y Aviso Legal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector('.sim-menu-toggle');
+      var nav = document.getElementById('sim-site-nav');
+      if (!toggle || !nav) return;
+
+      function closeMenu() {
+        toggle.classList.remove('open');
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú');
+      }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = !nav.classList.contains('open');
+        toggle.classList.toggle('open', isOpen);
+        nav.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+      });
+
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeMenu();
+      });
+    })();
+  </script>
+
+  <!-- Cache Busting Script - Must run FIRST -->
+  <script>
+    (function() {
+      const EXPECTED_VERSION = '2.4.3';
+      const RELOAD_KEY = 'heredame_cache_reload_v2.4.2';
+
+      // Check if we've already tried to reload
+      const hasReloaded = sessionStorage.getItem(RELOAD_KEY);
+
+      if (!hasReloaded) {
+        // Mark that we've checked this session
+        sessionStorage.setItem(RELOAD_KEY, 'checked');
+
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', checkVersion);
+        } else {
+          checkVersion();
+        }
+      }
+
+      function checkVersion() {
+        setTimeout(function() {
+          // Check if the old "Ley aplicable" section exists
+          const oldElement = document.querySelector('[class*="bg-blue-50"]');
+          const hasOldContent = oldElement && oldElement.textContent.includes('Ley aplicable');
+
+          // Check meta version tag
+          const metaVersion = document.querySelector('meta[name="version"]');
+          const currentVersion = metaVersion ? metaVersion.getAttribute('content') : null;
+
+          if (hasOldContent || (currentVersion && currentVersion !== EXPECTED_VERSION)) {
+            console.warn('⚠️ Old version detected. Forcing cache reload...');
+            sessionStorage.setItem(RELOAD_KEY, 'reloaded');
+
+            // Force hard reload with cache busting
+            const timestamp = new Date().getTime();
+            window.location.href = window.location.pathname + '?v=' + timestamp + '#force-reload';
+          } else {
+            console.log('✅ Correct version loaded (v' + EXPECTED_VERSION + ')');
+          }
+        }, 500);
+      }
+    })();
+  </script>
+
+  <!-- Debug Script -->
+  <script>
+    // Simple dependency check
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        console.log('🔍 Checking dependencies...');
+        console.log('- firebase:', typeof firebase);
+        console.log('- createFormApp:', typeof createFormApp);
+        console.log('- loadFromStorage:', typeof loadFromStorage);
+        console.log('- validateFile:', typeof validateFile);
+
+        if (typeof firebase === 'undefined' ||
+            typeof createFormApp === 'undefined' ||
+            typeof loadFromStorage === 'undefined' ||
+            typeof validateFile === 'undefined') {
+
+          console.error('❌ Some dependencies failed to load');
+          alert(SITE_CONFIG.formAlerts.loadingError);
+        } else {
+          console.log('✅ All dependencies loaded successfully');
+          console.log('📦 Version: 2.4.3');
+        }
+      }, 1000);
+    });
+
+    // Global error handler
+    window.addEventListener('error', function(e) {
+      console.error('❌ JavaScript Error:', e.message, 'at', e.filename, 'line', e.lineno);
+    });
+  </script>
+
+</body>
+</html>
