@@ -363,8 +363,8 @@ function Contacto() {
                   aria-describedby={fieldErrors.terms ? "terms-error" : undefined}
                 />
                 <span>
-                  Acepto los <a href="/terminos">Términos</a> y{" "}
-                  <a href="/condiciones">Condiciones</a>.
+                  Acepto los <a href="/terminos-legales.html">Términos</a> y{" "}
+                  <a href="/terminos-legales.html">Condiciones</a>.
                 </span>
               </label>
               {fieldErrors.terms && (

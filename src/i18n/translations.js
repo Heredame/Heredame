@@ -6,9 +6,9 @@
 export const translations = {
   es: {
     meta: {
-      title: "Herédame | Transformamos herencias en tranquilidad",
+      title: "Herencia en Chile | Simulador y gestión de herencias | Herédame",
       description:
-        "Plataforma de mediación y gestión de herencias en Chile. Simula tu herencia gratis, resuelve conflictos familiares y evita perder hasta un 50% de tu patrimonio en remates judiciales.",
+        "Calcula una herencia en Chile y entiende sus próximos pasos. Herédame ofrece un simulador de herencia, orientación sobre posesión efectiva y gestión sucesoria para familias.",
     },
     nav: {
       quienesSomos: "Quiénes somos",
@@ -66,7 +66,7 @@ export const translations = {
         "Plan de documentación",
         "Distribución lista",
       ],
-      ctaPrimary: "Obtener mi informe",
+      ctaPrimary: "Contactar con Herédame",
       ctaSecondary: "Hablar con un asesor",
       ctaCard: "Abrir Simulador Completo",
     },
@@ -380,9 +380,9 @@ export const translations = {
 
   en: {
     meta: {
-      title: "Herédame | Turning inheritance into peace of mind",
+      title: "Inheritance in Chile | Simulator and inheritance management | Herédame",
       description:
-        "Inheritance mediation and management platform in Chile. Simulate your inheritance for free, resolve family conflicts, and avoid losing up to 50% of your estate in judicial auctions.",
+        "Calculate an inheritance in Chile and understand the next steps. Herédame offers an inheritance simulator and guidance for succession processes.",
     },
     nav: {
       quienesSomos: "About Us",
@@ -433,7 +433,7 @@ export const translations = {
         "Documentation plan",
         "Distribution ready",
       ],
-      ctaPrimary: "Get my report",
+      ctaPrimary: "Contact Herédame",
       ctaSecondary: "Talk to an advisor",
       ctaCard: "Open Full Simulator",
     },

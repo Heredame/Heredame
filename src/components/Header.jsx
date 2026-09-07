@@ -24,6 +24,8 @@ function Header({ isLegalPage = false }) {
     { href: "#contacto", label: t.nav.contacto },
   ];
   const getNavHref = (href) => (isLegalPage ? `/${href}` : href);
+  const headerCtaHref = isLegalPage ? "/#contacto" : "/simulador.html";
+  const headerCtaLabel = isLegalPage ? t.nav.contacto : t.nav.cta;
 
   return (
     <header id="site-header" className={scrolled ? "scrolled" : ""}>
@@ -55,11 +57,11 @@ function Header({ isLegalPage = false }) {
             </a>
           ))}
           <a
-            href="https://www.heredame.cl/simulador.html"
+            href={headerCtaHref}
             className="mobile-simulator-cta btn btn--primary"
             onClick={() => setMenuOpen(false)}
           >
-            Simular mi herencia
+            {headerCtaLabel}
           </a>
         </nav>
 
@@ -73,10 +75,10 @@ function Header({ isLegalPage = false }) {
             {lang === "es" ? "EN" : "ES"}
           </button>
           <a
-            href="/simulador.html"
+            href={headerCtaHref}
             className="btn btn--primary btn--sm header-cta"
           >
-            {t.nav.cta}
+            {headerCtaLabel}
           </a>
           <button
             type="button"

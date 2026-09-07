@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const SITE_URL = "https://heredame.cl"; // TODO: confirm final production domain
+const SITE_URL = "https://www.heredame.cl/";
 
 function setMeta(attr, key, content) {
   let el = document.head.querySelector(`meta[${attr}="${key}"]`);

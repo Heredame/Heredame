@@ -16,21 +16,21 @@
     <meta name="robots" content="index, follow" />
     <meta name="language" content="Spanish" />
     <meta name="author" content="Herédame SpA" />
-    <link rel="canonical" href="https://heredame.cl/simulador.html" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="canonical" href="https://www.heredame.cl/simulador.html" />
+    <link rel="icon" type="image/png" href="/images/logo%20.png" />
     <link
       rel="alternate"
       hreflang="es-CL"
-      href="https://heredame.cl/simulador.html"
+      href="https://www.heredame.cl/simulador.html"
     />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://heredame.cl/simulador.html"
+      href="https://www.heredame.cl/simulador.html"
     />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://heredame.cl/simulador.html" />
+    <meta property="og:url" content="https://www.heredame.cl/simulador.html" />
     <meta
       property="og:title"
       content="Simulador de Herencia Gratuito Chile | Herédame"
@@ -41,7 +41,7 @@
     />
     <meta
       property="og:image"
-      content="https://heredame.cl/images/hero-image.jpg"
+      content="https://www.heredame.cl/images/firmando%20herencia%20.jpg"
     />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:site_name" content="Herédame" />
@@ -57,7 +57,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://heredame.cl/images/hero-image.jpg"
+      content="https://www.heredame.cl/images/firmando%20herencia%20.jpg"
     />
     <!-- JSON-LD: WebApplication + FAQPage -->
     <script type="application/ld+json">
@@ -67,7 +67,7 @@
           {
             "@type": "WebApplication",
             "name": "Simulador de Herencia — Herédame",
-            "url": "https://heredame.cl/simulador.html",
+            "url": "https://www.heredame.cl/simulador.html",
             "description": "Simulador gratuito de sucesión hereditaria en Chile según el Código Civil. Calcula distribución intestada y con testamento.",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "Web",
@@ -89,7 +89,7 @@
             "provider": {
               "@type": "Organization",
               "name": "Herédame SpA",
-              "url": "https://heredame.cl"
+              "url": "https://www.heredame.cl/"
             },
             "inLanguage": "es-CL"
           },
@@ -255,6 +255,17 @@
       }
       .sim-header-cta:hover {
         transform: translateY(-2px);
+      }
+      .sim-advisor-cta {
+        background: #1a2744;
+        color: #fff;
+        border-color: #1a2744;
+      }
+      .sim-advisor-cta:hover,
+      .sim-advisor-cta:focus-visible {
+        background: #2b4863;
+        color: #fff;
+        border-color: #2b4863;
       }
       .sim-mobile-form-button {
         display: none;
@@ -593,11 +604,11 @@
           <a href="/#reservar">Agenda una conversación</a>
           <a href="/#preguntas">Preguntas</a>
           <a href="/#contacto">Contacto</a>
-          <button type="button" class="sim-header-cta sim-mobile-form-button" onclick="window.location.href='/formulario.html'">Formulario</button>
+          <button type="button" class="sim-header-cta sim-mobile-form-button" onclick="window.location.href='/#contacto'">Contacto</button>
           <a href="/" class="sim-back-link">← Volver al sitio web</a>
         </nav>
         <div class="sim-header-actions">
-          <button type="button" class="sim-header-cta" onclick="window.location.href='/formulario.html'">Formulario</button>
+          <button type="button" class="sim-header-cta" onclick="window.location.href='/#contacto'">Contacto</button>
           <button
             type="button"
             class="sim-menu-toggle"
@@ -1041,16 +1052,9 @@
           <p class="text-sm text-slate-500 mb-3">
             ¿Quieres tu informe oficial de herencia con validez legal?
           </p>
-          <button
-            onclick="goToForm()"
-            style="background: #1a2744"
-            class="inline-block px-6 py-3 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity cursor-pointer border-0"
-          >
-            Obtener mi informe →
-          </button>
           <a
-            href="/#reservar"
-            class="inline-block ml-2 px-6 py-3 text-sm font-semibold rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors"
+            href="http://localhost:5173/#reservar"
+            class="sim-advisor-cta inline-block px-6 py-3 text-sm font-semibold rounded-lg border transition-colors"
           >
             Hablar con un asesor
           </a>
@@ -1071,7 +1075,7 @@
       <div class="sim-footer-bottom">
         <div class="sim-footer-bottom-inner">
           <span>© 2026 heredame.cl — Todos los derechos reservados.</span>
-          <a href="#">Términos de Uso y Aviso Legal</a>
+          <a href="/terminos-legales.html">Términos de Uso y Aviso Legal</a>
         </div>
       </div>
     </footer>
@@ -2398,7 +2402,7 @@
           /* sessionStorage unavailable — navigate anyway */
         }
 
-        window.location.href = "/formulario.html";
+        window.location.href = "/#contacto";
       }
     </script>
   </body>

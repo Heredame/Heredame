@@ -39,7 +39,7 @@ const SITE_CONFIG = {
   cta: {
     primary: 'Comenzar',
     secondary: 'Más Información',
-    formUrl: '/formulario.html'
+    formUrl: '/#contacto'
   },
 
   // ========================================
@@ -54,8 +54,8 @@ const SITE_CONFIG = {
     ],
     footer: [
       { label: 'Términos Legales', href: '/terminos-legales.html' },
-      { label: 'Preguntas Frecuentes', href: '/preguntas-frecuentes.html' },
-      { label: 'Asesores Legales', href: '/asesores-legales.html' }
+      { label: 'Preguntas Frecuentes', href: '/#preguntas' },
+      { label: 'Contacto', href: '/#contacto' }
     ]
   },
 
@@ -170,11 +170,11 @@ const SITE_CONFIG = {
     quickLinksTitle: 'Enlaces Rápidos',
     contactTitle: 'Contacto',
     quickLinks: [
-      { label: 'Leyes Aplicables', href: '/leyes-aplicables.html' },
+      { label: 'Términos Legales', href: '/terminos-legales.html' },
       { label: 'Posesión Efectiva - Registro Civil', href: 'https://www.chileatiende.gob.cl/fichas/3364-posesion-efectiva-de-herencias-intestadas-sin-testamento' },
       { label: 'Impuesto a la Herencia', href: 'https://www.sii.cl/preguntas_frecuentes/herencias/001_160_6164.htm' },
-      { label: 'Preguntas Frecuentes', href: '/preguntas-frecuentes.html' },
-      { label: 'Asesores Legales', href: '/asesores-legales.html' }
+      { label: 'Preguntas Frecuentes', href: '/#preguntas' },
+      { label: 'Contacto', href: '/#contacto' }
     ]
   },
 
