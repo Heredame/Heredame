@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Y1XRQQSFG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5Y1XRQQSFG');
+    </script>
     <title>Simulador de Herencia Gratuito Chile | Herédame</title>
     <!-- SEO Standard -->
     <meta
@@ -601,14 +609,14 @@
           <a href="/#beneficios">Beneficios</a>
           <a href="/#servicios">Servicios</a>
           <a href="/#como-funciona">Cómo Funciona</a>
-          <a href="/#reservar">Agenda una conversación</a>
+          <a href="/#reservar" onclick="window.gtag?.('event', 'booking_click', { event_category: 'engagement' });">Agenda una conversación</a>
           <a href="/#preguntas">Preguntas</a>
-          <a href="/#contacto">Contacto</a>
-          <button type="button" class="sim-header-cta sim-mobile-form-button" onclick="window.location.href='/#contacto'">Contacto</button>
+          <a href="/#contacto" onclick="window.gtag?.('event', 'contact_click', { event_category: 'engagement' });">Contacto</a>
+          <button type="button" class="sim-header-cta sim-mobile-form-button" onclick="window.gtag?.('event', 'contact_click', { event_category: 'engagement' }); window.location.href='/#contacto'">Contacto</button>
           <a href="/" class="sim-back-link">← Volver al sitio web</a>
         </nav>
         <div class="sim-header-actions">
-          <button type="button" class="sim-header-cta" onclick="window.location.href='/#contacto'">Contacto</button>
+          <button type="button" class="sim-header-cta" onclick="window.gtag?.('event', 'contact_click', { event_category: 'engagement' }); window.location.href='/#contacto'">Contacto</button>
           <button
             type="button"
             class="sim-menu-toggle"
@@ -1053,7 +1061,8 @@
             ¿Quieres tu informe oficial de herencia con validez legal?
           </p>
           <a
-            href="http://localhost:5173/#reservar"
+            href="/#reservar"
+            onclick="window.gtag?.('event', 'booking_click', { event_category: 'engagement' });"
             class="sim-advisor-cta inline-block px-6 py-3 text-sm font-semibold rounded-lg border transition-colors"
           >
             Hablar con un asesor
@@ -1108,6 +1117,18 @@
       let propCounter = 0;
       let intChart = null;
       let willChartInst = null;
+      let simulatorHasInteracted = false;
+      let simulatorCompleteTracked = false;
+
+      function markSimulatorInteraction() {
+        simulatorHasInteracted = true;
+      }
+
+      document.addEventListener("input", markSimulatorInteraction);
+      document.addEventListener("change", markSimulatorInteraction);
+      document.addEventListener("click", function (event) {
+        if (event.target.closest("#sim-split")) markSimulatorInteraction();
+      });
 
       // ═══════════════════════════════════════════════════════
       // COLORS
@@ -2106,6 +2127,13 @@
         renderTable(heirs, communityAmt);
         renderPropResults(heirs);
         renderWill(heirs, pool, communityAmt);
+
+        if (simulatorHasInteracted && !simulatorCompleteTracked) {
+          window.gtag?.("event", "simulator_complete", {
+            event_category: "engagement",
+          });
+          simulatorCompleteTracked = true;
+        }
 
         // Parents/siblings visibility
         const noKids = !S.hasChildren;

@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackEvent } from "../analytics";
 
 function Hero() {
   const { t } = useLanguage();
@@ -15,7 +16,11 @@ function Hero() {
             <a href="#simulador" className="btn btn--primary">
               {t.hero.ctaPrimary}
             </a>
-            <a href="#reservar" className="btn btn--secondary">
+            <a
+              href="#reservar"
+              className="btn btn--secondary"
+              onClick={() => trackEvent("booking_click")}
+            >
               {t.hero.ctaSecondary}
             </a>
           </div>

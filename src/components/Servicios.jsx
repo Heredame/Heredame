@@ -1,5 +1,6 @@
 import { useLanguage } from "../i18n/LanguageContext";
 import Reveal from "./Reveal";
+import { trackEvent } from "../analytics";
 
 function renderServiceBody(body) {
   return body.split(/(\$[\d.]+(?:\s*CLP)?|\d+(?:[–-]\d+)?%|\d+\s*UF)/g).map((part) => {
@@ -36,7 +37,11 @@ function Servicios() {
         </div>
         <Reveal className="servicios-contact" delay={120}>
           <p>{t.servicios.contactText}</p>
-          <a href="#contacto" className="btn btn--primary">
+          <a
+            href="#contacto"
+            className="btn btn--primary"
+            onClick={() => trackEvent("contact_click")}
+          >
             {t.servicios.contactCta}
           </a>
         </Reveal>

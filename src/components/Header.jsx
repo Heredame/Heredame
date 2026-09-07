@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { trackEvent } from "../analytics";
 
 function Header({ isLegalPage = false }) {
   const { lang, toggleLang, t } = useLanguage();
@@ -51,7 +52,11 @@ function Header({ isLegalPage = false }) {
             <a
               key={link.href}
               href={getNavHref(link.href)}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                if (link.href === "#contacto") trackEvent("contact_click");
+                if (link.href === "#reservar") trackEvent("booking_click");
+              }}
             >
               {link.label}
             </a>
@@ -59,7 +64,10 @@ function Header({ isLegalPage = false }) {
           <a
             href={headerCtaHref}
             className="mobile-simulator-cta btn btn--primary"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              trackEvent(isLegalPage ? "contact_click" : "simulator_open");
+            }}
           >
             {headerCtaLabel}
           </a>
@@ -77,6 +85,9 @@ function Header({ isLegalPage = false }) {
           <a
             href={headerCtaHref}
             className="btn btn--primary btn--sm header-cta"
+            onClick={() =>
+              trackEvent(isLegalPage ? "contact_click" : "simulator_open")
+            }
           >
             {headerCtaLabel}
           </a>

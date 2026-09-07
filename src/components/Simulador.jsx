@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 import Reveal from "./Reveal";
+import { trackEvent } from "../analytics";
 
 const SIZE = 320;
 const CENTER = SIZE / 2;
@@ -253,10 +254,18 @@ function Simulador() {
           <h2>{t.simulador.title}</h2>
           <p>{t.simulador.subtitle}</p>
           <div className="simulador-actions">
-            <a href="/#contacto" className="btn btn--primary">
+            <a
+              href="/#contacto"
+              className="btn btn--primary"
+              onClick={() => trackEvent("contact_click")}
+            >
               {t.simulador.ctaPrimary}
             </a>
-            <a href="/#reservar" className="btn btn--secondary">
+            <a
+              href="/#reservar"
+              className="btn btn--secondary"
+              onClick={() => trackEvent("booking_click")}
+            >
               {t.simulador.ctaSecondary}
             </a>
           </div>
@@ -327,6 +336,7 @@ function Simulador() {
             <a
               href="/simulador.html"
               className="btn btn--primary simulador-card-cta"
+              onClick={() => trackEvent("simulator_open")}
             >
               {t.simulador.ctaCard}
             </a>
