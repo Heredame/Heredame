@@ -1,4 +1,5 @@
 import { useLanguage } from "../i18n/LanguageContext";
+import SocialLinks from "./SocialLinks";
 
 function Footer() {
   const { t } = useLanguage();
@@ -15,6 +16,7 @@ function Footer() {
           />
           <span>{t.footer.tagline}</span>
         </div>
+        <SocialLinks />
       </div>
       <div className="footer-bottom">
         <div className="wrap footer-bottom-inner">

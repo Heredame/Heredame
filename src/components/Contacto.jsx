@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useLanguage } from "../i18n/LanguageContext";
 import Reveal from "./Reveal";
+import SocialLinks from "./SocialLinks";
 
 const emptyForm = {
   name: "",
@@ -241,6 +242,7 @@ function Contacto() {
               </li>
               <li>Santiago, Chile</li>
             </ul>
+            <SocialLinks />
           </div>
 
           <form className="contacto-form" onSubmit={handleSubmit} noValidate>
